@@ -104,12 +104,20 @@
 					<div class="container">
 						<h3>Contact Us</h3>
 						<p>Have questions about your horoscope or astrological chart? Reach out to us!</p>
-						<form method="post" action="#">
+						<form method="POST" action="https://formspree.io/f/mnnjvkeo">
 							<div class="row gtr-uniform">
-								<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
-								<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-								<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-								<div class="col-12"><textarea name="message" id="message" placeholder="Your Message" rows="6"></textarea></div>
+								<div class="col-6 col-12-xsmall">
+									<input type="text" name="name" id="name" placeholder="Name" required />
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<input type="email" name="email" id="email" placeholder="Email" required />
+								</div>
+								<div class="col-12">
+									<input type="text" name="subject" id="subject" placeholder="Subject" />
+								</div>
+								<div class="col-12">
+									<textarea name="message" id="message" placeholder="Your Message" rows="6"></textarea>
+								</div>
 								<div class="col-12">
 									<ul class="actions">
 										<li><input type="submit" class="primary" value="Send Message" /></li>
@@ -118,6 +126,7 @@
 								</div>
 							</div>
 						</form>
+						
 					</div>
 				</section>
 			</div>
