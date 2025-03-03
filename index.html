@@ -100,29 +100,61 @@
                 </div>
             </section>
 
-            <!-- Zodiac Signs -->
-            <section id="three" class="fade-in">
-                <div class="container">
-                        <h2>Explore Your Zodiac Sign</h2>
-                        <p>Discover personality traits, compatibilities, and horoscopes for each zodiac sign.</p>
-                    </header>
+<!-- Zodiac Signs Section -->
+<section id="zodiac-signs">
+    <div class="container">
+        <h2>Explore Your Zodiac Sign</h2>
+        <p>Discover personality traits, compatibilities, and horoscopes for each zodiac sign.</p>
 
-                    <div class="zodiac-grid">
-                        <a href="#" class="zodiac-item" data-sign="Aries">♈ Aries</a>
-                        <a href="#" class="zodiac-item" data-sign="Taurus">♉ Taurus</a>
-                        <a href="#" class="zodiac-item" data-sign="Gemini">♊ Gemini</a>
-                        <a href="#" class="zodiac-item" data-sign="Cancer">♋ Cancer</a>
-                        <a href="#" class="zodiac-item" data-sign="Leo">♌ Leo</a>
-                        <a href="#" class="zodiac-item" data-sign="Virgo">♍ Virgo</a>
-                        <a href="#" class="zodiac-item" data-sign="Libra">♎ Libra</a>
-                        <a href="#" class="zodiac-item" data-sign="Scorpio">♏ Scorpio</a>
-                        <a href="#" class="zodiac-item" data-sign="Sagittarius">♐ Sagittarius</a>
-                        <a href="#" class="zodiac-item" data-sign="Capricorn">♑ Capricorn</a>
-                        <a href="#" class="zodiac-item" data-sign="Aquarius">♒ Aquarius</a>
-                        <a href="#" class="zodiac-item" data-sign="Pisces">♓ Pisces</a>
-                    </div>
-                </div>
-            </section>
+        <div class="zodiac-grid">
+            <a href="#" class="zodiac-item" title="March 21 - April 19 | Bold, ambitious, and confident.">♈ Aries</a>
+            <a href="#" class="zodiac-item" title="April 20 - May 20 | Reliable, patient, and practical.">♉ Taurus</a>
+            <a href="#" class="zodiac-item" title="May 21 - June 20 | Curious, adaptable, and outgoing.">♊ Gemini</a>
+            <a href="#" class="zodiac-item" title="June 21 - July 22 | Sensitive, caring, and intuitive.">♋ Cancer</a>
+            <a href="#" class="zodiac-item" title="July 23 - August 22 | Confident, charismatic, and creative.">♌ Leo</a>
+            <a href="#" class="zodiac-item" title="August 23 - September 22 | Analytical, practical, and diligent.">♍ Virgo</a>
+            <a href="#" class="zodiac-item" title="September 23 - October 22 | Diplomatic, fair, and sociable.">♎ Libra</a>
+            <a href="#" class="zodiac-item" title="October 23 - November 21 | Passionate, brave, and resourceful.">♏ Scorpio</a>
+            <a href="#" class="zodiac-item" title="November 22 - December 21 | Adventurous, optimistic, and independent.">♐ Sagittarius</a>
+            <a href="#" class="zodiac-item" title="December 22 - January 19 | Responsible, disciplined, and strategic.">♑ Capricorn</a>
+            <a href="#" class="zodiac-item" title="January 20 - February 18 | Innovative, humanitarian, and original.">♒ Aquarius</a>
+            <a href="#" class="zodiac-item" title="February 19 - March 20 | Compassionate, artistic, and intuitive.">♓ Pisces</a>
+        </div>
+    </div>
+</section>
+
+
+            <!-- Zodiac Info Display -->
+<div id="zodiac-info" class="hidden">
+    <h3 id="zodiac-title"></h3>
+    <p id="zodiac-description"></p>
+</div>
+
+<style>
+    #zodiac-info {
+        background: #f9f9f9;
+        padding: 20px;
+        border: 2px solid #FFBF00;
+        border-radius: 10px;
+        margin-top: 20px;
+        display: none;
+    }
+
+    #zodiac-info h3 {
+        color: #FFBF00;
+        font-size: 2em;
+    }
+
+    #zodiac-info p {
+        font-size: 1.2em;
+        color: #555;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
 
             <!-- Our Insights -->
             <section id="four" class="fade-in">
