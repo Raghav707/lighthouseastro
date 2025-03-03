@@ -1982,7 +1982,7 @@ input[type="button"]:disabled,
     border-top: 0;
     color: #c0c0c0;
     overflow: hidden;
-    padding: 4em 0 2em 0;
+    padding: 2em 0 2em 0;
 }
 
 /* Footer Copyright */
@@ -2346,7 +2346,7 @@ input[type="button"]:disabled,
     }
 
     /* Footer */
-    #footer {
+    /* #footer {
         text-align: center;
     }
 
@@ -2356,7 +2356,7 @@ input[type="button"]:disabled,
         line-height: 1.75em;
         margin: 0.75em 0 0 0;
         padding-left: 0;
-    }
+    } */
 
     #footer .copyright li:first-child {
         margin-top: 0;
@@ -2603,5 +2603,61 @@ body.dark-mode .sidebar {
         right: 15px;
         padding: 10px;
         font-size: 18px;
+    }
+}
+
+/* ===== Zodiac Signs Grid ===== */
+
+#zodiac-signs {
+    padding: 4em 0;
+    text-align: center;
+}
+
+#zodiac-signs .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.zodiac-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%; /* Horizontal and vertical spacing */
+    row-gap: 20px; /* Extra vertical spacing */
+    justify-content: center;
+}
+
+.zodiac-item {
+    width: 30%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #6a0dad, #ffbf00);
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.zodiac-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+    .zodiac-item {
+        width: 48%;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .zodiac-item {
+        width: 100%;
+        height: 100px;
     }
 }
