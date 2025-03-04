@@ -1964,7 +1964,7 @@ input[type="button"]:disabled,
 /* ===== Main Section ===== */
 
 #main > section {
-    border-top: solid 6px #f4f4f4;
+    border-top: solid 6px #dddddd;
 }
 
 #main > section > .container {
@@ -2695,5 +2695,3 @@ body.dark-mode .sidebar {
         height: 100px;
     }
 }
-
-
