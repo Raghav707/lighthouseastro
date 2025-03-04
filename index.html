@@ -1,228 +1,254 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Lighthouse Astro - Astrology Guidance</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-
-<body class="is-preload">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Lighthouse Astro offers astrology guidance, personalized horoscope readings, and cosmic insights to help you navigate life." />
+    <meta name="keywords" content="astrology, horoscope, zodiac, cosmic insights, astrology guidance, birth chart" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Lighthouse Astro - Astrology Guidance" />
+    <meta property="og:description" content="Your trusted guide to astrology, horoscopes, and cosmic insights." />
+    <meta property="og:image" content="https://yourwebsite.com/images/banner.jpg" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lighthouse Astro - Astrology Guidance" />
+    <meta name="twitter:description" content="Discover personalized horoscope readings and cosmic insights." />
+    <meta name="twitter:image" content="https://yourwebsite.com/images/banner.jpg" />
+    
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://yourwebsite.com" />
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Lighthouse Astro",
+      "url": "https://yourwebsite.com",
+      "logo": "https://yourwebsite.com/images/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/lighthouseastro",
+        "https://x.com/lighthouseastro",
+        "https://www.instagram.com/lighthouseastro"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-555-555-5555",
+        "contactType": "customer service",
+        "areaServed": "US"
+      }
+    }
+    </script>
+  </head>
+  <body class="is-preload">
     <!-- Header -->
-    <section id="header">
-        <header>
-            <span class="image avatar">
-                <img src="images/avatar.jpg" alt="Astrology Avatar">
-            </span>
-            <h1 id="logo"><a href="#">Lighthouse Astro</a></h1>
-            <p>Guiding you through the stars<br>and unlocking the secrets of the universe.</p>
-        </header>
-
-        <!-- Navigation -->
-        <nav id="nav">
-            <ul>
-                <li><a href="#one" class="active">About</a></li>
-                <li><a href="#two">Astrology Services</a></li>
-                <li><a href="#three">Zodiac</a></li>
-                <li><a href="#four">Our Insights</a></li>
-                <li><a href="#five">Contact</a></li>
-            </ul>
-            <button id="dark-mode-toggle">🌙</button>
-        </nav>
-
-        <!-- Social Links -->
-        <footer>
-            <ul class="icons">
-                <li>
-                    <a href="https://www.facebook.com/share/1EdR69F4Dr/" class="icon brands fa-facebook-f" target="_blank">
-                        <span class="label">Facebook</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://x.com/lighthouseastro" class="icon brands fa-x-twitter" target="_blank">
-                        <span class="label">X</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/lighthouseastro" class="icon brands fa-instagram" target="_blank">
-                        <span class="label">Instagram</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:lighthouseastro@gmail.com?subject=Astrology Inquiry&body=Hello, I want to know more about..." 
-                       class="icon solid fa-envelope">
-                        <span class="label">Email</span>
-                    </a>
-                </li>
-            </ul>
-        </footer>
+    <section id="header" role="banner">
+      <header>
+        <span class="image avatar">
+          <img src="images/avatar.jpg" alt="Astrology Avatar" />
+        </span>
+        <h1 id="logo"><a href="#">Lighthouse Astro</a></h1>
+        <p>Guiding you through the stars<br />and unlocking the secrets of the universe.</p>
+      </header>
+      <!-- Navigation -->
+      <nav id="nav" role="navigation" aria-label="Main Navigation">
+        <ul>
+          <li><a href="#one" class="active">About</a></li>
+          <li><a href="#two">Astrology Services</a></li>
+          <li><a href="#three">Zodiac</a></li>
+          <li><a href="#four">Our Insights</a></li>
+          <li><a href="#five">Contact</a></li>
+        </ul>
+        <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+      </nav>
+      <!-- Social Links -->
+      <footer>
+        <ul class="icons">
+          <li>
+            <a href="https://www.facebook.com/share/1EdR69F4Dr/" class="icon brands fa-facebook-f" target="_blank" aria-label="Facebook">
+              <span class="label">Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/lighthouseastro" class="icon brands fa-x-twitter" target="_blank" aria-label="X">
+              <span class="label">X</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/lighthouseastro" class="icon brands fa-instagram" target="_blank" aria-label="Instagram">
+              <span class="label">Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:lighthouseastro@gmail.com?subject=Astrology Inquiry&body=Hello, I want to know more about..." class="icon solid fa-envelope" target="_blank" aria-label="Email">
+              <span class="label">Email</span>
+            </a>
+          </li>
+        </ul>
+      </footer>
     </section>
-
     <!-- Wrapper -->
     <div id="wrapper">
-
-        <!-- Main Content -->
-        <div id="main">
-
-            <!-- About Us -->
-            <section id="one" class="fade-in">
-                <div class="image main" data-position="center">
-                    <img src="images/banner.jpg" alt="Astrology Banner">
+      <!-- Main Content -->
+      <div id="main">
+        <!-- About Us -->
+        <section id="one" class="fade-in">
+          <div class="image main" data-position="center">
+            <img src="images/banner.jpg" alt="Astrology Banner" />
+          </div>
+          <div class="container">
+            <header class="major">
+              <h2>Welcome to Lighthouse Astro</h2>
+              <p>Your trusted guide to astrology, horoscopes, and cosmic insights.</p>
+            </header>
+            <p>
+              At Lighthouse Astro, we help you navigate life’s challenges with the wisdom of astrology.
+              Whether it's understanding your birth chart, daily horoscope readings, or personalized guidance,
+              we are here to illuminate your path.
+            </p>
+          </div>
+        </section>
+        <!-- Astrology Services -->
+        <section id="two" class="fade-in">
+          <div class="container">
+            <h3>Our Astrology Services</h3>
+            <p>Discover how the stars influence your life with our expert insights.</p>
+            <ul class="feature-icons">
+              <li class="icon solid fa-star">Personalized Horoscope Readings</li>
+              <li class="icon solid fa-moon">Daily & Weekly Predictions</li>
+              <li class="icon solid fa-heart">Love & Relationship Compatibility</li>
+              <li class="icon solid fa-briefcase">Career & Financial Guidance</li>
+              <li class="icon solid fa-globe">Vedic & Western Astrology</li>
+              <li class="icon solid fa-lightbulb">Spiritual & Energy Readings</li>
+            </ul>
+          </div>
+        </section>
+        <!-- Zodiac Signs Section -->
+        <section id="three" class="fade-in">
+          <div class="container">
+            <h3>Explore Your Zodiac Sign</h3>
+            <p>Discover personality traits, compatibilities, and horoscopes for each zodiac sign.</p>
+            <div class="zodiac-grid">
+              <a href="#" class="zodiac-item" title="March 21 - April 19 | Bold, ambitious, and confident.">♈ Aries</a>
+              <a href="#" class="zodiac-item" title="April 20 - May 20 | Reliable, patient, and practical.">♉ Taurus</a>
+              <a href="#" class="zodiac-item" title="May 21 - June 20 | Curious, adaptable, and outgoing.">♊ Gemini</a>
+              <a href="#" class="zodiac-item" title="June 21 - July 22 | Sensitive, caring, and intuitive.">♋ Cancer</a>
+              <a href="#" class="zodiac-item" title="July 23 - August 22 | Confident, charismatic, and creative.">♌ Leo</a>
+              <a href="#" class="zodiac-item" title="August 23 - September 22 | Analytical, practical, and diligent.">♍ Virgo</a>
+              <a href="#" class="zodiac-item" title="September 23 - October 22 | Diplomatic, fair, and sociable.">♎ Libra</a>
+              <a href="#" class="zodiac-item" title="October 23 - November 21 | Passionate, brave, and resourceful.">♏ Scorpio</a>
+              <a href="#" class="zodiac-item" title="November 22 - December 21 | Adventurous, optimistic, and independent.">♐ Sagittarius</a>
+              <a href="#" class="zodiac-item" title="December 22 - January 19 | Responsible, disciplined, and strategic.">♑ Capricorn</a>
+              <a href="#" class="zodiac-item" title="January 20 - February 18 | Innovative, humanitarian, and original.">♒ Aquarius</a>
+              <a href="#" class="zodiac-item" title="February 19 - March 20 | Compassionate, artistic, and intuitive.">♓ Pisces</a>
+            </div>
+          </div>
+        </section>
+        <!-- Our Insights -->
+        <section id="four" class="fade-in">
+          <div class="container">
+            <h3>Our Astrological Insights</h3>
+            <p>Unlock the wisdom of the cosmos with our latest astrology insights.</p>
+            <div class="features">
+              <article>
+                <a href="#" class="image"><img src="images/pic01.jpg" alt="Zodiac Signs" /></a>
+                <div class="inner">
+                  <h4>The Power of Your Zodiac Sign</h4>
+                  <p>Understand the strengths and challenges associated with your sun sign.</p>
                 </div>
-                <div class="container">
-                    <header class="major">
-                        <h2>Welcome to Lighthouse Astro</h2>
-                        <p>Your trusted guide to astrology, horoscopes, and cosmic insights.</p>
-                    </header>
-                    <p>
-                        At Lighthouse Astro, we help you navigate life’s challenges with the wisdom of astrology.
-                        Whether it's understanding your birth chart, daily horoscope readings, or personalized guidance,
-                        we are here to illuminate your path.
-                    </p>
+              </article>
+              <article>
+                <a href="#" class="image"><img src="images/pic02.jpg" alt="Planets & Houses" /></a>
+                <div class="inner">
+                  <h4>How Planets Shape Your Life</h4>
+                  <p>Learn how planetary transits influence your destiny.</p>
                 </div>
-            </section>
-
-            <!-- Astrology Services -->
-            <section id="two" class="fade-in">
-                <div class="container">
-                    <h3>Our Astrology Services</h3>
-                    <p>Discover how the stars influence your life with our expert insights.</p>
-                    <ul class="feature-icons">
-                        <li class="icon solid fa-star">Personalized Horoscope Readings</li>
-                        <li class="icon solid fa-moon">Daily & Weekly Predictions</li>
-                        <li class="icon solid fa-heart">Love & Relationship Compatibility</li>
-                        <li class="icon solid fa-briefcase">Career & Financial Guidance</li>
-                        <li class="icon solid fa-globe">Vedic & Western Astrology</li>
-                        <li class="icon solid fa-lightbulb">Spiritual & Energy Readings</li>
-                    </ul>
+              </article>
+              <article>
+                <a href="#" class="image"><img src="images/pic03.jpg" alt="Tarot & Numerology" /></a>
+                <div class="inner">
+                  <h4>Numerology & Tarot Readings</h4>
+                  <p>Decode the hidden messages in numbers and tarot cards.</p>
                 </div>
-            </section>
-
-            <!-- Zodiac Signs Section -->
-            <section id="three" class="fade-in">
-                <div class="container">
-                    <h3>Explore Your Zodiac Sign</h3>
-                    <p>Discover personality traits, compatibilities, and horoscopes for each zodiac sign.</p>
-
-                    <div class="zodiac-grid">
-                        <a href="#" class="zodiac-item" title="March 21 - April 19 | Bold, ambitious, and confident.">♈ Aries</a>
-                        <a href="#" class="zodiac-item" title="April 20 - May 20 | Reliable, patient, and practical.">♉ Taurus</a>
-                        <a href="#" class="zodiac-item" title="May 21 - June 20 | Curious, adaptable, and outgoing.">♊ Gemini</a>
-                        <a href="#" class="zodiac-item" title="June 21 - July 22 | Sensitive, caring, and intuitive.">♋ Cancer</a>
-                        <a href="#" class="zodiac-item" title="July 23 - August 22 | Confident, charismatic, and creative.">♌ Leo</a>
-                        <a href="#" class="zodiac-item" title="August 23 - September 22 | Analytical, practical, and diligent.">♍ Virgo</a>
-                        <a href="#" class="zodiac-item" title="September 23 - October 22 | Diplomatic, fair, and sociable.">♎ Libra</a>
-                        <a href="#" class="zodiac-item" title="October 23 - November 21 | Passionate, brave, and resourceful.">♏ Scorpio</a>
-                        <a href="#" class="zodiac-item" title="November 22 - December 21 | Adventurous, optimistic, and independent.">♐ Sagittarius</a>
-                        <a href="#" class="zodiac-item" title="December 22 - January 19 | Responsible, disciplined, and strategic.">♑ Capricorn</a>
-                        <a href="#" class="zodiac-item" title="January 20 - February 18 | Innovative, humanitarian, and original.">♒ Aquarius</a>
-                        <a href="#" class="zodiac-item" title="February 19 - March 20 | Compassionate, artistic, and intuitive.">♓ Pisces</a>
-                    </div>
+              </article>
+            </div>
+          </div>
+        </section>       
+        <!-- Contact Us -->
+        <section id="five" class="fade-in">
+          <div class="container">
+            <h3>Contact Us</h3>
+            <p>Have questions about your horoscope or astrological chart? Reach out to us!</p>
+            <form id="contact-form" method="POST" action="https://script.google.com/macros/s/...">
+              <div class="row gtr-uniform">
+                <div class="col-6 col-12-xsmall">
+                  <input type="text" name="name" id="name" placeholder="Name" required />
                 </div>
-            </section>
-
-
-            <!-- Our Insights -->
-            <section id="four" class="fade-in">
-                <div class="container">
-                    <h3>Our Astrological Insights</h3>
-                    <p>Unlock the wisdom of the cosmos with our latest astrology insights.</p>
-
-                    <div class="features">
-                        <article>
-                            <a href="#" class="image"><img src="images/pic01.jpg" alt="Zodiac Signs"></a>
-                            <div class="inner">
-                                <h4>The Power of Your Zodiac Sign</h4>
-                                <p>Understand the strengths and challenges associated with your sun sign.</p>
-                            </div>
-                        </article>
-                        <article>
-                            <a href="#" class="image"><img src="images/pic02.jpg" alt="Planets & Houses"></a>
-                            <div class="inner">
-                                <h4>How Planets Shape Your Life</h4>
-                                <p>Learn how planetary transits influence your destiny.</p>
-                            </div>
-                        </article>
-                        <article>
-                            <a href="#" class="image"><img src="images/pic03.jpg" alt="Tarot & Numerology"></a>
-                            <div class="inner">
-                                <h4>Numerology & Tarot Readings</h4>
-                                <p>Decode the hidden messages in numbers and tarot cards.</p>
-                            </div>
-                        </article>
-                    </div>
+                <div class="col-6 col-12-xsmall">
+                  <input type="email" name="email" id="email" placeholder="Email" required />
                 </div>
-            </section>
-
-            <!-- Contact Us -->
-            <section id="five" class="fade-in">
-                <div class="container">
-                    <h3>Contact Us</h3>
-                    <p>Have questions about your horoscope or astrological chart? Reach out to us!</p>
-
-                    <form id="contact-form" method="POST" action="https://script.google.com/macros/s/...">
-                        <div class="row gtr-uniform">
-                            <div class="col-6 col-12-xsmall">
-                                <input type="text" name="name" id="name" placeholder="Name" required>
-                            </div>
-                            <div class="col-6 col-12-xsmall">
-                                <input type="email" name="email" id="email" placeholder="Email" required>
-                            </div>
-                            <div class="col-12">
-                                <input type="text" name="subject" id="subject" placeholder="Subject">
-                            </div>
-                            <div class="col-12">
-                                <textarea name="message" id="message" placeholder="Your Message" rows="6" style="resize: none;"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <ul class="actions">
-                                    <li><button type="submit" class="primary">Send Message</button></li>
-                                    <li><button type="reset">Reset</button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </form>
-                    <p id="response-message"></p>
+                <div class="col-12">
+                  <input type="text" name="subject" id="subject" placeholder="Subject" />
                 </div>
-            </section>
-        </div>
+                <div class="col-12">
+                  <textarea name="message" id="message" placeholder="Your Message" rows="6" style="resize: none;"></textarea>
+                </div>
+                <div class="col-12">
+                  <ul class="actions">
+                    <li><button type="submit" class="primary">Send Message</button></li>
+                    <li><button type="reset">Reset</button></li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+            <p id="response-message"></p>
+          </div>
+        </section>
+      </div>
     </div>
 
-            <!-- Appointment Section (Commented Out) -->
-            <!-- 
-            <section id="appointment"> 
-                <div class="container">
-                    <h3>Book an Appointment</h3>
-                    <p>Schedule your astrology session with us.</p>
-                    <a href="https://calendly.com/lighthouseastro/astro-consultancy" target="_blank" class="button primary">
-                        Book Appointment
-                    </a>
-                </div>
-            </section> 
-            -->
-        </div>
-    </div>
+    <!-- Appointment Section (Commented Out) -->
+    <!--
+    <section id="appointment">
+      <div class="container">
+        <h3>Book an Appointment</h3>
+        <p>Schedule your astrology session with us.</p>
+        <a href="https://calendly.com/lighthouseastro/astro-consultancy" target="_blank" class="button primary">
+          Book Appointment
+        </a>
+      </div>
+    </section>
+    -->
 
     <!-- Footer Section -->
     <section id="footer">
-        <div class="container">
-            <ul class="copyright">
-                <li>&copy; 2024 Lighthouse Astro. All rights reserved.</li>
-            </ul>
-        </div>
+      <div class="container">
+        <ul class="copyright">
+          <li>&copy; 2024 Lighthouse Astro. All rights reserved.</li>
+        </ul>
+      </div>
     </section>
 
     <!-- JavaScript Files -->
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-
-</body>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </body>
 </html>
