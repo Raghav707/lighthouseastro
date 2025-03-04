@@ -2463,19 +2463,26 @@ input[type="button"]:disabled,
 }
 
 /* ===== DARK MODE ===== */
-/* Apply dark mode only to content areas, NOT the yellow sidebar */
+
+/* 1) Apply dark mode to content areas (but not #header's internal footer) */
 body.dark-mode #wrapper,
 body.dark-mode #main,
 body.dark-mode section,
-body.dark-mode .content-box, 
-body.dark-mode .text-area, 
+body.dark-mode .content-box,
+body.dark-mode .text-area,
 body.dark-mode .main-content {
-    background-color: #1e1e1e !important; /* Unified dark background */
+    background-color: #1e1e1e !important;
     color: #fff !important;
 }
 
-/* Dark Mode for text & links */
-body.dark-mode a, 
+/* 2) Explicitly style the site-wide footer (#footer) in dark mode */
+body.dark-mode #footer {
+    background-color: #1e1e1e !important;
+    color: #fff !important;
+}
+
+/* 3) Dark Mode for text & links */
+body.dark-mode a,
 body.dark-mode a:visited {
     color: #ffffff !important;
 }
@@ -2484,14 +2491,14 @@ body.dark-mode a:hover {
     color: #ffdd55 !important; /* Slightly lighter on hover */
 }
 
-/* Do NOT apply dark mode to the sidebar */
-body.dark-mode #header, 
+/* 4) Keep the sidebar (#header) yellow in dark mode */
+body.dark-mode #header,
 body.dark-mode .sidebar {
     background-color: #FFBF00 !important; /* Keep the sidebar yellow */
     color: black !important;
 }
 
-/* Dark Mode Toggle Button */
+/* 5) Dark Mode Toggle Button */
 #dark-mode-toggle {
     position: fixed;
     top: 20px;
@@ -2694,4 +2701,12 @@ body.dark-mode .sidebar {
         width: 100%;
         height: 100px;
     }
+}
+
+/* Contact form text color override */
+#five form input[type="text"],
+#five form input[type="email"],
+#five form input[type="password"],
+#five form textarea {
+  color: #313131; /* Main text color */
 }
