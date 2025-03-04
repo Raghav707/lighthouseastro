@@ -51,6 +51,10 @@
       }
     }
     </script>
+    
+    <!-- Google reCAPTCHA API -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
   </head>
   <body class="is-preload">
     <!-- Header -->
@@ -185,13 +189,14 @@
               </article>
             </div>
           </div>
-        </section>       
+        </section>
+        
         <!-- Contact Us -->
         <section id="five" class="fade-in">
           <div class="container">
             <h3>Contact Us</h3>
             <p>Have questions about your horoscope or astrological chart? Reach out to us!</p>
-            <form id="contact-form" method="POST" action="https://script.google.com/macros/s/...">
+            <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbzgTLLRifHNeIpF5SEx4_Oe3RFKcVj-PGzwJ7jaR8bZWmWFw1o2Vl84cs-UiwSVOVMrYg/exec">
               <div class="row gtr-uniform">
                 <div class="col-6 col-12-xsmall">
                   <input type="text" name="name" id="name" placeholder="Name" required />
@@ -205,6 +210,12 @@
                 <div class="col-12">
                   <textarea name="message" id="message" placeholder="Your Message" rows="6" style="resize: none;"></textarea>
                 </div>
+
+                <!-- Standard reCAPTCHA Box -->
+                <div class="col-12">
+                  <div class="g-recaptcha" data-sitekey="6LexEOkqAAAAAEvnuHFUcV8Ub-IoDpRUeL40-ak4" data-theme="light"></div>
+                </div>
+
                 <div class="col-12">
                   <ul class="actions">
                     <li><button type="submit" class="primary">Send Message</button></li>
