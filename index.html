@@ -52,10 +52,12 @@
     }
     </script>
     
+    <!-- Astronomy Engine Library -->
+    <script src="assets/js/astronomy.min.js"></script>
+    
     <!-- Google reCAPTCHA API -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
-  </head>
+  </head>  
   <body class="is-preload">
     <!-- Header -->
     <section id="header" role="banner">
@@ -160,6 +162,36 @@
             </div>
           </div>
         </section>
+        <!-- Kundli Generation Feature -->
+        <section id="kundli" class="fade-in">
+          <div class="container">
+            <h3>Generate Your Kundli</h3>
+            <p>Enter your birth details to get a basic preview of your Kundli. For a complete reading, please contact us via our contact form.</p>
+            <form id="kundli-form">
+              <div class="row gtr-uniform">
+                <div class="col-6 col-12-xsmall">
+                  <label for="dob">Date of Birth</label>
+                  <input type="date" name="dob" id="dob" required>
+                </div>
+                <div class="col-6 col-12-xsmall">
+                  <label for="tob">Time of Birth</label>
+                  <input type="time" name="tob" id="tob" required>
+                </div>
+                <div class="col-12">
+                  <label for="pob">Place of Birth</label>
+                  <input type="text" name="pob" id="pob" placeholder="City, Country" required>
+                </div>
+                <div class="col-12">
+                  <ul class="actions">
+                    <li><button type="submit" class="primary">Generate Kundli</button></li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+            <!-- Kundli preview area -->
+            <div id="kundli-preview"></div>
+          </div>
+        </section>
         <!-- Our Insights -->
         <section id="four" class="fade-in">
           <div class="container">
@@ -254,6 +286,7 @@
 
     <!-- JavaScript Files -->
     <script src="assets/js/script.js" defer></script>
+    <script src="https://unpkg.com/astronomy-engine/dist/astronomy.min.js"></script>
     <script src="assets/js/jquery.min.js" defer></script>
     <script src="assets/js/jquery.scrollex.min.js" defer></script>
     <script src="assets/js/jquery.scrolly.min.js" defer></script>
