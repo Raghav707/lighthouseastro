@@ -1,43 +1,44 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
+    <!-- Basic Meta Tags -->
     <meta charset="utf-8">
     <title>Lighthouse Astro - Astrology Guidance</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Lighthouse Astro offers astrology guidance, personalized horoscope readings, and cosmic insights to help you navigate life.">
     <meta name="keywords" content="astrology, horoscope, zodiac, cosmic insights, astrology guidance, birth chart">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Tags -->
+
+    <!-- Open Graph Tags for Social Sharing -->
     <meta property="og:title" content="Lighthouse Astro - Astrology Guidance">
     <meta property="og:description" content="Your trusted guide to astrology, horoscopes, and cosmic insights.">
-    <meta property="og:image" content="https://yourwebsite.com/images/banner.jpg">
-    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:image" content="https://lighthouseastro.com/images/banner.jpg">
+    <meta property="og:url" content="https://lighthouseastro.com">
     <meta property="og:type" content="website">
-    
+
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Lighthouse Astro - Astrology Guidance">
     <meta name="twitter:description" content="Discover personalized horoscope readings and cosmic insights.">
-    <meta name="twitter:image" content="https://yourwebsite.com/images/banner.jpg">
-    
-    <!-- Canonical Tag -->
-    <link rel="canonical" href="https://yourwebsite.com">
-    
+    <meta name="twitter:image" content="https://lighthouseastro.com/images/banner.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lighthouseastro.com">
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <!-- Structured Data -->
+
+    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Lighthouse Astro",
-      "url": "https://yourwebsite.com",
-      "logo": "https://yourwebsite.com/images/logo.png",
+      "url": "https://lighthouseastro.com",
+      "logo": "https://lighthouseastro.com/images/logo.png",
       "sameAs": [
         "https://www.facebook.com/lighthouseastro",
         "https://x.com/lighthouseastro",
@@ -51,24 +52,25 @@
       }
     }
     </script>
-    
-    <!-- Astronomy Engine Library -->
-    <script src="https://unpkg.com/astronomy-engine/dist/astronomy.min.js"></script>
-    
+
     <!-- Google reCAPTCHA API -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  </head>  
+  </head>
   <body class="is-preload">
-    <!-- Header -->
+    <!-- Header Section: Contains logo, tagline, navigation, and social links -->
     <section id="header" role="banner">
       <header>
+        <!-- Avatar Image -->
         <span class="image avatar">
           <img src="images/avatar.jpg" alt="Astrology Avatar">
         </span>
+        <!-- Logo -->
         <h1 id="logo"><a href="#">Lighthouse Astro</a></h1>
+        <!-- Tagline -->
         <p>Guiding you through the stars<br>and unlocking the secrets of the universe.</p>
       </header>
-      <!-- Navigation -->
+
+      <!-- Navigation Menu -->
       <nav id="nav" aria-label="Main Navigation">
         <ul>
           <li><a href="#one" class="active">About</a></li>
@@ -77,9 +79,11 @@
           <li><a href="#four">Our Insights</a></li>
           <li><a href="#five">Contact</a></li>
         </ul>
+        <!-- Dark Mode Toggle Button -->
         <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
       </nav>
-      <!-- Social Links -->
+
+      <!-- Social Links (within header footer) -->
       <footer>
         <ul class="icons">
           <li>
@@ -105,11 +109,12 @@
         </ul>
       </footer>
     </section>
-    <!-- Wrapper -->
+
+    <!-- Wrapper for Main Content -->
     <div id="wrapper">
-      <!-- Main Content -->
+      <!-- Main Content Container -->
       <div id="main">
-        <!-- About Us -->
+        <!-- About Us Section -->
         <section id="one" class="fade-in">
           <div class="image main" data-position="center">
             <img src="images/banner.jpg" alt="Astrology Banner">
@@ -126,7 +131,8 @@
             </p>
           </div>
         </section>
-        <!-- Astrology Services -->
+
+        <!-- Astrology Services Section -->
         <section id="two" class="fade-in">
           <div class="container">
             <h3>Our Astrology Services</h3>
@@ -141,6 +147,7 @@
             </ul>
           </div>
         </section>
+
         <!-- Zodiac Signs Section -->
         <section id="three" class="fade-in">
           <div class="container">
@@ -162,37 +169,8 @@
             </div>
           </div>
         </section>
-        <!-- Kundli Generation Feature -->
-        <section id="kundli" class="fade-in">
-          <div class="container">
-            <h3>Generate Your Kundli</h3>
-            <p>Enter your birth details to get a basic preview of your Kundli. For a complete reading, please contact us via our contact form.</p>
-            <form id="kundli-form">
-              <div class="row gtr-uniform">
-                <div class="col-6 col-12-xsmall">
-                  <label for="dob">Date of Birth</label>
-                  <input type="date" name="dob" id="dob" required>
-                </div>
-                <div class="col-6 col-12-xsmall">
-                  <label for="tob">Time of Birth</label>
-                  <input type="time" name="tob" id="tob" required>
-                </div>
-                <div class="col-12">
-                  <label for="pob">Place of Birth</label>
-                  <input type="text" name="pob" id="pob" placeholder="City, Country" required>
-                </div>
-                <div class="col-12">
-                  <ul class="actions">
-                    <li><button type="submit" class="primary">Generate Kundli</button></li>
-                  </ul>
-                </div>
-              </div>
-            </form>
-            <!-- Kundli preview area -->
-            <div id="kundli-preview"></div>
-          </div>
-        </section>
-        <!-- Our Insights -->
+
+        <!-- Our Insights Section -->
         <section id="four" class="fade-in">
           <div class="container">
             <h3>Our Astrological Insights</h3>
@@ -222,8 +200,8 @@
             </div>
           </div>
         </section>
-        
-        <!-- Contact Us -->
+
+        <!-- Contact Us Section -->
         <section id="five" class="fade-in">
           <div class="container">
             <h3>Contact Us</h3>
@@ -242,12 +220,10 @@
                 <div class="col-12">
                   <textarea name="message" id="message" placeholder="Your Message" rows="6" style="resize: none;" required></textarea>
                 </div>
-
-                <!-- Standard reCAPTCHA Box -->
+                <!-- reCAPTCHA -->
                 <div class="col-12">
                   <div class="g-recaptcha" data-sitekey="6LexEOkqAAAAAEvnuHFUcV8Ub-IoDpRUeL40-ak4" data-theme="light"></div>
                 </div>
-
                 <div class="col-12">
                   <ul class="actions">
                     <li><button type="submit" class="primary">Send Message</button></li>
@@ -284,9 +260,8 @@
       </div>
     </footer>
 
-    <!-- JavaScript Files -->
+    <!-- JavaScript Files (External libraries and custom scripts) -->
     <script src="assets/js/script.js" defer></script>
-    <script src="https://unpkg.com/astronomy-engine/dist/astronomy.min.js"></script>
     <script src="assets/js/jquery.min.js" defer></script>
     <script src="assets/js/jquery.scrollex.min.js" defer></script>
     <script src="assets/js/jquery.scrolly.min.js" defer></script>
