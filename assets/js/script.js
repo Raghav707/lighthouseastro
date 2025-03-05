@@ -1,13 +1,16 @@
+// Wait for the DOM to fully load before running any code
 document.addEventListener("DOMContentLoaded", () => {
+  /***********************
+   * Contact Form Handler
+   ***********************/
   const form = document.getElementById("contact-form");
   const responseMessage = document.getElementById("response-message");
 
-  // ✅ Contact Form Submission
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // For a standard checkbox reCAPTCHA, getResponse() will be empty if unchecked.
+      // Check if reCAPTCHA is completed
       const captchaResponse = grecaptcha.getResponse();
       if (!captchaResponse) {
         responseMessage.textContent = "Please complete the CAPTCHA.";
@@ -15,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Trim user inputs
+      // Trim and retrieve user inputs
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const subject = document.getElementById("subject").value.trim();
@@ -28,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Additional email validation using regex
+      // Validate email format using a regular expression
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         responseMessage.textContent = "Please enter a valid email address.";
@@ -36,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Prepare form data for submission
+      // Prepare the data to be sent to the Google Script
       const formData = new URLSearchParams({ name, email, subject, message });
 
       try {
@@ -53,8 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
           responseMessage.textContent = "Message sent successfully!";
           responseMessage.className = "success-message";
           form.reset();
-
-          // Reset the reCAPTCHA widget after successful submission
+          // Reset reCAPTCHA widget after successful submission
           grecaptcha.reset();
         } else {
           throw new Error("Failed to send message. Please try again later.");
@@ -67,11 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ✅ Back-to-Top Button
+  /***********************
+   * Back-to-Top Button
+   ***********************/
   const topButton = document.createElement("button");
   topButton.innerHTML = "▲";
   topButton.id = "back-to-top";
-
+  // Apply styles to the back-to-top button
   Object.assign(topButton.style, {
     position: "fixed",
     bottom: "20px",
@@ -86,10 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
     fontSize: "20px",
     transition: "opacity 0.3s ease-in-out",
   });
-
   document.body.appendChild(topButton);
 
-  // ✅ Debounced Scroll Event for Performance
+  // Debounce function to improve performance on scroll events
   const debounce = (func, wait = 100) => {
     let timeout;
     return (...args) => {
@@ -98,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   };
 
+  // Handle scroll event to show/hide the back-to-top button
   const handleScroll = debounce(() => {
     if (window.scrollY > 200) {
       topButton.style.display = "block";
@@ -107,36 +111,37 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => (topButton.style.display = "none"), 300);
     }
   });
-
   window.addEventListener("scroll", handleScroll);
 
+  // Smooth scroll to top when button is clicked
   topButton.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  // ✅ Fade-in Animation using Intersection Observer
+  /***********************
+   * Fade-In Animation
+   ***********************/
   const fadeElements = document.querySelectorAll(".fade-in");
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
+        // Toggle the 'visible' class based on whether the element is in the viewport
         entry.target.classList.toggle("visible", entry.isIntersecting);
       });
     },
     { threshold: 0.2 } // Trigger when 20% of the element is visible
   );
-
   fadeElements.forEach((el) => observer.observe(el));
 
-  // ✅ Dark Mode Toggle
+  /***********************
+   * Dark Mode Toggle
+   ***********************/
   const darkModeToggle = document.getElementById("dark-mode-toggle");
   const body = document.body;
-
-  // Apply previously saved dark mode preference
+  // Apply previously saved dark mode preference from localStorage
   if (localStorage.getItem("dark-mode") === "enabled") {
     body.classList.add("dark-mode");
   }
-
   darkModeToggle.addEventListener("click", () => {
     const isEnabled = body.classList.toggle("dark-mode");
     localStorage.setItem("dark-mode", isEnabled ? "enabled" : "disabled");
