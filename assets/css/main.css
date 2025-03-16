@@ -2702,9 +2702,95 @@ body.dark-mode .sidebar {
 }
 
 /* Contact form text color override */
-#five form input[type="text"],
-#five form input[type="email"],
-#five form input[type="password"],
-#five form textarea {
+#six form input[type="text"],
+#six form input[type="email"],
+#six form input[type="password"],
+#six form textarea {
   color: #313131; /* Main text color */
 }
+
+
+/* Multi-Step Quiz Styles */
+#zodiac-quiz {
+    margin: 2em 0;
+  }
+  
+  #zodiac-quiz .quiz-step {
+    display: none; /* Hide all steps by default */
+    margin-bottom: 2em;
+  }
+  
+  #zodiac-quiz .quiz-step.active {
+    display: block; /* Show only the active step */
+  }
+  
+  #zodiac-quiz h4 {
+    margin-bottom: 1em;
+  }
+  
+  .quiz-step label {
+    display: block;
+    margin: 0.5em 0;
+    cursor: pointer;
+  }
+  
+  .quiz-step input[type="radio"] {
+    margin-right: 0.5em;
+  }
+  
+  .quiz-nav {
+    margin-top: 1em;
+  }
+  
+  .quiz-nav button {
+    margin-right: 1em;
+  }
+  
+  #quiz-result {
+    margin-top: 2em;
+    padding: 1em;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    display: none; /* Hidden by default; we’ll show results after finishing */
+  }
+  
+  #quiz-result h4 {
+    margin-top: 0;
+  }
+  
+  /* Show result after finishing the quiz */
+  #quiz-result.quiz-result {
+    display: block;
+  }
+
+  .actions button {
+    font-size: 1em;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .actions .primary {
+    background: #FFBF00;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .actions .primary:hover {
+    background: #d9a600;
+    transform: translateY(-2px);
+  }
+  
+  .actions button[type="reset"] {
+    background: #666;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .actions button[type="reset"]:hover {
+    background: #444;
+    transform: translateY(-2px);
+  }
