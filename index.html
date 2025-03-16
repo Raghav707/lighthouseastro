@@ -57,14 +57,14 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body class="is-preload">
-    <!-- Header Section: Contains logo, tagline, navigation, and social links -->
+    <!-- HEADER SECTION -->
     <section id="header" role="banner">
       <header>
         <!-- Avatar Image -->
         <span class="image avatar">
           <img src="images/avatar.jpg" alt="Astrology Avatar">
         </span>
-        <!-- Logo -->
+        <!-- Site Logo -->
         <h1 id="logo"><a href="#">Lighthouse Astro</a></h1>
         <!-- Tagline -->
         <p>Guiding you through the stars<br>and unlocking the secrets of the universe.</p>
@@ -76,14 +76,15 @@
           <li><a href="#one" class="active">About</a></li>
           <li><a href="#two">Astrology Services</a></li>
           <li><a href="#three">Zodiac</a></li>
-          <li><a href="#four">Our Insights</a></li>
-          <li><a href="#five">Contact</a></li>
+          <li><a href="#four">Explore Your Zodiac Sign</a></li>
+          <li><a href="#five">Our Insights</a></li>
+          <li><a href="#six">Contact</a></li>
         </ul>
         <!-- Dark Mode Toggle Button -->
         <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
       </nav>
 
-      <!-- Social Links (within header footer) -->
+      <!-- Social Links (in Header Footer) -->
       <footer>
         <ul class="icons">
           <li>
@@ -110,11 +111,11 @@
       </footer>
     </section>
 
-    <!-- Wrapper for Main Content -->
+    <!-- MAIN WRAPPER -->
     <div id="wrapper">
-      <!-- Main Content Container -->
+      <!-- MAIN CONTENT -->
       <div id="main">
-        <!-- About Us Section -->
+        <!-- ABOUT US SECTION -->
         <section id="one" class="fade-in">
           <div class="image main" data-position="center">
             <img src="images/banner.jpg" alt="Astrology Banner">
@@ -132,7 +133,7 @@
           </div>
         </section>
 
-        <!-- Astrology Services Section -->
+        <!-- ASTROLOGY SERVICES SECTION -->
         <section id="two" class="fade-in">
           <div class="container">
             <h3>Our Astrology Services</h3>
@@ -148,7 +149,7 @@
           </div>
         </section>
 
-        <!-- Zodiac Signs Section -->
+        <!-- ZODIAC SIGNS SECTION -->
         <section id="three" class="fade-in">
           <div class="container">
             <h3>Explore Your Zodiac Sign</h3>
@@ -170,8 +171,24 @@
           </div>
         </section>
 
-        <!-- Our Insights Section -->
+        <!-- "KNOW MORE ABOUT YOURSELF" BUTTON SECTION -->
         <section id="four" class="fade-in">
+          <div class="container">
+            <h3>Explore Your Zodiac Sign</h3>
+            <h4>Know More About Yourself</h4>
+            <p>Choose from our interactive tools to delve deeper into your astrological profile.</p>
+        
+            <!-- Button Group for Various Tools (using .actions for hover effects) -->
+            <div class="actions tool-buttons">
+              <a href="compatibility.html" class="button primary">Astrological Compatibility Calculator</a>
+              <a href="zodiac-quiz.html" class="button primary">Interactive Zodiac Quiz</a>
+              <!-- Additional buttons can be added here -->
+            </div>
+          </div>
+        </section>
+
+        <!-- OUR INSIGHTS SECTION -->
+        <section id="five" class="fade-in">
           <div class="container">
             <h3>Our Astrological Insights</h3>
             <p>Unlock the wisdom of the cosmos with our latest astrology insights.</p>
@@ -201,12 +218,12 @@
           </div>
         </section>
 
-        <!-- Contact Us Section -->
-        <section id="five" class="fade-in">
+        <!-- CONTACT US SECTION -->
+        <section id="six" class="fade-in">
           <div class="container">
             <h3>Contact Us</h3>
             <p>Have questions about your horoscope or astrological chart? Reach out to us!</p>
-            <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbzgTLLRifHNeIpF5SEx4_Oe3RFKcVj-PGzwJ7jaR8bZWmWFw1o2Vl84cs-UiwSVOVMrYg/exec">
+            <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbw33G3AZEuxFF8zAPKjlJGMSciK-UkcPGnTZeAFFKTBDL9YFjJX4164zszl-3oYv62z/exec">
               <div class="row gtr-uniform">
                 <div class="col-6 col-12-xsmall">
                   <input type="text" name="name" id="name" placeholder="Name" required>
@@ -220,7 +237,7 @@
                 <div class="col-12">
                   <textarea name="message" id="message" placeholder="Your Message" rows="6" style="resize: none;" required></textarea>
                 </div>
-                <!-- reCAPTCHA -->
+                <!-- reCAPTCHA Widget -->
                 <div class="col-12">
                   <div class="g-recaptcha" data-sitekey="6LexEOkqAAAAAEvnuHFUcV8Ub-IoDpRUeL40-ak4" data-theme="light"></div>
                 </div>
@@ -238,7 +255,7 @@
       </div>
     </div>
 
-    <!-- Appointment Section (Commented Out) -->
+    <!-- APPOINTMENT SECTION (Commented Out for Future Use) -->
     <!--
     <section id="appointment">
       <div class="container">
@@ -251,7 +268,7 @@
     </section>
     -->
 
-    <!-- Footer Section -->
+    <!-- FOOTER SECTION -->
     <footer id="footer">
       <div class="container">
         <ul class="copyright">
@@ -260,7 +277,7 @@
       </div>
     </footer>
 
-    <!-- JavaScript Files (External libraries and custom scripts) -->
+    <!-- JAVASCRIPT FILES (External libraries and custom scripts) -->
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/jquery.min.js" defer></script>
     <script src="assets/js/jquery.scrollex.min.js" defer></script>
