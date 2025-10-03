@@ -1,290 +1,1415 @@
-<!DOCTYPE HTML>
-<html lang="en">
-  <head>
-    <!-- Basic Meta Tags -->
-    <meta charset="utf-8">
-    <title>Lighthouse Astro - Astrology Guidance</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Lighthouse Astro offers astrology guidance, personalized horoscope readings, and cosmic insights to help you navigate life.">
-    <meta name="keywords" content="astrology, horoscope, zodiac, cosmic insights, astrology guidance, birth chart">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph Tags for Social Sharing -->
-    <meta property="og:title" content="Lighthouse Astro - Astrology Guidance">
-    <meta property="og:description" content="Your trusted guide to astrology, horoscopes, and cosmic insights.">
-    <meta property="og:image" content="https://lighthouseastro.com/images/banner.jpg">
-    <meta property="og:url" content="https://lighthouseastro.com">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lighthouse Astro - Astrology Guidance">
-    <meta name="twitter:description" content="Discover personalized horoscope readings and cosmic insights.">
-    <meta name="twitter:image" content="https://lighthouseastro.com/images/banner.jpg">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://lighthouseastro.com">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Lighthouse Astro",
-      "url": "https://lighthouseastro.com",
-      "logo": "https://lighthouseastro.com/images/logo.png",
-      "sameAs": [
-        "https://www.facebook.com/lighthouseastro",
-        "https://x.com/lighthouseastro",
-        "https://www.instagram.com/lighthouseastro"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+1-555-555-5555",
-        "contactType": "customer service",
-        "areaServed": "US"
-      }
-    }
-    </script>
-
-    <!-- Google reCAPTCHA API -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LightHouse Astro - Your Guide in the Stars</title>
+    <link rel="icon" href="images/logo.png" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- 1. ADDED: Google reCAPTCHA API Script -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  </head>
-  <body class="is-preload">
-    <!-- HEADER SECTION -->
-    <section id="header" role="banner">
-      <header>
-        <!-- Avatar Image -->
-        <span class="image avatar">
-          <img src="images/avatar.jpg" alt="Astrology Avatar">
-        </span>
-        <!-- Site Logo -->
-        <h1 id="logo"><a href="#">Lighthouse Astro</a></h1>
-        <!-- Tagline -->
-        <p>Guiding you through the stars<br>and unlocking the secrets of the universe.</p>
-      </header>
+    <style>
+        /* --- LAYOUT & THEME SETUP --- */
+        html, body { height: 100%; }
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        main { flex-grow: 1; }
 
-      <!-- Navigation Menu -->
-      <nav id="nav" aria-label="Main Navigation">
-        <ul>
-          <li><a href="#one" class="active">About</a></li>
-          <li><a href="#two">Astrology Services</a></li>
-          <li><a href="#three">Zodiac</a></li>
-          <li><a href="#four">Explore Your Zodiac Sign</a></li>
-          <li><a href="#five">Our Insights</a></li>
-          <li><a href="#six">Contact</a></li>
-        </ul>
-        <!-- Dark Mode Toggle Button -->
-        <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
-      </nav>
-
-      <!-- Social Links (in Header Footer) -->
-      <footer>
-        <ul class="icons">
-          <li>
-            <a href="https://www.facebook.com/share/1EdR69F4Dr/" class="icon brands fa-facebook-f" target="_blank" aria-label="Facebook">
-              <span class="label">Facebook</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://x.com/lighthouseastro" class="icon brands fa-x-twitter" target="_blank" aria-label="X">
-              <span class="label">X</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/lighthouseastro" class="icon brands fa-instagram" target="_blank" aria-label="Instagram">
-              <span class="label">Instagram</span>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:lighthouseastro@gmail.com?subject=Astrology%20Inquiry&body=Hello,%20I%20want%20to%20know%20more%20about..." class="icon solid fa-envelope" target="_blank" aria-label="Email">
-              <span class="label">Email</span>
-            </a>
-          </li>
-        </ul>
-      </footer>
-    </section>
-
-    <!-- MAIN WRAPPER -->
-    <div id="wrapper">
-      <!-- MAIN CONTENT -->
-      <div id="main">
-        <!-- ABOUT US SECTION -->
-        <section id="one" class="fade-in">
-          <div class="image main" data-position="center">
-            <img src="images/banner.jpg" alt="Astrology Banner">
-          </div>
-          <div class="container">
-            <header class="major">
-              <h2>Welcome to Lighthouse Astro</h2>
-              <p>Your trusted guide to astrology, horoscopes, and cosmic insights.</p>
-            </header>
-            <p>
-              At Lighthouse Astro, we help you navigate life’s challenges with the wisdom of astrology.
-              Whether it's understanding your birth chart, daily horoscope readings, or personalized guidance,
-              we are here to illuminate your path.
-            </p>
-          </div>
-        </section>
-
-        <!-- ASTROLOGY SERVICES SECTION -->
-        <section id="two" class="fade-in">
-          <div class="container">
-            <h3>Our Astrology Services</h3>
-            <p>Discover how the stars influence your life with our expert insights.</p>
-            <ul class="feature-icons">
-              <li class="icon solid fa-star">Personalized Horoscope Readings</li>
-              <li class="icon solid fa-moon">Daily & Weekly Predictions</li>
-              <li class="icon solid fa-heart">Love & Relationship Compatibility</li>
-              <li class="icon solid fa-briefcase">Career & Financial Guidance</li>
-              <li class="icon solid fa-globe">Vedic & Western Astrology</li>
-              <li class="icon solid fa-lightbulb">Spiritual & Energy Readings</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- ZODIAC SIGNS SECTION -->
-        <section id="three" class="fade-in">
-          <div class="container">
-            <h3>Explore Your Zodiac Sign</h3>
-            <p>Discover personality traits, compatibilities, and horoscopes for each zodiac sign.</p>
-            <div class="zodiac-grid">
-              <a href="#" class="zodiac-item" title="March 21 - April 19 | Bold, ambitious, and confident.">♈ Aries</a>
-              <a href="#" class="zodiac-item" title="April 20 - May 20 | Reliable, patient, and practical.">♉ Taurus</a>
-              <a href="#" class="zodiac-item" title="May 21 - June 20 | Curious, adaptable, and outgoing.">♊ Gemini</a>
-              <a href="#" class="zodiac-item" title="June 21 - July 22 | Sensitive, caring, and intuitive.">♋ Cancer</a>
-              <a href="#" class="zodiac-item" title="July 23 - August 22 | Confident, charismatic, and creative.">♌ Leo</a>
-              <a href="#" class="zodiac-item" title="August 23 - September 22 | Analytical, practical, and diligent.">♍ Virgo</a>
-              <a href="#" class="zodiac-item" title="September 23 - October 22 | Diplomatic, fair, and sociable.">♎ Libra</a>
-              <a href="#" class="zodiac-item" title="October 23 - November 21 | Passionate, brave, and resourceful.">♏ Scorpio</a>
-              <a href="#" class="zodiac-item" title="November 22 - December 21 | Adventurous, optimistic, and independent.">♐ Sagittarius</a>
-              <a href="#" class="zodiac-item" title="December 22 - January 19 | Responsible, disciplined, and strategic.">♑ Capricorn</a>
-              <a href="#" class="zodiac-item" title="January 20 - February 18 | Innovative, humanitarian, and original.">♒ Aquarius</a>
-              <a href="#" class="zodiac-item" title="February 19 - March 20 | Compassionate, artistic, and intuitive.">♓ Pisces</a>
-            </div>
-          </div>
-        </section>
-
-        <!-- "KNOW MORE ABOUT YOURSELF" BUTTON SECTION -->
-        <section id="four" class="fade-in">
-          <div class="container">
-            <h3>Explore Your Zodiac Sign</h3>
-            <h4>Know More About Yourself</h4>
-            <p>Choose from our interactive tools to delve deeper into your astrological profile.</p>
+        /* --- DARK MODE (DEFAULT) --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #f3f3f3;
+            --accent-color: #D4C5A3;
+            --card-bg: #1a1a1a;
+            --header-bg: #0a0a0a;
+            --border-color: #D4C5A3/20;
+            --section-bg: #141424;
+            --input-bg: #0a0a0a;
+            --placeholder-color: #9ca3af;
+        }
         
-            <!-- Button Group for Various Tools (using .actions for hover effects) -->
-            <div class="actions tool-buttons">
-              <a href="compatibility.html" class="button primary">Astrological Compatibility Calculator</a>
-              <a href="zodiac-quiz.html" class="button primary">Interactive Zodiac Quiz</a>
-              <!-- Additional buttons can be added here -->
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+            color: var(--accent-color);
+        }
+        
+        .gradient-text {
+           color: var(--accent-color);
+        }
+        
+        .themed-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--accent-color);
+        }
+        
+        .nav-link { color: var(--text-color); }
+        .nav-link.active, .nav-link:hover { color: var(--accent-color); }
+        .nav-link::after { background: var(--accent-color); }
+        
+        .themed-btn {
+            background-color: var(--accent-color);
+            color: #000000;
+            font-weight: bold;
+        }
+        
+        /* --- LIGHT MODE --- */
+        body.light-mode {
+            --bg-color: #f8f5ef;
+            --text-color: #332e22;
+            --accent-color: #a5895a;
+            --card-bg: #ffffff;
+            --header-bg: #f8f5ef;
+            --border-color: #a5895a/30;
+            --section-bg: #f0ebe4;
+            --input-bg: #ffffff;
+            --placeholder-color: #6b6354;
+        }
+        
+        /* --- GENERAL STYLES --- */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .nav-link { position: relative; transition: color 0.3s ease; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 50%; transform: translateX(-50%); transition: width 0.3s ease; }
+        .nav-link.active::after, .nav-link:hover::after { width: 100%; }
+        .hidden-section { display: none; }
+        .active-section { display: block; animation: fadeIn 0.5s ease-in-out; }
+        
+        #hero-carousel { position: relative; height: 450px; } /* Increased height */
+        .carousel-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            pointer-events: none;
+        }
+        .carousel-slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        /* Theme toggle button */
+        #theme-toggle, #theme-toggle-mobile {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        #theme-toggle:hover, #theme-toggle-mobile:hover {
+            background-color: rgba(212, 197, 163, 0.1);
+        }
+        
+        body.light-mode #theme-toggle:hover,
+        body.light-mode #theme-toggle-mobile:hover {
+            background-color: rgba(165, 137, 90, 0.1);
+        }
+        
+        .theme-icon-light, .theme-icon-dark {
+            transition: opacity 0.3s;
+        }
+        
+        /* Hide light icon in dark mode and dark icon in light mode */
+        body:not(.light-mode) .theme-icon-light {
+            display: none;
+        }
+        
+        body.light-mode .theme-icon-dark {
+            display: none;
+        }
+        
+        /* Light mode specific adjustments */
+        body.light-mode .nav-link {
+            color: var(--text-color);
+        }
+        
+        body.light-mode .nav-link.active, 
+        body.light-mode .nav-link:hover {
+            color: var(--accent-color);
+        }
+        
+        body.light-mode .text-gray-400,
+        body.light-mode .text-gray-300,
+        body.light-mode .text-gray-200 {
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+        
+        body.light-mode .bg-gray-700 {
+            background-color: var(--section-bg);
+        }
+        
+        body.light-mode .bg-gray-600 {
+            background-color: var(--border-color);
+        }
+        
+        body.light-mode .bg-black {
+            background-color: var(--modal-backdrop);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-b transition-colors duration-300" 
+            style="background-color: var(--header-bg); border-color: var(--border-color);">
+        <div id="header-container" class="container mx-auto px-6 py-4 flex justify-between items-center transition-all duration-300">
+            <a href="#" class="text-2xl font-bold font-serif flex items-center gap-4">
+                <img src="images/logo.png" alt="LightHouse Astro Logo" class="h-16 w-16 object-cover">
+                <span style="color: var(--accent-color);">LightHouse Astro</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link active" data-section="home">Home</a>
+                <a href="#zodiac" class="nav-link" data-section="zodiac">Know Your Zodiac</a>
+                <a href="#quiz" class="nav-link" data-section="quiz">Personality Quiz</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact & Booking</a>
+                <a href="#about" class="nav-link" data-section="about">About & Services</a>
+                <button id="theme-toggle" class="p-2 rounded-full">
+                    <i class="theme-icon-light" data-lucide="sun" class="w-5 h-5" style="color: var(--accent-color);"></i>
+                    <i class="theme-icon-dark" data-lucide="moon" class="w-5 h-5" style="color: var(--accent-color);"></i>
+                </button>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle-mobile" class="md:hidden p-2 rounded-full">
+                    <i class="theme-icon-light" data-lucide="sun" class="w-5 h-5" style="color: var(--accent-color);"></i>
+                    <i class="theme-icon-dark" data-lucide="moon" class="w-5 h-5" style="color: var(--accent-color);"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden" style="color: var(--accent-color);">
+                    <i data-lucide="menu"></i>
+                </button>
             </div>
-          </div>
-        </section>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 border-t transition-colors duration-300"
+             style="background-color: var(--header-bg); border-color: var(--border-color);">
+            <a href="#home" class="block py-2 nav-link active" data-section="home">Home</a>
+            <a href="#zodiac" class="block py-2 nav-link" data-section="zodiac">Know Your Zodiac</a>
+            <a href="#quiz" class="block py-2 nav-link" data-section="quiz">Personality Quiz</a>
+            <a href="#contact" class="block py-2 nav-link" data-section="contact">Contact & Booking</a>
+            <a href="#about" class="block py-2 nav-link" data-section="about">About & Services</a>
+        </div>
+    </header>
 
-        <!-- OUR INSIGHTS SECTION -->
-        <section id="five" class="fade-in">
-          <div class="container">
-            <h3>Our Astrological Insights</h3>
-            <p>Unlock the wisdom of the cosmos with our latest astrology insights.</p>
-            <div class="features">
-              <article>
-                <a href="#" class="image"><img src="images/pic01.jpg" alt="Zodiac Signs"></a>
-                <div class="inner">
-                  <h4>The Power of Your Zodiac Sign</h4>
-                  <p>Understand the strengths and challenges associated with your sun sign.</p>
+    <main class="pt-28">
+        <!-- Home Page -->
+        <section id="home" class="page-section active-section">
+            <!-- Hero Section Carousel -->
+            <div id="hero-carousel" class="container mx-auto px-6 relative overflow-hidden rounded-2xl">
+                <div class="carousel-slide active">
+                    <img src="images/hero1.jpg" class="absolute inset-0 w-full h-full object-cover -z-10" alt="Galaxy background">
+                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-6">
+                        <h1 class="text-4xl md:text-6xl font-bold font-serif leading-tight text-white">Discover Your Cosmic Blueprint</h1>
+                        <p class="mt-4 text-lg max-w-2xl mx-auto text-white">Unveil the secrets of the stars and navigate your life's journey with clarity and confidence.</p>
+                        <a href="#zodiac" data-section="zodiac" class="mt-8 inline-block themed-btn py-3 px-8 rounded-full shadow-lg hover:scale-105 transform transition-transform duration-300">Find Your Zodiac Sign</a>
+                    </div>
                 </div>
-              </article>
-              <article>
-                <a href="#" class="image"><img src="images/pic02.jpg" alt="Planets & Houses"></a>
-                <div class="inner">
-                  <h4>How Planets Shape Your Life</h4>
-                  <p>Learn how planetary transits influence your destiny.</p>
+                <div class="carousel-slide">
+                     <img src="images/hero2.jpg" class="absolute inset-0 w-full h-full object-cover -z-10" alt="Person looking at stars">
+                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-6">
+                        <h1 class="text-4xl md:text-6xl font-bold font-serif leading-tight text-white">Unlock Your Personality</h1>
+                        <p class="mt-4 text-lg max-w-2xl mx-auto text-white">Take our AI-powered quiz to reveal the deeper layers of who you are and what makes you tick.</p>
+                        <a href="#quiz" data-section="quiz" class="mt-8 inline-block themed-btn py-3 px-8 rounded-full shadow-lg hover:scale-105 transform transition-transform duration-300">Take the Personality Quiz</a>
+                    </div>
                 </div>
-              </article>
-              <article>
-                <a href="#" class="image"><img src="images/pic03.jpg" alt="Tarot & Numerology"></a>
-                <div class="inner">
-                  <h4>Numerology & Tarot Readings</h4>
-                  <p>Decode the hidden messages in numbers and tarot cards.</p>
+                 <div class="carousel-slide">
+                     <img src="images/hero3.jpg" class="absolute inset-0 w-full h-full object-cover -z-10" alt="Astrology chart and crystals">
+                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-6">
+                        <h1 class="text-4xl md:text-6xl font-bold font-serif leading-tight text-white">Schedule a Free Analysis</h1>
+                        <p class="mt-4 text-lg max-w-2xl mx-auto text-white">Connect with our expert astrologer for a complimentary 1-hour session to explore your birth chart.</p>
+                        <a href="#contact" data-section="contact" class="mt-8 inline-block themed-btn py-3 px-8 rounded-full shadow-lg hover:scale-105 transform transition-transform duration-300">Book Your Free Trial</a>
+                    </div>
                 </div>
-              </article>
+                <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                    <div class="carousel-dot active h-3 w-3 rounded-full bg-[#D4C5A3] cursor-pointer" data-slide="0"></div>
+                    <div class="carousel-dot h-3 w-3 rounded-full bg-gray-600 cursor-pointer" data-slide="1"></div>
+                    <div class="carousel-dot h-3 w-3 rounded-full bg-gray-600 cursor-pointer" data-slide="2"></div>
+                </div>
             </div>
-          </div>
+
+            <!-- Features Overview -->
+            <div class="py-20 transition-colors duration-300" style="background-color: var(--section-bg);">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold">Your Personal Astrology Hub</h2>
+                        <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Everything you need to explore your celestial identity.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="p-8 text-center themed-card rounded-2xl transition-all duration-300">
+                            <i data-lucide="sparkles" class="w-16 h-16 mx-auto" style="color: var(--accent-color);"></i>
+                            <h3 class="text-xl font-semibold mt-4 transition-colors duration-300" style="color: var(--text-color);">Daily Horoscope</h3>
+                            <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Start your day with personalized insights and guidance from the stars.</p>
+                        </div>
+                        <div class="p-8 text-center themed-card rounded-2xl transition-all duration-300">
+                            <i data-lucide="users" class="w-16 h-16 mx-auto" style="color: var(--accent-color);"></i>
+                            <h3 class="text-xl font-semibold mt-4 transition-colors duration-300" style="color: var(--text-color);">Compatibility Check</h3>
+                            <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Discover your cosmic connections with friends, family, and partners.</p>
+                        </div>
+                        <div class="p-8 text-center themed-card rounded-2xl transition-all duration-300">
+                             <i data-lucide="help-circle" class="w-16 h-16 mx-auto" style="color: var(--accent-color);"></i>
+                            <h3 class="text-xl font-semibold mt-4 transition-colors duration-300" style="color: var(--text-color);">Personality Quizzes</h3>
+                            <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Fun, insightful quizzes to uncover deeper layers of your personality.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Zodiac -->
+            <div class="py-20">
+                <div class="container mx-auto px-6">
+                     <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold">Zodiac of the Day</h2>
+                        <p id="featured-zodiac-date" class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;"></p>
+                    </div>
+                    <div id="featured-zodiac" class="themed-card p-8 md:p-12 rounded-2xl flex flex-col md:flex-row items-center gap-8">
+                        <!-- Content injected by JS -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- How Astrology Works -->
+            <div class="py-20 transition-colors duration-300" style="background-color: var(--section-bg);">
+                <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold leading-snug">Astrology: The Language of the Cosmos</h2>
+                        <p class="mt-4 leading-relaxed transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Astrology is an ancient practice that interprets the influence of celestial bodies on human affairs and the natural world. Your birth chart is a unique snapshot of the sky at your moment of birth, providing a profound tool for self-awareness. It reveals your strengths, challenges, and the cosmic energies shaping your life's journey.</p>
+                        <a href="#about" data-section="about" class="mt-6 inline-block font-semibold hover:underline transition-colors duration-300" style="color: var(--accent-color);">Learn more about our philosophy &rarr;</a>
+                    </div>
+                    <div>
+                         <img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop"
+                              onerror="this.onerror=null;this.src='https://placehold.co/600x400/0F0F1A/A78BFA?text=Cosmic+Alignments';"
+                              class="rounded-2xl shadow-2xl object-cover w-full h-full" alt="Cosmic Alignments">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="py-20">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold">Stories from Our Community</h2>
+                        <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">See how astrology has illuminated others' paths.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="themed-card p-6 rounded-xl">
+                            <p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">"LightHouse Astro gave me such a deep understanding of my own patterns. The personality quiz was spookily accurate!"</p>
+                            <div class="mt-4 flex items-center">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&fit=crop&h=40&w=40" 
+                                     onerror="this.onerror=null;this.src='https://placehold.co/40x40/A78BFA/FFFFFF?text=J';"
+                                     class="rounded-full w-10 h-10 object-cover" alt="User Avatar">
+                                <div class="ml-3">
+                                    <p class="font-semibold transition-colors duration-300" style="color: var(--text-color);">Jessica L.</p>
+                                    <p class="text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">New York</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="themed-card p-6 rounded-xl">
+                            <p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">"The compatibility report for my partner and I was a game-changer. It helped us understand our dynamics so much better."</p>
+                            <div class="mt-4 flex items-center">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&fit=crop&h=40&w=40" 
+                                     onerror="this.onerror=null;this.src='https://placehold.co/40x40/F472B6/FFFFFF?text=M';"
+                                     class="rounded-full w-10 h-10 object-cover" alt="User Avatar">
+                                <div class="ml-3">
+                                    <p class="font-semibold transition-colors duration-300" style="color: var(--text-color);">Michael B.</p>
+                                    <p class="text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">London</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="themed-card p-6 rounded-xl">
+                            <p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">"Booking a free trial was easy and so insightful. The astrologer was kind and provided amazing clarity."</p>
+                            <div class="mt-4 flex items-center">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&fit=crop&h=40&w=40" 
+                                     onerror="this.onerror=null;this.src='https://placehold.co/40x40/34D399/FFFFFF?text=S';"
+                                     class="rounded-full w-10 h-10 object-cover" alt="User Avatar">
+                                <div class="ml-3">
+                                    <p class="font-semibold transition-colors duration-300" style="color: var(--text-color);">Sarah K.</p>
+                                    <p class="text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Sydney</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Newsletter Signup -->
+            <div class="container mx-auto px-6 py-20">
+                <div class="themed-card p-12 rounded-2xl text-center shadow-2xl">
+                    <h2 class="text-3xl font-bold">Subscribe to Cosmic Updates</h2>
+                    <p class="mt-2 max-w-xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Get weekly horoscopes, astrological news, and special offers delivered straight to your inbox.</p>
+                    <form class="mt-6 flex flex-col md:flex-row justify-center gap-4 max-w-lg mx-auto">
+                        <input type="email" placeholder="Enter your email address" class="w-full px-4 py-3 rounded-full transition-colors duration-300 focus:outline-none focus:ring-4 transition-all duration-300" 
+                               style="background-color: var(--input-bg); color: var(--text-color); border: 1px solid var(--accent-color);" required>
+                        <button type="submit" class="themed-btn py-3 px-8 rounded-full">Subscribe</button>
+                    </form>
+                </div>
+            </div>
         </section>
 
-        <!-- CONTACT US SECTION -->
-        <section id="six" class="fade-in">
-          <div class="container">
-            <h3>Contact Us</h3>
-            <p>Have questions about your horoscope or astrological chart? Reach out to us!</p>
-            <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbw33G3AZEuxFF8zAPKjlJGMSciK-UkcPGnTZeAFFKTBDL9YFjJX4164zszl-3oYv62z/exec">
-              <div class="row gtr-uniform">
-                <div class="col-6 col-12-xsmall">
-                  <input type="text" name="name" id="name" placeholder="Name" required>
+        <!-- Know Your Zodiac Page -->
+        <section id="zodiac" class="page-section hidden-section">
+            <div class="container mx-auto px-6 py-20">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-bold font-serif">What's Your Zodiac Sign?</h1>
+                    <p class="mt-4 text-lg max-w-2xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Select your sign below or enter your birth date to uncover your cosmic identity and explore your unique traits.</p>
                 </div>
-                <div class="col-6 col-12-xsmall">
-                  <input type="email" name="email" id="email" placeholder="Email" required>
+
+                <!-- Birthdate Input -->
+                <div class="max-w-md mx-auto themed-card p-8 rounded-2xl mb-16">
+                    <label for="birthdate" class="block text-lg font-semibold mb-2 transition-colors duration-300" style="color: var(--text-color);">Enter Your Birth Date</label>
+                    <input type="date" id="birthdate" class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 transition-colors duration-300" 
+                           style="background-color: var(--input-bg); color: var(--text-color); border: 1px solid var(--accent-color);">
+                    <button id="find-zodiac-btn" class="w-full mt-4 themed-btn py-3 px-8 rounded-lg shadow-lg hover:scale-105 transform transition-transform duration-300">Find My Sign</button>
+                    <div id="zodiac-result" class="mt-4 text-center text-xl font-semibold hidden transition-colors duration-300" style="color: var(--text-color);"></div>
                 </div>
-                <div class="col-12">
-                  <input type="text" name="subject" id="subject" placeholder="Subject" autocomplete="off" required>
+
+                <!-- Zodiac Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- Zodiac signs will be injected here by JS -->
                 </div>
-                <div class="col-12">
-                  <textarea name="message" id="message" placeholder="Your Message" rows="6" style="resize: none;" required></textarea>
+
+                <!-- Zodiac Modal -->
+                <div id="zodiac-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+                    <div class="w-full max-w-4xl max-h-[90vh] rounded-2xl p-8 overflow-y-auto relative shadow-2xl themed-card">
+                        <button id="close-modal-btn" class="absolute top-4 right-4 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">
+                             <i data-lucide="x" class="w-8 h-8"></i>
+                        </button>
+                        <div id="modal-content">
+                            <!-- Detailed zodiac info injected here -->
+                        </div>
+                    </div>
                 </div>
-                <!-- reCAPTCHA Widget -->
-                <div class="col-12">
-                  <div class="g-recaptcha" data-sitekey="6LexEOkqAAAAAEvnuHFUcV8Ub-IoDpRUeL40-ak4" data-theme="light"></div>
-                </div>
-                <div class="col-12">
-                  <ul class="actions">
-                    <li><button type="submit" class="primary">Send Message</button></li>
-                    <li><button type="reset">Reset</button></li>
-                  </ul>
-                </div>
-              </div>
-            </form>
-            <p id="response-message"></p>
-          </div>
+
+                <!-- Compare Zodiacs -->
+                 <div class="themed-card p-8 rounded-2xl mt-20">
+                    <h2 class="text-3xl font-bold text-center mb-8">Compare Zodiac Signs</h2>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                        <select id="zodiac1" class="p-3 rounded-lg w-full md:w-auto transition-colors duration-300" 
+                                style="background-color: var(--input-bg); color: var(--text-color); border: 1px solid var(--accent-color);"></select>
+                        <span class="text-2xl font-bold transition-colors duration-300" style="color: var(--accent-color);">&</span>
+                        <select id="zodiac2" class="p-3 rounded-lg w-full md:w-auto transition-colors duration-300" 
+                                style="background-color: var(--input-bg); color: var(--text-color); border: 1px solid var(--accent-color);"></select>
+                    </div>
+                    <div id="comparison-result" class="mt-8 text-center p-6 rounded-lg hidden themed-card"></div>
+                 </div>
+            </div>
         </section>
-      </div>
-    </div>
 
-    <!-- APPOINTMENT SECTION (Commented Out for Future Use) -->
-    <!--
-    <section id="appointment">
-      <div class="container">
-        <h3>Book an Appointment</h3>
-        <p>Schedule your astrology session with us.</p>
-        <a href="https://calendly.com/lighthouseastro/astro-consultancy" target="_blank" class="button primary">
-          Book Appointment
-        </a>
-      </div>
-    </section>
-    -->
+        <!-- Personality Quiz Page -->
+        <section id="quiz" class="page-section hidden-section">
+             <div class="container mx-auto px-6 py-20">
+                <div id="quiz-intro" class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold font-serif">The Cosmic Personality Quiz</h1>
+                    <p class="mt-4 text-lg max-w-2xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Ready to go deeper? This quiz, powered by AI, will reveal your core personality traits and your ideal cosmic partner.</p>
+                    
+                    <div class="mt-12 max-w-4xl mx-auto text-left themed-card p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-4 text-center">How It Works</h3>
+                        <p class="mb-6 text-center transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Our unique quiz blends timeless astrological wisdom with modern AI to provide a deeply personalized analysis. By answering a series of intuitive questions, you're not just picking options – you're painting a picture of your inner world.</p>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-lg flex items-center gap-2 transition-colors duration-300" style="color: var(--accent-color);"><i data-lucide="crosshair"></i>Answer Intuitively</h4>
+                                <p class="mt-1 transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Choose the options that resonate most strongly with you. There are no right or wrong answers.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg flex items-center gap-2 transition-colors duration-300" style="color: var(--accent-color);"><i data-lucide="brain-circuit"></i>AI-Powered Analysis</h4>
+                                <p class="mt-1 transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Our algorithm analyzes your responses to identify patterns and calculate your core personality traits.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg flex items-center gap-2 transition-colors duration-300" style="color: var(--accent-color);"><i data-lucide="star"></i>Receive Your Cosmic Profile</h4>
+                                <p class="mt-1 transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Get a detailed report on your archetype, strengths, and compatibility insights.</p>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- FOOTER SECTION -->
-    <footer id="footer">
-      <div class="container">
-        <ul class="copyright">
-          <li>&copy; Lighthouse Astro. All rights reserved.</li>
-        </ul>
-      </div>
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold mb-6">What You'll Discover</h3>
+                        <div class="grid md:grid-cols-3 gap-8 text-left">
+                            <div class="themed-card p-6 rounded-xl">
+                                <i data-lucide="user-square-2" class="w-10 h-10 mb-3 transition-colors duration-300" style="color: var(--accent-color);"></i>
+                                <h4 class="font-semibold text-lg transition-colors duration-300" style="color: var(--text-color);">Your Personality Archetype</h4>
+                                <p class="mt-1 text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Uncover your core identity based on timeless archetypes.</p>
+                            </div>
+                            <div class="themed-card p-6 rounded-xl">
+                                <i data-lucide="swords" class="w-10 h-10 mb-3 transition-colors duration-300" style="color: var(--accent-color);"></i>
+                                <h4 class="font-semibold text-lg transition-colors duration-300" style="color: var(--text-color);">Your Cosmic Strengths & Weaknesses</h4>
+                                <p class="mt-1 text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Learn how to leverage your innate gifts and navigate challenges.</p>
+                            </div>
+                            <div class="themed-card p-6 rounded-xl">
+                                <i data-lucide="heart-handshake" class="w-10 h-10 mb-3 transition-colors duration-300" style="color: var(--accent-color);"></i>
+                                <h4 class="font-semibold text-lg transition-colors duration-300" style="color: var(--text-color);">Your Ideal Partner Traits</h4>
+                                <p class="mt-1 text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Get AI-driven insights into the kind of partner you're most compatible with.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="start-quiz-btn" class="mt-12 inline-block themed-btn py-3 px-8 rounded-full shadow-lg hover:scale-105 transform transition-transform duration-300">Start the Quiz</button>
+                </div>
+                
+                <div id="quiz-container" class="hidden max-w-2xl mx-auto themed-card p-8 rounded-2xl">
+                    <!-- Progress Bar -->
+                    <div class="w-full rounded-full h-2.5 mb-6 transition-colors duration-300" style="background-color: var(--text-color); opacity: 0.2;">
+                        <div id="progress-bar" class="h-2.5 rounded-full transition-all duration-500" style="background-color: var(--accent-color);"></div>
+                    </div>
+                    <!-- Question -->
+                    <div id="question-container">
+                        <h2 id="question-text" class="text-2xl font-semibold mb-6 text-center transition-colors duration-300" style="color: var(--text-color);"></h2>
+                        <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Options injected by JS -->
+                        </div>
+                    </div>
+                    <!-- Loader -->
+                    <div id="quiz-loader" class="hidden text-center py-12">
+                        <div class="animate-spin rounded-full h-16 w-16 border-b-4 mx-auto" style="border-color: var(--accent-color);"></div>
+                        <p class="mt-4 text-lg font-semibold transition-colors duration-300" style="color: var(--text-color);">Analyzing your cosmic energy...</p>
+                        <p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Our AI is generating your personalized report.</p>
+                    </div>
+                </div>
+
+                <div id="quiz-results" class="hidden max-w-4xl mx-auto themed-card p-8 rounded-2xl mt-12">
+                    <h2 class="text-3xl font-bold text-center mb-2 gradient-text">Your Personality Report</h2>
+                    <p class="text-center transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Generated by our advanced AI model.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 transition-colors duration-300" style="color: var(--text-color);">Personality Type: The Cosmic Dreamer</h3>
+                            <p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">You are an intuitive and empathetic soul, driven by creativity and a deep connection to the emotional world. You thrive in environments that allow you to express yourself and often find yourself helping others navigate their own feelings.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 transition-colors duration-300" style="color: var(--text-color);">Trait Breakdown</h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="flex justify-between mb-1"><span class="text-base font-medium transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Creativity</span><span class="text-sm font-medium transition-colors duration-300" style="color: var(--text-color);">90%</span></div>
+                                    <div class="w-full rounded-full h-2.5 transition-colors duration-300" style="background-color: var(--text-color); opacity: 0.2;"><div class="h-2.5 rounded-full" style="width: 90%; background-color: var(--accent-color);"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1"><span class="text-base font-medium transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Logic</span><span class="text-sm font-medium transition-colors duration-300" style="color: var(--text-color);">60%</span></div>
+                                    <div class="w-full rounded-full h-2.5 transition-colors duration-300" style="background-color: var(--text-color); opacity: 0.2;"><div class="h-2.5 rounded-full" style="width: 60%; background-color: var(--accent-color);"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1"><span class="text-base font-medium transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Adventurousness</span><span class="text-sm font-medium transition-colors duration-300" style="color: var(--text-color);">75%</span></div>
+                                    <div class="w-full rounded-full h-2.5 transition-colors duration-300" style="background-color: var(--text-color); opacity: 0.2;"><div class="h-2.5 rounded-full" style="width: 75%; background-color: var(--accent-color);"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <h3 class="text-xl font-semibold text-center mb-4 transition-colors duration-300" style="color: var(--text-color);">Recommended Partner Types</h3>
+                        <div class="flex justify-center gap-8">
+                            <div class="text-center">
+                                <i data-lucide="shield" class="w-16 h-16 mx-auto transition-colors duration-300" style="color: var(--accent-color);"></i>
+                                <p class="mt-2 font-semibold transition-colors duration-300" style="color: var(--text-color);">The Grounded Protector</p>
+                            </div>
+                            <div class="text-center">
+                                <i data-lucide="compass" class="w-16 h-16 mx-auto transition-colors duration-300" style="color: var(--accent-color);"></i>
+                                <p class="mt-2 font-semibold transition-colors duration-300" style="color: var(--text-color);">The Curious Explorer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <button class="font-bold py-3 px-8 rounded-full transition-colors duration-300 hover:opacity-80" 
+                                style="background-color: var(--text-color); opacity: 0.1; color: var(--text-color);">Share Results</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Know More / Contact & Booking Page -->
+        <section id="contact" class="page-section hidden-section">
+             <div class="container mx-auto px-6 py-20">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-bold font-serif">Connect With Us</h1>
+                    <p class="mt-4 text-lg max-w-2xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Schedule your complimentary 1-hour analysis, ask a question, or learn more about our services.</p>
+                </div>
+
+                <!-- Booking Section -->
+                <div class="themed-card p-8 rounded-2xl">
+                    <h2 class="text-3xl font-bold text-center mb-2">Schedule Your Free Trial Analysis</h2>
+                    <p class="text-center transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Select a date and time that works for you. All times are in your local timezone.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Calendar -->
+                        <div id="calendar-container">
+                             <div class="flex justify-between items-center mb-4">
+                                <button id="prev-month" class="p-2 rounded-full transition-colors duration-300 hover:opacity-70"><i data-lucide="chevron-left"></i></button>
+                                <h3 id="month-year" class="text-xl font-semibold transition-colors duration-300" style="color: var(--text-color);"></h3>
+                                <button id="next-month" class="p-2 rounded-full transition-colors duration-300 hover:opacity-70"><i data-lucide="chevron-right"></i></button>
+                            </div>
+                            <div class="grid grid-cols-7 gap-1 text-center font-semibold transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">
+                                <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+                            </div>
+                            <div id="calendar-grid" class="grid grid-cols-7 gap-1 mt-2">
+                                <!-- Dates injected by JS -->
+                            </div>
+                        </div>
+                        <!-- Time Slots -->
+                        <div id="time-slots" class="hidden">
+                            <h3 class="text-xl font-semibold mb-4 transition-colors duration-300" style="color: var(--text-color);">Available Times on <span id="selected-date-text"></span></h3>
+                            <div id="time-grid" class="grid grid-cols-2 gap-4">
+                                <!-- Time slots injected by JS -->
+                            </div>
+                            <p id="booking-confirmation" class="mt-4 text-center font-semibold hidden" style="color: #10B981;"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Section -->
+                <div class="mt-20">
+                     <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+                     <div id="faq-container" class="max-w-3xl mx-auto space-y-4">
+                         <!-- FAQs injected by JS -->
+                     </div>
+                </div>
+
+                <!-- Contact Form -->
+                 <div class="mt-20 max-w-3xl mx-auto themed-card p-8 rounded-2xl">
+                    <h2 class="text-3xl font-bold text-center mb-8">Have a Question?</h2>
+                    <!-- 2. MODIFIED: Form tag and inputs updated for Google Sheets -->
+                    <form id="contact-form">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded-lg transition-colors duration-300" 
+                                   style="background-color: var(--input-bg); color: var(--text-color); border: 1px solid var(--accent-color);" required>
+                            <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-lg transition-colors duration-300" 
+                                   style="background-color: var(--input-bg); color: var(--text-color); border: 1px solid var(--accent-color);" required>
+                        </div>
+                        <textarea name="message" placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg mt-6 transition-colors duration-300" 
+                                  style="background-color: var(--input-bg); color: var(--text-color); border: 1px solid var(--accent-color);" required></textarea>
+                        
+                        <!-- 3. ADDED: Google reCAPTCHA Container -->
+                        <div class="flex justify-center my-6">
+                            <div id="recaptcha-container"></div>
+                        </div>
+
+                        <button type="submit" class="w-full mt-6 themed-btn py-3 rounded-lg shadow-lg hover:scale-105 transform transition-transform duration-300">Send Message</button>
+                    </form>
+                    <!-- 4. ADDED: Response message placeholder -->
+                    <p id="response-message" class="text-center mt-4 h-6 font-semibold"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Services Page -->
+        <section id="about" class="page-section hidden-section">
+             <div class="container mx-auto px-6 py-20">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-bold font-serif">Guiding Your Path with Celestial Wisdom</h1>
+                    <p class="mt-4 text-lg max-w-3xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">LightHouse Astro was founded on the belief that the stars offer a powerful map for self-discovery, personal growth, and understanding our place in the universe.</p>
+                </div>
+                
+                <!-- Pricing Tiers -->
+                <div class="themed-card py-20 rounded-2xl">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl md:text-4xl font-bold">Our Services & Pricing</h2>
+                            <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Choose the plan that's right for your journey.</p>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                             <div class="p-8 rounded-2xl text-center themed-card">
+                                <h3 class="text-2xl font-semibold transition-colors duration-300" style="color: var(--text-color);">Free Trial</h3>
+                                <p class="text-4xl font-bold my-4 transition-colors duration-300" style="color: var(--text-color);">£0 / ₹0</p>
+                                <ul class="space-y-3 transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
+                                    <li>1-Hour Analysis</li>
+                                    <li>Basic Birth Chart</li>
+                                    <li>Zodiac Profile</li>
+                                </ul>
+                                <button class="mt-6 w-full font-bold py-3 rounded-lg cursor-not-allowed transition-colors duration-300" 
+                                        style="background-color: var(--text-color); opacity: 0.2; color: var(--text-color);">Your Current Plan</button>
+                            </div>
+                            <div class="p-8 rounded-2xl text-center relative shadow-2xl scale-105 themed-card" style="border-width: 2px;">
+                                <span class="absolute top-0 -translate-y-1/2 text-sm font-bold px-4 py-1 rounded-full" 
+                                      style="background-color: var(--accent-color); color: #000000;">Most Popular</span>
+                                <h3 class="text-2xl font-semibold transition-colors duration-300" style="color: var(--text-color);">Explorer</h3>
+                                <p class="text-3xl font-bold my-4 transition-colors duration-300" style="color: var(--text-color);">£49 / ₹4900<span class="text-lg font-normal transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">/mo</span></p>
+                                <ul class="space-y-3 transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
+                                    <li>Monthly Check-ins</li>
+                                    <li>Full Birth Chart Analysis</li>
+                                    <li>Compatibility Reports</li>
+                                    <li>AI-Powered Insights</li>
+                                </ul>
+                                <button class="mt-6 w-full themed-btn py-3 rounded-lg shadow-lg">Upgrade Now</button>
+                            </div>
+                             <div class="p-8 rounded-2xl text-center themed-card">
+                                <h3 class="text-2xl font-semibold transition-colors duration-300" style="color: var(--text-color);">Cosmic Voyager</h3>
+                                <p class="text-3xl font-bold my-4 transition-colors duration-300" style="color: var(--text-color);">£99 / ₹9900<span class="text-lg font-normal transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">/mo</span></p>
+                                <ul class="space-y-3 transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
+                                    <li>Bi-Weekly Check-ins</li>
+                                    <li>Everything in Explorer</li>
+                                    <li>Advanced Transit Reports</li>
+                                    <li>Priority Support</li>
+                                </ul>
+                                <button class="mt-6 w-full font-bold py-3 rounded-lg transition-colors duration-300 hover:opacity-80" 
+                                        style="background-color: var(--text-color); opacity: 0.3; color: var(--text-color);">Choose Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Section -->
+                <div class="py-20">
+                     <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold">Meet Our Astrologer</h2>
+                        <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">A certified professional dedicated to your journey.</p>
+                    </div>
+                     <div class="flex justify-center">
+                        <div class="text-center">
+                            <img src=""
+                                 onerror="this.onerror=null;this.src='https://placehold.co/120x120/1A1A2E/A78BFA?text=AG';"
+                                 class="rounded-full w-32 h-32 object-cover mx-auto shadow-lg border-2" style="border-color: var(--accent-color);" alt="Astrologer Amit Gupta">
+                            <h3 class="text-xl font-semibold mt-4 transition-colors duration-300" style="color: var(--text-color);">Amit Gupta</h3>
+                            <p class="transition-colors duration-300" style="color: var(--accent-color);">Founder & Lead Astrologer</p>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Blog Section -->
+                 <div class="py-20 border-t transition-colors duration-300" style="border-color: var(--border-color);">
+                     <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold">From Our Blog</h2>
+                        <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Latest insights and news from the celestial world.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="themed-card rounded-2xl overflow-hidden group">
+                             <img src="https://images.unsplash.com/photo-1446776811953-b23d579424c1?q=80&w=2072&auto=format&fit=crop" 
+                                   onerror="this.onerror=null;this.src='https://placehold.co/600x400/141424/A78BFA?text=Mercury+Retrograde';"
+                                   class="w-full h-48 object-cover" alt="Planet Mercury">
+                             <div class="p-6">
+                                <p class="text-sm transition-colors duration-300" style="color: var(--accent-color);">Planetary Transits</p>
+                                <h3 class="text-xl font-semibold mt-2 transition-colors duration-300 group-hover:opacity-70" style="color: var(--text-color);">Navigating the Next Mercury Retrograde</h3>
+                                <p class="mt-2 text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">A survival guide to communication breakdowns and technological mishaps.</p>
+                             </div>
+                        </div>
+                        <div class="themed-card rounded-2xl overflow-hidden group">
+                             <img src="https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?q=80&w=1974&auto=format&fit=crop" 
+                                   onerror="this.onerror=null;this.src='https://placehold.co/600x400/141424/F472B6?text=Full+Moon+Rituals';"
+                                   class="w-full h-48 object-cover" alt="Full moon in the night sky">
+                             <div class="p-6">
+                                <p class="text-sm transition-colors duration-300" style="color: var(--accent-color);">Wellness</p>
+                                <h3 class="text-xl font-semibold mt-2 transition-colors duration-300 group-hover:opacity-70" style="color: var(--text-color);">Full Moon Rituals for Releasing and Renewing</h3>
+                                <p class="mt-2 text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Harness lunar energy to let go of what no longer serves you.</p>
+                             </div>
+                        </div>
+                        <div class="themed-card rounded-2xl overflow-hidden group">
+                             <img src="https://images.unsplash.com/photo-1504333638930-c8787321eee0?q=80&w=2070&auto=format&fit=crop" 
+                                   onerror="this.onerror=null;this.src='https://placehold.co/600x400/141424/818CF8?text=Zodiac+Elements';"
+                                   class="w-full h-48 object-cover" alt="Astrology chart with zodiac signs">
+                             <div class="p-6">
+                                <p class="text-sm transition-colors duration-300" style="color: var(--accent-color);">Astrology 101</p>
+                                <h3 class="text-xl font-semibold mt-2 transition-colors duration-300 group-hover:opacity-70" style="color: var(--text-color);">Understanding the Four Zodiac Elements</h3>
+                                <p class="mt-2 text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Dive into the fundamentals of Fire, Earth, Air, and Water signs.</p>
+                             </div>
+                        </div>
+                    </div>
+                 </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t transition-colors duration-300" style="background-color: var(--header-bg); border-color: var(--border-color);">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-3">
+                        <img src="images/logo.png" alt="LightHouse Astro Logo" class="h-12 w-12 object-cover">
+                        <h3 class="text-lg font-semibold transition-colors duration-300" style="color: var(--text-color);">LightHouse Astro</h3>
+                    </div>
+                    <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Your guide in the stars.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold transition-colors duration-300" style="color: var(--text-color);">Quick Links</h3>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="#home" data-section="home" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Home</a></li>
+                        <li><a href="#zodiac" data-section="zodiac" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Zodiacs</a></li>
+                        <li><a href="#about" data-section="about" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Services</a></li>
+                        <li><a href="#contact" data-section="contact" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold transition-colors duration-300" style="color: var(--text-color);">Legal</h3>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="#" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Privacy Policy</a></li>
+                        <li><a href="#" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Terms of Service</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h3 class="text-lg font-semibold transition-colors duration-300" style="color: var(--text-color);">Connect</h3>
+                    <div class="flex mt-2 space-x-4">
+                        <a href="#" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;"><i data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t pt-8 text-center transition-colors duration-300" style="border-color: var(--border-color); color: var(--text-color); opacity: 0.7;">
+                <p>&copy; 2025 LightHouse Astro. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top-btn" class="hidden fixed bottom-8 right-8 p-3 rounded-full shadow-lg hover:opacity-80 transition-opacity z-50" 
+            style="background-color: var(--accent-color); color: #000000;">
+        <i data-lucide="arrow-up"></i>
+    </button>
 
-    <!-- JAVASCRIPT FILES (External libraries and custom scripts) -->
-    <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/jquery.min.js" defer></script>
-    <script src="assets/js/jquery.scrollex.min.js" defer></script>
-    <script src="assets/js/jquery.scrolly.min.js" defer></script>
-    <script src="assets/js/browser.min.js" defer></script>
-    <script src="assets/js/breakpoints.min.js" defer></script>
-    <script src="assets/js/util.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-  </body>
+    <script>
+        // --- DATA ---
+        const zodiacSigns = [
+            { name: 'Aries', date: 'Mar 21 - Apr 19', icon: '♈', element: 'Fire', planet: 'Mars', compat: 'Leo, Sagittarius', 
+              details: 'Aries is the first spark of the zodiac. Those born under this sign are natural-born leaders, always eager to take initiative and dive headfirst into new challenges. Their fiery energy is infectious, inspiring others to act. However, their impulsiveness can sometimes lead them into trouble, and their desire to be first can manifest as impatience. An Aries thrives on competition and is not afraid to stand up for what they believe in.',
+              strengths: ['Courageous', 'Determined', 'Confident', 'Enthusiastic'], weaknesses: ['Impatient', 'Moody', 'Short-tempered', 'Impulsive'],
+              likes: ['Leadership roles', 'Physical challenges', 'Individual sports'], dislikes: ['Inactivity', 'Delays', 'Work that does not use one\'s talents']
+            },
+            { name: 'Taurus', date: 'Apr 20 - May 20', icon: '♉', element: 'Earth', planet: 'Venus', compat: 'Virgo, Capricorn', 
+              details: 'Taurus, the steadfast bull, is a sign of stability, patience, and unwavering determination. Ruled by Venus, they have a deep appreciation for beauty, luxury, and the finer things in life. Taureans are incredibly reliable and make for loyal, devoted friends and partners. Their earthy nature means they are grounded and practical, but it can also translate into stubbornness and a resistance to change. They find comfort in routine and the familiar.',
+              strengths: ['Reliable', 'Patient', 'Practical', 'Devoted'], weaknesses: ['Stubborn', 'Possessive', 'Uncompromising'],
+              likes: ['Gardening', 'Cooking', 'Music', 'High-quality clothes'], dislikes: ['Sudden changes', 'Complications', 'Insecurity of any kind']
+            },
+            { name: 'Gemini', date: 'May 21 - Jun 20', icon: '♊', element: 'Air', planet: 'Mercury', compat: 'Libra, Aquarius', 
+              details: 'Gemini is the social butterfly of the zodiac, represented by the celestial twins. This duality reflects their multifaceted personality; they can be both sociable and serious, communicative and contemplative. Ruled by Mercury, the planet of communication, Geminis are excellent conversationalists, quick-witted, and endlessly curious. They love to learn and share information, but their short attention span can sometimes make them seem scattered or superficial.',
+              strengths: ['Gentle', 'Affectionate', 'Curious', 'Adaptable'], weaknesses: ['Nervous', 'Inconsistent', 'Indecisive'],
+              likes: ['Music', 'Books', 'Magazines', 'Chats with nearly anyone'], dislikes: ['Being alone', 'Being confined', 'Repetition and routine']
+            },
+            { name: 'Cancer', date: 'Jun 21 - Jul 22', icon: '♋', element: 'Water', planet: 'Moon', compat: 'Scorpio, Pisces', 
+              details: 'Cancer, the nurturing crab, is deeply connected to the realms of emotion and home. Ruled by the Moon, their moods can ebb and flow like the tides. They are highly intuitive, empathetic, and protective of their loved ones. Cancers create safe, cozy environments and value family and tradition above all else. While their sensitivity is a great strength, it can also make them prone to moodiness and insecurity if they feel their emotional needs are not being met.',
+              strengths: ['Tenacious', 'Highly imaginative', 'Loyal', 'Emotional'], weaknesses: ['Moody', 'Pessimistic', 'Suspicious', 'Insecure'],
+              likes: ['Art', 'Home-based hobbies', 'Relaxing near water', 'A good meal with friends'], dislikes: ['Strangers', 'Any criticism of Mom', 'Revealing of personal life']
+            },
+            { name: 'Leo', date: 'Jul 23 - Aug 22', icon: '♌', element: 'Fire', planet: 'Sun', compat: 'Aries, Sagittarius', 
+              details: 'Leo, the magnificent lion, is the king of the celestial jungle. Ruled by the Sun, Leos are born to shine and love being the center of attention. They are natural leaders, full of warmth, generosity, and a flair for the dramatic. Their confidence is magnetic, and they have a big heart. However, their pride can sometimes border on arrogance, and they can be stubborn in their beliefs. A Leo is fiercely loyal and protective of their pride.',
+              strengths: ['Creative', 'Passionate', 'Generous', 'Warm-hearted'], weaknesses: ['Arrogant', 'Stubborn', 'Self-centered', 'Lazy'],
+              likes: ['Theater', 'Taking holidays', 'Being admired', 'Expensive things'], dislikes: ['Being ignored', 'Facing difficult reality', 'Not being treated like a king or queen']
+            },
+            { name: 'Virgo', date: 'Aug 23 - Sep 22', icon: '♍', element: 'Earth', planet: 'Mercury', compat: 'Taurus, Capricorn', 
+              details: 'Virgo is the sign of precision, diligence, and practicality. Ruled by Mercury, Virgos have a sharp, analytical mind and an incredible eye for detail. They are perfectionists at heart, always striving to improve themselves and the world around them. Their methodical approach makes them excellent problem-solvers. This desire for perfection, however, can lead them to be overly critical of themselves and others, and they can get lost in the details.',
+              strengths: ['Loyal', 'Analytical', 'Kind', 'Hardworking'], weaknesses: ['Shyness', 'Worry', 'Overly critical of self and others'],
+              likes: ['Animals', 'Healthy food', 'Books', 'Nature'], dislikes: ['Rudeness', 'Asking for help', 'Taking center stage']
+            },
+            { name: 'Libra', date: 'Sep 23 - Oct 22', icon: '♎', element: 'Air', planet: 'Venus', compat: 'Gemini, Aquarius', 
+              details: 'Libra, represented by the scales, is the sign of balance, harmony, and justice. Ruled by Venus, Libras are aesthetes who appreciate beauty in all its forms, from art to relationships. They are natural diplomats, always seeking to create fairness and cooperation. Their desire to keep the peace can sometimes lead to indecisiveness and a tendency to avoid confrontation. A Libra thrives in partnership and social settings.',
+              strengths: ['Cooperative', 'Diplomatic', 'Gracious', 'Fair-minded'], weaknesses: ['Indecisive', 'Avoids confrontations', 'Will carry a grudge'],
+              likes: ['Harmony', 'Gentleness', 'Sharing with others', 'The outdoors'], dislikes: ['Violence', 'Injustice', 'Loudmouths', 'Conformity']
+            },
+            { name: 'Scorpio', date: 'Oct 23 - Nov 21', icon: '♏', element: 'Water', planet: 'Pluto, Mars', compat: 'Cancer, Pisces', 
+              details: 'Scorpio is the most intense and mysterious sign of the zodiac. A water sign ruled by Pluto, Scorpios operate on a deep, emotional, and psychic level. They are passionate, resourceful, and incredibly determined. When a Scorpio sets a goal, they pursue it with relentless focus. They are fiercely loyal but can be secretive and suspicious until trust is earned. Their powerful emotions can sometimes manifest as jealousy or possessiveness.',
+              strengths: ['Resourceful', 'Brave', 'Passionate', 'A true friend'], weaknesses: ['Distrusting', 'Jealous', 'Secretive', 'Violent'],
+              likes: ['Truth', 'Facts', 'Being right', 'Longtime friends'], dislikes: ['Dishonesty', 'Revealing secrets', 'Passive people']
+            },
+            { name: 'Sagittarius', date: 'Nov 22 - Dec 21', icon: '♐', element: 'Fire', planet: 'Jupiter', compat: 'Aries, Leo', 
+              details: 'Sagittarius, the archer, is the eternal adventurer of the zodiac. Ruled by Jupiter, the planet of expansion and optimism, Sagittarians are on a constant quest for knowledge, truth, and meaning. They are freedom-loving, philosophical, and have a great sense of humor. Their open-mindedness makes them natural explorers, but their bluntness can sometimes be misconstrued as carelessness. They hate being tied down and value their independence above all.',
+              strengths: ['Generous', 'Idealistic', 'Great sense of humor'], weaknesses: ['Promises more than can deliver', 'Very impatient', 'Will say anything no matter how undiplomatic'],
+              likes: ['Freedom', 'Travel', 'Philosophy', 'Being outdoors'], dislikes: ['Clingy people', 'Being constrained', 'Off-the-wall theories', 'Details']
+            },
+            { name: 'Capricorn', date: 'Dec 22 - Jan 19', icon: '♑', element: 'Earth', planet: 'Saturn', compat: 'Taurus, Virgo', 
+              details: 'Capricorn is the sign of discipline, responsibility, and ambition. Ruled by Saturn, the planet of structure and karma, Capricorns are masters of self-control and are willing to climb the highest mountains to achieve their goals. They are grounded, practical, and have a strong sense of tradition. While their determination is admirable, they can sometimes come across as cold, pessimistic, or overly concerned with status. They are the ultimate long-term planners.',
+              strengths: ['Responsible', 'Disciplined', 'Self-control', 'Good managers'], weaknesses: ['Know-it-all', 'Unforgiving', 'Condescending', 'Expecting the worst'],
+              likes: ['Family', 'Tradition', 'Music', 'Understated status'], dislikes: ['Almost everything at some point']
+            },
+            { name: 'Aquarius', date: 'Jan 20 - Feb 18', icon: '♒', element: 'Air', planet: 'Uranus, Saturn', compat: 'Gemini, Libra', 
+              details: 'Aquarius is the revolutionary thinker of the zodiac. An air sign ruled by Uranus, the planet of innovation and rebellion, Aquarians are forward-thinking humanitarians who want to make the world a better place. They are independent, original, and march to the beat of their own drum. They value intellectual stimulation and friendship. While they champion the collective, they can sometimes be emotionally detached and unpredictable on a personal level.',
+              strengths: ['Progressive', 'Original', 'Independent', 'Humanitarian'], weaknesses: ['Runs from emotional expression', 'Temperamental', 'Uncompromising', 'Aloof'],
+              likes: ['Fun with friends', 'Helping others', 'Fighting for causes', 'Intellectual conversation'], dislikes: ['Limitations', 'Broken promises', 'Being lonely', 'Dull or boring situations']
+            },
+            { name: 'Pisces', date: 'Feb 19 - Mar 20', icon: '♓', element: 'Water', planet: 'Neptune, Jupiter', compat: 'Cancer, Scorpio',
+              details: 'Pisces is the final sign of the zodiac, embodying the wisdom and empathy of all the signs that have come before. A water sign ruled by Neptune, Pisces is the sign of dreams, intuition, and artistic expression. They are deeply compassionate, gentle, and have a boundless imagination. Their connection to the spiritual and mystical is strong. However, their desire to escape reality can sometimes lead to escapism or being overly trusting and easily led.',
+              strengths: ['Compassionate', 'Artistic', 'Intuitive', 'Wise'], weaknesses: ['Fearful', 'Overly trusting', 'Sad', 'Desire to escape reality'],
+              likes: ['Being alone', 'Sleeping', 'Music', 'Romance'], dislikes: ['Know-it-alls', 'Being criticized', 'The past coming back to haunt', 'Cruelty of any kind']
+            }
+        ];
+
+        const quizQuestions = [
+            { question: "When faced with a challenge, you...", options: ["Tackle it head-on", "Analyze all possible outcomes", "Ask a friend for advice", "Go with your gut feeling"] },
+            { question: "Your ideal weekend is...", options: ["A spontaneous road trip", "A cozy night in with a book", "A big party with friends", "Volunteering for a cause"] },
+            { question: "In a group project, you are the...", options: ["Leader, delegating tasks", "Planner, creating the schedule", "Mediator, ensuring everyone gets along", "Creative, bringing new ideas"] },
+            { question: "You feel most energized when...", options: ["Achieving a difficult goal", "Having a deep conversation", "Making someone laugh", "Creating something beautiful"] },
+            { question: "Which element do you feel most connected to?", options: ["The crackling of a bonfire (Fire)", "The feeling of earth under your feet (Earth)", "A fresh breeze on a clear day (Air)", "The sound of ocean waves (Water)"] },
+            { question: "People would describe you as...", options: ["Reliable and steady", "Curious and adaptable", "Passionate and intense", "Dreamy and compassionate"] },
+            { question: "When making a decision, you prioritize...", options: ["Logic and facts", "Harmony and fairness", "Your personal values", "The needs of others"] },
+            { question: "Your ideal living space is...", options: ["Minimalist and modern", "Luxurious and comfortable", "Full of books and art", "Cozy and filled with plants"] }
+        ];
+
+        const faqs = [
+            { q: "How accurate is astrology?", a: "Astrology provides a framework for understanding personality and life patterns based on planetary positions. While many find it incredibly accurate and insightful, it is best used as a guide for self-exploration rather than a set of absolute predictions." },
+            { q: "What is a birth chart?", a: "A birth chart, or natal chart, is a snapshot of the sky at the exact moment you were born. It shows the positions of the sun, moon, and planets, which astrologers interpret to reveal your personality, strengths, and life's potential." },
+            { q: "How does the AI personality quiz work?", a: "Our quiz uses your answers to identify core personality traits. This data is then processed by an AI model that has been trained on astrological and psychological principles to generate a unique personality summary and compatibility analysis, offering a modern twist on traditional methods." }
+        ];
+
+        // --- GLOBAL VARIABLES ---
+        let currentQuestionIndex = 0;
+        let heroCarouselInterval;
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initTheme();
+            initNavigation();
+            initHomePage();
+            initZodiacPage();
+            initQuizPage();
+            initContactPage();
+            initFaq();
+            initScrollToTop();
+        });
+
+        // --- 5. ADDED: reCAPTCHA Rendering Function ---
+        function renderRecaptcha() {
+            const container = document.getElementById('recaptcha-container');
+            if (!container) return; // Exit if the container isn't visible
+            
+            // Clear any previous reCAPTCHA instance to prevent errors
+            container.innerHTML = ''; 
+            
+            const currentTheme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+
+            // This function tries to render the reCAPTCHA. If the Google script isn't loaded yet,
+            // it waits a moment and tries again.
+            const tryRender = () => {
+                if (typeof grecaptcha !== 'undefined' && grecaptcha.render) {
+                    grecaptcha.render(container, {
+                        'sitekey': '6LexEOkqAAAAAEvnuHFUcV8Ub-IoDpRUeL40-ak4',
+                        'theme': currentTheme
+                    });
+                } else {
+                    setTimeout(tryRender, 100); // Retry after 100ms
+                }
+            };
+            tryRender();
+        }
+
+        // --- THEME MANAGEMENT ---
+        function initTheme() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            
+            // Apply saved theme
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+            }
+            
+            // Set up event listeners
+            themeToggle.addEventListener('click', toggleTheme);
+            if (themeToggleMobile) {
+                themeToggleMobile.addEventListener('click', toggleTheme);
+            }
+        }
+        
+        function toggleTheme() {
+            const isLightMode = document.body.classList.toggle('light-mode');
+            localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+            lucide.createIcons(); // Refresh icons to ensure proper colors
+            // 6. MODIFIED: Re-render reCAPTCHA when theme changes
+            renderRecaptcha(); 
+        }
+
+        // --- NAVIGATION ---
+        function initNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link, [data-section]');
+            const sections = document.querySelectorAll('.page-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            function switchPage(targetId) {
+                sections.forEach(section => {
+                    section.classList.toggle('active-section', section.id === targetId);
+                    section.classList.toggle('hidden-section', section.id !== targetId);
+                });
+
+                document.querySelectorAll('.nav-link').forEach(link => {
+                     link.classList.remove('active');
+                     if(link.dataset.section === targetId){
+                         link.classList.add('active');
+                     }
+                });
+                
+                window.scrollTo(0, 0);
+                mobileMenu.classList.add('hidden');
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = e.currentTarget.dataset.section;
+                    if (targetId) {
+                        switchPage(targetId);
+                    }
+                });
+            });
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            const headerContainer = document.getElementById('header-container');
+            window.addEventListener('scroll', () => {
+                if(window.scrollY > 50) {
+                    headerContainer.classList.add('py-3');
+                    headerContainer.classList.remove('py-4');
+                } else {
+                    headerContainer.classList.add('py-4');
+                    headerContainer.classList.remove('py-3');
+                }
+            });
+        }
+        
+        // --- HOME PAGE LOGIC ---
+        function initHomePage() {
+            // Featured Zodiac
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+            const featuredIndex = dayOfYear % zodiacSigns.length;
+            const featuredSign = zodiacSigns[featuredIndex];
+
+            document.getElementById('featured-zodiac-date').textContent = today.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            const featuredContainer = document.getElementById('featured-zodiac');
+            featuredContainer.innerHTML = `
+                <div class="text-6xl">${featuredSign.icon}</div>
+                <div class="flex-1">
+                    <h3 class="text-3xl font-bold transition-colors duration-300" style="color: var(--text-color);">${featuredSign.name} <span class="text-lg font-normal transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${featuredSign.date}</span></h3>
+                    <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">${featuredSign.details.substring(0, 150)}...</p>
+                    <a href="#zodiac" data-section="zodiac" class="mt-4 inline-block font-semibold hover:underline transition-colors duration-300" style="color: var(--accent-color);">Learn More about ${featuredSign.name} &rarr;</a>
+                </div>
+            `;
+            
+            // Hero Carousel
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('bg-[#D4C5A3]', i === index);
+                    dot.classList.toggle('bg-gray-600', i !== index);
+                });
+                currentSlide = index;
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const slideIndex = parseInt(e.target.dataset.slide);
+                    showSlide(slideIndex);
+                    resetCarouselInterval();
+                });
+            });
+
+            function nextSlide() {
+                showSlide((currentSlide + 1) % slides.length);
+            }
+            
+            function resetCarouselInterval() {
+                clearInterval(heroCarouselInterval);
+                heroCarouselInterval = setInterval(nextSlide, 5000);
+            }
+
+            heroCarouselInterval = setInterval(nextSlide, 5000);
+            showSlide(0);
+        }
+
+        // --- ZODIAC PAGE LOGIC ---
+        function initZodiacPage() {
+            const grid = document.querySelector('#zodiac .grid');
+            const modal = document.getElementById('zodiac-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const modalContent = document.getElementById('modal-content');
+            const findZodiacBtn = document.getElementById('find-zodiac-btn');
+            const birthdateInput = document.getElementById('birthdate');
+            const zodiacResult = document.getElementById('zodiac-result');
+            const zodiac1Select = document.getElementById('zodiac1');
+            const zodiac2Select = document.getElementById('zodiac2');
+            const comparisonResult = document.getElementById('comparison-result');
+            
+            grid.innerHTML = '';
+            zodiacSigns.forEach(sign => {
+                const card = document.createElement('div');
+                card.className = 'themed-card p-6 rounded-2xl text-center hover:-translate-y-1 transition-transform duration-300 cursor-pointer';
+                card.innerHTML = `
+                    <div class="text-5xl">${sign.icon}</div>
+                    <h3 class="text-xl font-bold mt-2 transition-colors duration-300" style="color: var(--text-color);">${sign.name}</h3>
+                    <p class="text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${sign.date}</p>
+                `;
+                card.addEventListener('click', () => showZodiacDetails(sign));
+                grid.appendChild(card);
+
+                const option1 = new Option(sign.name, sign.name);
+                const option2 = new Option(sign.name, sign.name);
+                zodiac1Select.add(option1);
+                zodiac2Select.add(option2);
+            });
+            
+            zodiac2Select.selectedIndex = 1;
+
+            function showZodiacDetails(sign) {
+                modalContent.innerHTML = `
+                    <div class="text-center mb-6">
+                        <span class="text-7xl">${sign.icon}</span>
+                        <h2 class="text-4xl font-bold mt-2 transition-colors duration-300" style="color: var(--text-color);">${sign.name}</h2>
+                        <p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${sign.date}</p>
+                    </div>
+                    <div class="prose prose-invert max-w-none leading-relaxed transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">${sign.details}</div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mt-8 border-t pt-6 transition-colors duration-300" style="border-color: var(--border-color);">
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2" style="color: #10B981;">Strengths</h4>
+                            <ul class="list-disc list-inside transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
+                                ${sign.strengths.map(s => `<li>${s}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2" style="color: #EF4444;">Weaknesses</h4>
+                            <ul class="list-disc list-inside transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
+                                ${sign.weaknesses.map(w => `<li>${w}</li>`).join('')}
+                            </ul>
+                        </div>
+                         <div>
+                            <h4 class="font-semibold text-lg mb-2" style="color: #3B82F6;">Likes</h4>
+                            <ul class="list-disc list-inside transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
+                                ${sign.likes.map(l => `<li>${l}</li>`).join('')}
+                            </ul>
+                        </div>
+                         <div>
+                            <h4 class="font-semibold text-lg mb-2" style="color: #F59E0B;">Dislikes</h4>
+                            <ul class="list-disc list-inside transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
+                                ${sign.dislikes.map(d => `<li>${d}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+                modal.classList.remove('hidden');
+            }
+
+            closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.add('hidden');
+            });
+            
+            findZodiacBtn.addEventListener('click', () => {
+                const date = new Date(birthdateInput.value);
+                if (birthdateInput.value && !isNaN(date.getTime())) {
+                    const sign = getZodiacSign(date.getMonth() + 1, date.getDate());
+                    zodiacResult.textContent = `Your Zodiac sign is ${sign.name}! ${sign.icon}`;
+                    zodiacResult.classList.remove('hidden');
+                    setTimeout(() => showZodiacDetails(sign), 500);
+                } else {
+                    zodiacResult.textContent = 'Please enter a valid date.';
+                    zodiacResult.classList.remove('hidden');
+                }
+            });
+
+            function getZodiacSign(month, day) {
+                 if((month==1 && day >= 20) || (month==2 && day <= 18)) return zodiacSigns.find(s=>s.name==='Aquarius');
+                 if((month==2 && day >= 19) || (month==3 && day <= 20)) return zodiacSigns.find(s=>s.name==='Pisces');
+                 if((month==3 && day >= 21) || (month==4 && day <= 19)) return zodiacSigns.find(s=>s.name==='Aries');
+                 if((month==4 && day >= 20) || (month==5 && day <= 20)) return zodiacSigns.find(s=>s.name==='Taurus');
+                 if((month==5 && day >= 21) || (month==6 && day <= 20)) return zodiacSigns.find(s=>s.name==='Gemini');
+                 if((month==6 && day >= 21) || (month==7 && day <= 22)) return zodiacSigns.find(s=>s.name==='Cancer');
+                 if((month==7 && day >= 23) || (month==8 && day <= 22)) return zodiacSigns.find(s=>s.name==='Leo');
+                 if((month==8 && day >= 23) || (month==9 && day <= 22)) return zodiacSigns.find(s=>s.name==='Virgo');
+                 if((month==9 && day >= 23) || (month==10 && day <= 22)) return zodiacSigns.find(s=>s.name==='Libra');
+                 if((month==10 && day >= 23) || (month==11 && day <= 21)) return zodiacSigns.find(s=>s.name==='Scorpio');
+                 if((month==11 && day >= 22) || (month==12 && day <= 21)) return zodiacSigns.find(s=>s.name==='Sagittarius');
+                 return zodiacSigns.find(s=>s.name==='Capricorn');
+            }
+
+            const checkCompatibility = () => {
+                const sign1 = zodiacSigns.find(s => s.name === zodiac1Select.value);
+                const sign2 = zodiacSigns.find(s => s.name === zodiac2Select.value);
+
+                if(sign1.name === sign2.name){
+                     comparisonResult.innerHTML = `<h4 class="text-xl font-semibold mb-2 transition-colors duration-300" style="color: var(--text-color);">Perfect Match!</h4><p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">${sign1.name} and ${sign2.name} share the same core values. This is a powerful, understanding bond.</p>`;
+                } else if(sign1.compat.includes(sign2.name)) {
+                     comparisonResult.innerHTML = `<h4 class="text-xl font-semibold mb-2 transition-colors duration-300" style="color: var(--text-color);">High Compatibility!</h4><p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">${sign1.name} and ${sign2.name} are a great match, sharing similar elements and outlooks on life.</p>`;
+                } else if(sign1.element === sign2.element) {
+                    comparisonResult.innerHTML = `<h4 class="text-xl font-semibold mb-2 transition-colors duration-300" style="color: var(--text-color);">Good Compatibility</h4><p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Sharing the same element (${sign1.element}), ${sign1.name} and ${sign2.name} understand each other well, though they might have different approaches.</p>`;
+                } else {
+                    comparisonResult.innerHTML = `<h4 class="text-xl font-semibold mb-2 transition-colors duration-300" style="color: var(--text-color);">Challenging but Rewarding</h4><p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">The connection between ${sign1.name} and ${sign2.name} may have its challenges, but offers great opportunities for growth.</p>`;
+                }
+                comparisonResult.classList.remove('hidden');
+            };
+
+            zodiac1Select.addEventListener('change', checkCompatibility);
+            zodiac2Select.addEventListener('change', checkCompatibility);
+            checkCompatibility();
+        }
+
+        // --- QUIZ PAGE LOGIC ---
+        function initQuizPage() {
+            const startQuizBtn = document.getElementById('start-quiz-btn');
+            const quizIntro = document.getElementById('quiz-intro');
+            const quizContainer = document.getElementById('quiz-container');
+
+            startQuizBtn.addEventListener('click', () => {
+                quizIntro.classList.add('hidden');
+                quizContainer.classList.remove('hidden');
+                currentQuestionIndex = 0;
+                displayQuestion();
+            });
+        }
+
+        function displayQuestion() {
+            const questionData = quizQuestions[currentQuestionIndex];
+            const questionText = document.getElementById('question-text');
+            const optionsContainer = document.getElementById('options-container');
+            const progressBar = document.getElementById('progress-bar');
+            
+            questionText.textContent = questionData.question;
+            optionsContainer.innerHTML = '';
+
+            questionData.options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.className = 'w-full p-4 font-semibold rounded-lg hover:opacity-80 transition-colors duration-200';
+                button.style.cssText = `border: 1px solid var(--accent-color); color: var(--text-color);`;
+                button.addEventListener('click', selectAnswer);
+                optionsContainer.appendChild(button);
+            });
+            
+            const progress = ((currentQuestionIndex) / quizQuestions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+        
+        function selectAnswer() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizQuestions.length) {
+                displayQuestion();
+            } else {
+                showQuizResults();
+            }
+        }
+
+        function showQuizResults() {
+            const quizContainer = document.getElementById('quiz-container');
+            const questionContainer = document.getElementById('question-container');
+            const loader = document.getElementById('quiz-loader');
+            const results = document.getElementById('quiz-results');
+            const progressBar = document.getElementById('progress-bar');
+
+            progressBar.style.width = '100%';
+            questionContainer.classList.add('hidden');
+            loader.classList.remove('hidden');
+
+            setTimeout(() => {
+                quizContainer.classList.add('hidden');
+                results.classList.remove('hidden');
+                results.classList.add('fade-in');
+                lucide.createIcons();
+            }, 2500);
+        }
+        
+        // --- CONTACT PAGE LOGIC ---
+        function initContactPage() {
+            const calendarGrid = document.getElementById('calendar-grid');
+            const monthYearEl = document.getElementById('month-year');
+            const prevMonthBtn = document.getElementById('prev-month');
+            const nextMonthBtn = document.getElementById('next-month');
+            const timeSlotsContainer = document.getElementById('time-slots');
+            const timeGrid = document.getElementById('time-grid');
+            const selectedDateText = document.getElementById('selected-date-text');
+            const bookingConfirmation = document.getElementById('booking-confirmation');
+
+            let date = new Date();
+            
+            function renderCalendar() {
+                date.setDate(1);
+                const monthDays = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+                const firstDayIndex = date.getDay();
+                
+                monthYearEl.innerText = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+                calendarGrid.innerHTML = '';
+
+                for (let i = 0; i < firstDayIndex; i++) {
+                    calendarGrid.innerHTML += `<div></div>`;
+                }
+
+                for (let i = 1; i <= monthDays; i++) {
+                    const dayEl = document.createElement('div');
+                    dayEl.innerText = i;
+                    const thisDate = new Date(date.getFullYear(), date.getMonth(), i);
+                    const today = new Date();
+                    today.setHours(0,0,0,0);
+
+                    let classes = 'p-2 text-center rounded-full ';
+                    if (thisDate >= today) {
+                        classes += 'cursor-pointer hover:opacity-70';
+                         dayEl.addEventListener('click', () => showTimeSlots(i));
+                    } else {
+                        classes += 'opacity-50 cursor-not-allowed';
+                    }
+                    if (date.getFullYear() === new Date().getFullYear() && date.getMonth() === new Date().getMonth() && i === new Date().getDate()) {
+                        classes += ' text-black';
+                        dayEl.style.backgroundColor = 'var(--accent-color)';
+                    } else {
+                        dayEl.style.color = 'var(--text-color)';
+                    }
+                    dayEl.className = classes;
+                    calendarGrid.appendChild(dayEl);
+                }
+            }
+            
+            function showTimeSlots(day) {
+                timeSlotsContainer.classList.remove('hidden');
+                selectedDateText.innerText = new Date(date.getFullYear(), date.getMonth(), day).toLocaleDateString();
+                timeGrid.innerHTML = '';
+                bookingConfirmation.classList.add('hidden');
+                
+                ['09:00 AM', '10:00 AM', '02:00 PM', '03:00 PM'].forEach(time => {
+                     const timeBtn = document.createElement('button');
+                     timeBtn.innerText = time;
+                     timeBtn.className = 'p-3 rounded-lg hover:opacity-80 transition';
+                     timeBtn.style.cssText = `background-color: var(--text-color); opacity: 0.2; color: var(--text-color);`;
+                     timeBtn.addEventListener('click', () => {
+                         bookingConfirmation.innerText = `Confirmed! Your trial is booked for ${selectedDateText.innerText} at ${time}. Check your email!`;
+                         bookingConfirmation.classList.remove('hidden');
+                     });
+                     timeGrid.appendChild(timeBtn);
+                });
+            }
+
+            prevMonthBtn.addEventListener('click', () => {
+                date.setMonth(date.getMonth() - 1);
+                renderCalendar();
+            });
+            nextMonthBtn.addEventListener('click', () => {
+                date.setMonth(date.getMonth() + 1);
+                renderCalendar();
+            });
+
+            renderCalendar();
+
+            // --- Form submission logic updated from your old script ---
+            renderRecaptcha();
+
+            const form = document.getElementById('contact-form');
+            const responseMessageEl = document.getElementById('response-message');
+            const url = "https://script.google.com/macros/s/AKfycbw33G3AZEuxFF8zAPKjlJGMSciK-UkcPGnTZeAFFKTBDL9YFjJX4164zszl-3oYv62z/exec";
+
+            if (form) {
+                form.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+
+                    const captchaResponse = grecaptcha.getResponse();
+                    if (!captchaResponse) {
+                        responseMessageEl.textContent = "Please complete the CAPTCHA.";
+                        responseMessageEl.style.color = '#EF4444';
+                        return;
+                    }
+                    
+                    const name = form.elements['name'].value.trim();
+                    const email = form.elements['email'].value.trim();
+                    const message = form.elements['message'].value.trim();
+
+                    if (!name || !email || !message) {
+                        responseMessageEl.textContent = "Please fill in all required fields.";
+                        responseMessageEl.style.color = '#EF4444';
+                        return;
+                    }
+
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        responseMessageEl.textContent = "Please enter a valid email address.";
+                        responseMessageEl.style.color = '#EF4444';
+                        return;
+                    }
+
+                    responseMessageEl.textContent = "Sending...";
+                    responseMessageEl.style.color = 'var(--text-color)';
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    submitButton.disabled = true;
+
+                    // This is the key change: using URLSearchParams to match your old script's format
+                    const formData = new URLSearchParams({ name, email, message });
+
+                    try {
+                        const response = await fetch(url, {
+                            method: "POST",
+                            body: formData,
+                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        });
+
+                        if (response.ok) {
+                            responseMessageEl.textContent = "Message sent successfully! We'll be in touch.";
+                            responseMessageEl.style.color = '#10B981';
+                            form.reset();
+                            grecaptcha.reset();
+                        } else {
+                            throw new Error("Failed to send message. Please try again later.");
+                        }
+                    } catch (error) {
+                        console.error("Contact form error:", error);
+                        responseMessageEl.textContent = "Network error. Please try again.";
+                        responseMessageEl.style.color = '#EF4444';
+                    } finally {
+                        submitButton.disabled = false;
+                    }
+                });
+            }
+        }
+
+        function initFaq() {
+            const container = document.getElementById('faq-container');
+            container.innerHTML = '';
+            faqs.forEach(faq => {
+                const item = document.createElement('div');
+                item.className = 'themed-card rounded-lg shadow-sm overflow-hidden';
+                item.innerHTML = `
+                    <button class="w-full flex justify-between items-center text-left p-4 font-semibold transition-colors duration-300" style="color: var(--text-color);">
+                        <span>${faq.q}</span>
+                        <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-4 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="pb-4 transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">${faq.a}</p>
+                    </div>
+                `;
+                container.appendChild(item);
+                
+                const btn = item.querySelector('button');
+                const content = item.querySelector('div');
+                const icon = item.querySelector('i');
+
+                btn.addEventListener('click', () => {
+                    const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+                    if(isOpen){
+                         content.style.maxHeight = '0px';
+                         icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+            lucide.createIcons();
+        }
+
+        // --- SCROLL TO TOP ---
+        function initScrollToTop() {
+            const btn = document.getElementById('scroll-to-top-btn');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    btn.classList.remove('hidden');
+                } else {
+                    btn.classList.add('hidden');
+                }
+            });
+            btn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
+</body>
 </html>
+
