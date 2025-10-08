@@ -721,8 +721,9 @@
             </a>
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#home" class="nav-link active" data-section="home">Home</a>
-                <a href="#contact" class="nav-link" data-section="contact">Contact & Booking</a>
-                <a href="#about" class="nav-link" data-section="about">About & Services</a>
+                <a href="#booking" class="nav-link" data-section="booking">Booking</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact Us</a>
+                <a href="#about" class="nav-link" data-section="about">About Us</a>
                 <button id="theme-toggle" class="p-2 rounded-full">
                     <i class="theme-icon-light" data-lucide="sun" class="w-5 h-5" style="color: var(--accent-color);"></i>
                     <i class="theme-icon-dark" data-lucide="moon" class="w-5 h-5" style="color: var(--accent-color);"></i>
@@ -741,8 +742,9 @@
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 border-t transition-colors duration-300"
              style="background-color: var(--header-bg); border-color: var(--border-color);">
             <a href="#home" class="block py-2 nav-link active" data-section="home">Home</a>
-            <a href="#contact" class="block py-2 nav-link" data-section="contact">Contact & Booking</a>
-            <a href="#about" class="block py-2 nav-link" data-section="about">About & Services</a>
+            <a href="#booking" class="block py-2 nav-link" data-section="booking">Booking</a>
+            <a href="#contact" class="block py-2 nav-link" data-section="contact">Contact Us</a>
+            <a href="#about" class="block py-2 nav-link" data-section="about">About Us</a>
         </div>
     </header>
 
@@ -761,14 +763,14 @@
                     <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-6">
                         <h1 class="text-4xl md:text-6xl font-bold font-serif leading-tight text-white" id="carousel-title-1">Discover Your Cosmic Blueprint</h1>
                         <p class="mt-4 text-lg max-w-2xl mx-auto text-white" id="carousel-desc-1">Unveil the secrets of the stars and navigate your life's journey with clarity and confidence.</p>
-                        <a href="#contact" data-section="contact" class="mt-8 inline-block themed-btn py-3 px-8 rounded-full" id="carousel-cta-1">Explore Services</a>
+                        <a href="#booking" data-section="booking" class="mt-8 inline-block themed-btn py-3 px-8 rounded-full" id="carousel-cta-1">Book a Reading</a>
                     </div>
                 </div>
                 <div class="carousel-slide">
                      <img src="images/hero2.jpg" class="absolute inset-0 w-full h-full object-cover -z-10" alt="Person looking at stars">
                     <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-6">
                         <h1 class="text-4xl md:text-6xl font-bold font-serif leading-tight text-white" id="carousel-title-2">Unlock Your Potential</h1>
-                        <p class="mt-4 text-lg max-w-2xl mx-auto text-white" id="carousel-desc-2">Learn more about our services and how we can help you on your journey of self-discovery.</p>
+                        <p class="mt-4 text-lg max-w-2xl mx-auto text-white" id="carousel-desc-2">Learn more about our philosophy and how we can help you on your journey of self-discovery.</p>
                         <a href="#about" data-section="about" class="mt-8 inline-block themed-btn py-3 px-8 rounded-full" id="carousel-cta-2">Learn More</a>
                     </div>
                 </div>
@@ -777,7 +779,7 @@
                     <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-6">
                         <h1 class="text-4xl md:text-6xl font-bold font-serif leading-tight text-white" id="carousel-title-3">Schedule a Free Analysis</h1>
                         <p class="mt-4 text-lg max-w-2xl mx-auto text-white" id="carousel-desc-3">Connect with our expert astrologer for a complimentary 1-hour session to explore your birth chart.</p>
-                        <a href="#contact" data-section="contact" class="mt-8 inline-block themed-btn py-3 px-8 rounded-full" id="carousel-cta-3">Book Your Free Trial</a>
+                        <a href="#booking" data-section="booking" class="mt-8 inline-block themed-btn py-3 px-8 rounded-full" id="carousel-cta-3">Book Your Free Trial</a>
                     </div>
                 </div>
                 
@@ -831,16 +833,16 @@
             </div>
         </section>
 
-        <section id="contact" class="page-section hidden-section">
-             <div class="container mx-auto px-6 py-20">
+        <section id="booking" class="page-section hidden-section">
+            <div class="container mx-auto px-6 py-20">
                 <div class="text-center mb-12">
-                    <h1 class="text-4xl md:text-5xl font-bold font-serif">Connect With Us</h1>
-                    <p class="mt-4 text-lg max-w-2xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Schedule your complimentary 1-hour analysis, ask a question, or learn more about our services.</p>
+                    <h1 class="text-4xl md:text-5xl font-bold font-serif">Book Your Consultation</h1>
+                    <p class="mt-4 text-lg max-w-2xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Schedule your complimentary 1-hour analysis. Select a date and time that works for you.</p>
                 </div>
-
-                <div class="themed-card p-8 rounded-2xl">
+        
+                <div class="themed-card p-8 rounded-2xl max-w-5xl mx-auto">
                     <h2 class="text-3xl font-bold text-center mb-2" id="booking-title">Schedule Your Free Trial Analysis</h2>
-                    <p class="text-center transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;" id="booking-description">Select a date and time that works for you. All times are in your local timezone.</p>
+                    <p class="text-center transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;" id="booking-description">All times are in your local timezone.</p>
                     
                     <div class="grid md:grid-cols-2 gap-8 mt-8">
                         <div id="calendar-container">
@@ -863,12 +865,21 @@
                         </div>
                     </div>
                 </div>
-                
-                 <div class="mt-20">
+            </div>
+        </section>
+
+        <section id="contact" class="page-section hidden-section">
+             <div class="container mx-auto px-6 py-20">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-bold font-serif">Contact Us</h1>
+                    <p class="mt-4 text-lg max-w-2xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Have questions? We'd love to hear from you. Check our FAQs or send us a message directly.</p>
+                </div>
+
+                <div class="mt-12">
                       <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
                       <div id="faq-container" class="max-w-3xl mx-auto space-y-4">
                       </div>
-             </div>
+                </div>
 
                  <div class="mt-20 max-w-3xl mx-auto themed-card p-8 rounded-2xl">
                       <h2 class="text-3xl font-bold text-center mb-8" id="contact-form-title">Have a Question?</h2>
@@ -900,23 +911,12 @@
                     <p class="mt-4 text-lg max-w-3xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">LightHouse Astro was founded on the belief that the stars offer a powerful map for self-discovery, personal growth, and understanding our place in the universe.</p>
                 </div>
                 
-                 <div class="themed-card py-20 rounded-2xl">
-                      <div class="container mx-auto px-6">
-                          <div class="text-center mb-12">
-                              <h2 class="text-3xl md:text-4xl font-bold">Our Services & Pricing</h2>
-                              <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Choose the plan that's right for your journey.</p>
-                          </div>
-                          <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto" id="pricing-container">
-                          </div>
-                      </div>
-                 </div>
-
                  <div class="py-20">
-                       <div class="text-center mb-12">
+                     <div class="text-center mb-12">
                           <h2 class="text-3xl md:text-4xl font-bold">Meet Our Astrologer</h2>
                           <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">A certified professional dedicated to your journey.</p>
                       </div>
-                       <div class="flex justify-center">
+                     <div class="flex justify-center">
                           <div class="text-center">
                               <img src=""
                                    onerror="this.onerror=null;this.src='https://placehold.co/120x120/1A1A2E/A78BFA?text=AG';"
@@ -924,11 +924,11 @@
                               <h3 class="text-xl font-semibold mt-4 transition-colors duration-300" style="color: var(--text-color);">Amit Gupta</h3>
                               <p class="transition-colors duration-300" style="color: var(--accent-color);">Founder & Lead Astrologer</p>
                           </div>
-                      </div>
-                 </div>
+                     </div>
+                </div>
 
                   <div class="py-20 border-t transition-colors duration-300" style="border-color: var(--border-color);">
-                        <div class="text-center mb-12">
+                      <div class="text-center mb-12">
                           <h2 class="text-3xl md:text-4xl font-bold">From Our Blog</h2>
                           <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Latest insights and news from the celestial world.</p>
                       </div>
@@ -955,8 +955,9 @@
                     <h3 class="text-lg font-semibold transition-colors duration-300" style="color: var(--text-color);">Quick Links</h3>
                     <ul class="mt-2 space-y-2">
                         <li><a href="#home" data-section="home" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Home</a></li>
-                        <li><a href="#about" data-section="about" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Services</a></li>
-                        <li><a href="#contact" data-section="contact" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Contact</a></li>
+                        <li><a href="#booking" data-section="booking" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Booking</a></li>
+                        <li><a href="#contact" data-section="contact" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Contact Us</a></li>
+                        <li><a href="#about" data-section="about" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">About Us</a></li>
                     </ul>
                 </div>
                 <div>
@@ -1304,7 +1305,7 @@
                 document.querySelectorAll('.nav-link').forEach(link => {
                      link.classList.remove('active');
                      if(link.dataset.section === targetId){
-                         link.classList.add('active');
+                          link.classList.add('active');
                      }
                 });
                 
@@ -1678,13 +1679,13 @@
                 });
             }
             
-            // Pricing Tiers
+            // Pricing Tiers (This section is now removed from About page, so this JS block won't find the container and won't run)
             const pricingContainer = document.getElementById('pricing-container');
             if (pricingContainer) {
                  const tiers = [
-                      { name: "Free Trial", price: "£0 / ₹0", period: "", features: ["1-Hour Analysis", "Basic Birth Chart", "Zodiac Profile"], cta: "Book Now", popular: false, link: "#contact", isFree: true},
-                      { name: "Stargazer", price: "£50 / ₹5000", period: "/ month", features: ["Full Natal Chart Reading", "Monthly Forecasts", "Email Support", "Compatibility Check"], cta: "Choose Plan", popular: true, isFree: false },
-                      { name: "Cosmic Navigator", price: "£120 / ₹12000", period: "/ quarter", features: ["Everything in Stargazer", "Quarterly Live Sessions", "Relationship Analysis", "Priority Support"], cta: "Choose Plan", popular: false, isFree: false }
+                       { name: "Free Trial", price: "£0 / ₹0", period: "", features: ["1-Hour Analysis", "Basic Birth Chart", "Zodiac Profile"], cta: "Book Now", popular: false, link: "#contact", isFree: true},
+                       { name: "Stargazer", price: "£50 / ₹5000", period: "/ month", features: ["Full Natal Chart Reading", "Monthly Forecasts", "Email Support", "Compatibility Check"], cta: "Choose Plan", popular: true, isFree: false },
+                       { name: "Cosmic Navigator", price: "£120 / ₹12000", period: "/ quarter", features: ["Everything in Stargazer", "Quarterly Live Sessions", "Relationship Analysis", "Priority Support"], cta: "Choose Plan", popular: false, isFree: false }
                  ];
                 pricingContainer.innerHTML = tiers.map(tier => `
                     <div class="p-8 rounded-2xl text-center themed-card ${tier.popular ? 'glow relative' : ''}">
@@ -1694,7 +1695,7 @@
                         <ul class="space-y-3 transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
                             ${tier.features.map(feature => `<li>${feature}</li>`).join('')}
                         </ul>
-                        <button class="mt-6 w-full themed-btn py-3 rounded-lg pricing-btn" data-section="${tier.isFree ? 'contact' : ''}">${tier.cta}</button>
+                        <button class="mt-6 w-full themed-btn py-3 rounded-lg pricing-btn" data-section="${tier.isFree ? 'booking' : ''}">${tier.cta}</button>
                     </div>
                 `).join('');
                 
