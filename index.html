@@ -10,10 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google reCAPTCHA API Script -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <!-- HTML2Canvas for image conversion -->
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <style>
         /* --- LAYOUT & THEME SETUP --- */
         html, body { 
@@ -371,18 +368,6 @@
             color: #000;
         }
         
-        /* Quiz enhancements */
-        .quiz-option {
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-        }
-        
-        .quiz-option:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
         /* Section backgrounds */
         .section-bg {
             background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
@@ -411,57 +396,9 @@
             50% { opacity: 1; }
         }
         
-        /* Improved zodiac cards */
-        .zodiac-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            perspective: 1000px;
-        }
-        
-        .zodiac-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
-        }
-        
         /* Glow effect */
         .glow {
             box-shadow: 0 0 20px rgba(212, 197, 163, 0.3);
-        }
-        
-        /* Improved progress bar */
-        .progress-bar-container {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .progress-bar {
-            height: 8px;
-            border-radius: 10px;
-            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
-            transition: width 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background-image: linear-gradient(
-                -45deg,
-                rgba(255, 255, 255, 0.2) 25%,
-                transparent 25%,
-                transparent 50%,
-                rgba(255, 255, 255, 0.2) 50%,
-                rgba(255, 255, 255, 0.2) 75%,
-                transparent 75%,
-                transparent
-            );
-            z-index: 1;
-            background-size: 50px 50px;
-            animation: shimmer 2s linear infinite;
         }
         
         /* Logo styles - remove any background or border */
@@ -496,147 +433,11 @@
             }
         }
 
-        /* Chatbot Styles - FIXED POSITIONING */
-        #chatbot-container {
-            position: fixed;
-            bottom: 90px; /* Increased to avoid overlap with scroll button */
-            right: 20px;
-            z-index: 1000;
-        }
-
-        #chatbot-toggle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%);
-            color: #000000;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        #chatbot-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        #chatbot-window {
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            width: 350px;
-            height: 500px;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        #chatbot-window.active {
-            display: flex;
-        }
-
-        #chatbot-header {
-            padding: 15px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #chatbot-messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .chat-message {
-            max-width: 80%;
-            padding: 10px 15px;
-            border-radius: 18px;
-            margin-bottom: 10px;
-        }
-
-        .user-message {
-            align-self: flex-end;
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%);
-            color: #000000;
-        }
-
-        .bot-message {
-            align-self: flex-start;
-            background-color: var(--section-bg);
-            color: var(--text-color);
-        }
-
-        #chatbot-input-container {
-            padding: 15px;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            gap: 10px;
-        }
-
-        #chatbot-input {
-            flex: 1;
-            padding: 10px 15px;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
-            background-color: var(--input-bg);
-            color: var(--text-color);
-            outline: none;
-        }
-
-        #chatbot-send {
-            padding: 10px 15px;
-            border-radius: 20px;
-            border: none;
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%);
-            color: #000000;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        #chatbot-send:hover {
-            transform: scale(1.05);
-        }
-
-        .typing-indicator {
-            display: inline-block;
-            position: relative;
-            width: 40px;
-            height: 20px;
-        }
-
-        .typing-indicator span {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            margin: 0 2px;
-            animation: typing 1.4s infinite ease-in-out;
-        }
-
-        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
-        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
-
-        @keyframes typing {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
-        }
-
         /* Improved formatting for AI-generated content */
         .ai-content {
             line-height: 1.6;
+            white-space: pre-wrap;
+            text-align: left;
         }
         
         .ai-content h3, .ai-content h4 {
@@ -665,302 +466,261 @@
             opacity: 0.8;
         }
         
-        /* Daily horoscope grid */
-        .horoscope-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .horoscope-card {
-            height: 100%;
+        /* --- REDESIGNED Facebook Posts Styling --- */
+        .facebook-posts-container {
             display: flex;
             flex-direction: column;
+            gap: 2rem;
         }
-        
-        .horoscope-card .zodiac-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* =============================================================================
-           NEW PROGRESS BAR STYLES
-           ============================================================================= */
-        
-        .ai-progress-container {
-            margin: 2rem 0;
-            padding: 1.5rem;
-            border-radius: 12px;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-        }
-        
-        .ai-progress-header {
+
+        /* Latest Post Row */
+        .latest-post-row {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
+            justify-content: center;
         }
-        
-        .ai-progress-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--accent-color);
+
+        .latest-post {
+            width: 100%;
+            /* ADJUSTMENT: Increased width */
+            max-width: 1100px;
+            text-align: left;
         }
-        
-        .ai-progress-percentage {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
+
+        .latest-post .facebook-post {
+            padding: 2rem;
         }
-        
-        .ai-progress-bar {
-            height: 12px;
-            background-color: var(--section-bg);
-            border-radius: 10px;
+
+        .latest-post .post-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .latest-post .post-content {
+            /* ADJUSTMENT: Reduced height */
+            max-height: 150px;
             overflow: hidden;
-            margin-bottom: 0.75rem;
-        }
-        
-        .ai-progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
-            border-radius: 10px;
-            transition: width 0.5s ease;
             position: relative;
         }
-        
-        .ai-progress-fill::after {
+
+        .latest-post .post-content.expanded {
+            max-height: none;
+        }
+
+        .latest-post .post-content::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
             bottom: 0;
+            left: 0;
             right: 0;
-            background-image: linear-gradient(
-                -45deg,
-                rgba(255, 255, 255, 0.2) 25%,
-                transparent 25%,
-                transparent 50%,
-                rgba(255, 255, 255, 0.2) 50%,
-                rgba(255, 255, 255, 0.2) 75%,
-                transparent 75%,
-                transparent
-            );
-            background-size: 50px 50px;
-            animation: shimmer 2s linear infinite;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent 0%, var(--card-bg) 100%);
+            opacity: 1;
+            transition: opacity 0.3s ease;
         }
-        
-        .ai-progress-message {
-            text-align: center;
-            font-style: italic;
-            color: var(--text-color);
-            opacity: 0.8;
-            transition: all 0.3s ease;
+
+        .latest-post .post-content.expanded::after {
+            opacity: 0;
         }
-        
-        .ai-progress-complete {
-            color: #10B981;
+
+        .latest-post .see-more-btn {
+            background: none;
+            border: none;
+            color: var(--accent-color);
             font-weight: 600;
-        }
-        
-        /* Zodiac comparison button */
-        .compare-btn {
-            margin-top: 1rem;
-            width: 100%;
-        }
-
-        /* NEW: Improved Zodiac Calendar Styles */
-        .zodiac-calendar {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .zodiac-calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .zodiac-calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 4px;
-        }
-
-        .zodiac-calendar-day {
-            padding: 10px;
-            text-align: center;
-            border-radius: 50%;
             cursor: pointer;
-            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.2s ease;
         }
 
-        .zodiac-calendar-day:hover:not(.disabled):not(.selected) {
-            background-color: var(--accent-color);
-            color: #000;
+        .latest-post .see-more-btn:hover {
+            opacity: 0.8;
+            text-decoration: underline;
         }
 
-        .zodiac-calendar-day.selected {
-            background-color: var(--accent-color);
-            color: #000;
-            font-weight: bold;
+        .latest-post .post-image-container {
+            margin-top: 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
         }
 
-        .zodiac-calendar-day.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .latest-post .post-footer {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
         }
 
-        .zodiac-calendar-day.today {
-            background-color: var(--accent-light);
-            color: #000;
+        /* Older Posts Row */
+        .older-posts-row {
+            display: flex;
+            justify-content: center;
         }
 
-        .zodiac-calendar-weekday {
-            text-align: center;
-            padding: 8px 0;
-            font-weight: 600;
-            opacity: 0.7;
+        .older-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+            /* ADJUSTMENT: Cover more area */
+            max-width: 100%;
         }
-
-        /* NEW: Quiz Level Selection Styles */
-        .quiz-level-selection {
+        
+        .older-post {
+            height: 100%;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            margin-top: 2rem;
         }
 
-        .quiz-level-option {
+        .older-post .facebook-post {
             padding: 1.5rem;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-        }
-
-        .quiz-level-option:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        .quiz-level-option.selected {
-            border-color: var(--accent-color);
-            background-color: rgba(212, 197, 163, 0.1);
-        }
-
-        .quiz-level-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .quiz-level-description {
-            opacity: 0.8;
-        }
-
-        /* NEW: Compatibility Report Styles */
-        .compatibility-section {
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .compatibility-section:last-child {
-            border-bottom: none;
-        }
-
-        .compatibility-section h4 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-
-        .compatibility-rating {
+            flex-grow: 1;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+        }
+
+        .older-post .post-header {
             margin-bottom: 1rem;
         }
-
-        .compatibility-stars {
-            display: flex;
-            margin-right: 1rem;
-        }
-
-        .compatibility-star {
-            color: var(--accent-color);
-            margin-right: 2px;
-        }
-
-        .compatibility-percentage {
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-
-        /* NEW: Zodiac Details Modal Improvements */
-        .zodiac-details-section {
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .zodiac-details-section:last-child {
-            border-bottom: none;
-        }
-
-        .zodiac-details-section h4 {
-            font-size: 1.25rem;
+        
+        /* NEW: Styles for the image container in older posts */
+        .older-post-image-container {
             margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-
-        /* NEW: Share Report Button Styles */
-        .share-report-btn {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-        }
-
-        .share-options {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-            justify-content: center;
-        }
-
-        .share-option {
-            padding: 0.75rem 1.5rem;
             border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            overflow: hidden;
             border: 1px solid var(--border-color);
         }
-
-        .share-option:hover {
-            background-color: var(--accent-color);
-            color: #000;
+        
+        .older-post-image-container img {
+            width: 100%;
+            height: 128px; /* 8rem */
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
+        
+        .older-post-image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .older-post .post-content {
+            flex-grow: 1;
+            /* ADJUSTMENT: Increased content visibility */
+            max-height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .older-post .post-content::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* ADJUSTMENT: Increased gradient height */
+            height: 50px;
+            background: linear-gradient(to bottom, transparent 0%, var(--card-bg) 100%);
+        }
+
+        .older-post .post-footer {
+            margin-top: auto; /* Push footer to the bottom */
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .older-post .view-post-btn {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        /* CTA Section */
+        .facebook-cta-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .facebook-cta {
+            text-align: center;
+            padding: 2.5rem;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+        }
+
+        .facebook-cta p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .older-posts-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.25rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .latest-post .facebook-post {
+                padding: 1.5rem;
+            }
+
+            .older-posts-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .older-posts-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .facebook-cta {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* General Facebook Post Styles */
+        .facebook-post.themed-card {
+            text-align: left;
+            border-radius: 16px;
+        }
+        
+        .facebook-post.themed-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .post-header img {
+            object-fit: cover;
+        }
+
+        .post-content {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .post-footer .themed-btn i {
+            color: inherit;
+        }
+
     </style>
 </head>
 <body class="antialiased">
-    <!-- Starfield Background -->
     <div class="starfield" id="starfield"></div>
 
-    <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-b transition-colors duration-300" 
             style="background-color: var(--header-bg); border-color: var(--border-color);">
         <div id="header-container" class="container mx-auto px-6 py-4 flex justify-between items-center transition-all duration-300">
-            <!-- Logo -->
             <a href="#home" class="text-2xl font-bold font-serif flex items-center gap-4" data-section="home">
                 <img src="images/logo.png" alt="LightHouse Astro Logo" class="h-16 w-16 object-contain logo">
                 <span class="gradient-text">LightHouse Astro</span>
             </a>
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#home" class="nav-link active" data-section="home">Home</a>
-                <a href="#zodiac" class="nav-link" data-section="zodiac">Know Your Zodiac</a>
-                <a href="#quiz" class="nav-link" data-section="quiz">Personality Quiz</a>
                 <a href="#contact" class="nav-link" data-section="contact">Contact & Booking</a>
                 <a href="#about" class="nav-link" data-section="about">About & Services</a>
                 <button id="theme-toggle" class="p-2 rounded-full">
@@ -978,23 +738,17 @@
                 </button>
             </div>
         </div>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 border-t transition-colors duration-300"
              style="background-color: var(--header-bg); border-color: var(--border-color);">
             <a href="#home" class="block py-2 nav-link active" data-section="home">Home</a>
-            <a href="#zodiac" class="block py-2 nav-link" data-section="zodiac">Know Your Zodiac</a>
-            <a href="#quiz" class="block py-2 nav-link" data-section="quiz">Personality Quiz</a>
             <a href="#contact" class="block py-2 nav-link" data-section="contact">Contact & Booking</a>
             <a href="#about" class="block py-2 nav-link" data-section="about">About & Services</a>
         </div>
     </header>
 
     <main class="pt-28">
-        <!-- Home Page -->
         <section id="home" class="page-section active-section">
-            <!-- Hero Section Carousel -->
             <div id="hero-carousel" class="container mx-auto px-6 relative overflow-hidden">
-                <!-- Carousel Navigation Arrows - Clean Design -->
                 <button class="carousel-arrow prev">
                     <i data-lucide="chevron-left" class="w-8 h-8"></i>
                 </button>
@@ -1007,15 +761,15 @@
                     <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-6">
                         <h1 class="text-4xl md:text-6xl font-bold font-serif leading-tight text-white" id="carousel-title-1">Discover Your Cosmic Blueprint</h1>
                         <p class="mt-4 text-lg max-w-2xl mx-auto text-white" id="carousel-desc-1">Unveil the secrets of the stars and navigate your life's journey with clarity and confidence.</p>
-                        <a href="#zodiac" data-section="zodiac" class="mt-8 inline-block themed-btn py-3 px-8 rounded-full" id="carousel-cta-1">Find Your Zodiac Sign</a>
+                        <a href="#contact" data-section="contact" class="mt-8 inline-block themed-btn py-3 px-8 rounded-full" id="carousel-cta-1">Explore Services</a>
                     </div>
                 </div>
                 <div class="carousel-slide">
                      <img src="images/hero2.jpg" class="absolute inset-0 w-full h-full object-cover -z-10" alt="Person looking at stars">
                     <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-6">
-                        <h1 class="text-4xl md:text-6xl font-bold font-serif leading-tight text-white" id="carousel-title-2">Unlock Your Personality</h1>
-                        <p class="mt-4 text-lg max-w-2xl mx-auto text-white" id="carousel-desc-2">Take our AI-powered quiz to reveal the deeper layers of who you are and what makes you tick.</p>
-                        <a href="#quiz" data-section="quiz" class="mt-8 inline-block themed-btn py-3 px-8 rounded-full" id="carousel-cta-2">Take the Personality Quiz</a>
+                        <h1 class="text-4xl md:text-6xl font-bold font-serif leading-tight text-white" id="carousel-title-2">Unlock Your Potential</h1>
+                        <p class="mt-4 text-lg max-w-2xl mx-auto text-white" id="carousel-desc-2">Learn more about our services and how we can help you on your journey of self-discovery.</p>
+                        <a href="#about" data-section="about" class="mt-8 inline-block themed-btn py-3 px-8 rounded-full" id="carousel-cta-2">Learn More</a>
                     </div>
                 </div>
                  <div class="carousel-slide">
@@ -1027,7 +781,6 @@
                     </div>
                 </div>
                 
-                <!-- Carousel Dots -->
                 <div class="carousel-dots">
                     <div class="carousel-dot active" data-slide="0"></div>
                     <div class="carousel-dot" data-slide="1"></div>
@@ -1035,7 +788,6 @@
                 </div>
             </div>
 
-            <!-- Features Overview -->
             <div class="py-20 section-bg">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-12">
@@ -1043,26 +795,11 @@
                         <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;" id="features-subtitle">Everything you need to explore your celestial identity.</p>
                     </div>
                     <div class="grid md:grid-cols-3 gap-8" id="features-container">
-                        <!-- Dynamic features will be injected here by Gemini API -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Featured Zodiac -->
-            <div class="py-20">
-                <div class="container mx-auto px-6">
-                     <div class="text-center mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold">Zodiac of the Day</h2>
-                        <p id="featured-zodiac-date" class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;"></p>
-                    </div>
-                    <div id="featured-zodiac" class="themed-card p-8 md:p-12 rounded-2xl flex flex-col md:flex-row items-center gap-8">
-                        <!-- Content will be dynamically generated by Gemini API -->
                     </div>
                 </div>
             </div>
             
-            <!-- How Astrology Works -->
-            <div class="py-20 section-bg">
+            <div class="py-20">
                 <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <h2 class="text-3xl md:text-4xl font-bold leading-snug" id="astrology-title">Astrology: The Language of the Cosmos</h2>
@@ -1071,223 +808,29 @@
                     </div>
                     <div>
                          <img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop"
-                              onerror="this.onerror=null;this.src='https://placehold.co/600x400/0F0F1A/A78BFA?text=Cosmic+Alignments';"
-                              class="rounded-2xl shadow-2xl object-cover w-full h-full themed-card" alt="Cosmic Alignments">
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/0F0F1A/A78BFA?text=Cosmic+Alignments';"
+                                 class="rounded-2xl shadow-2xl object-cover w-full h-full themed-card" alt="Cosmic Alignments">
                     </div>
                 </div>
             </div>
 
-            <!-- Daily Horoscope Section (Replaces Testimonials) -->
-            <div class="py-20">
+            <!-- REDESIGNED Facebook Posts Section -->
+            <div class="py-20 section-bg">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold" id="horoscope-title">Daily Horoscope</h2>
-                        <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;" id="horoscope-subtitle">Your celestial guidance for today.</p>
-                    </div>
-                    <div class="horoscope-grid" id="horoscope-container">
-                        <!-- Dynamic horoscopes will be injected here by Gemini API -->
-                    </div>
-                </div>
-            </div>
-
-             <!-- Newsletter Signup -->
-            <div class="container mx-auto px-6 py-20">
-                <div class="themed-card p-12 rounded-2xl text-center shadow-2xl">
-                    <h2 class="text-3xl font-bold" id="newsletter-title">Subscribe to Cosmic Updates</h2>
-                    <p class="mt-2 max-w-xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;" id="newsletter-description">Get weekly horoscopes, astrological news, and special offers delivered straight to your inbox.</p>
-                    <form class="mt-6 flex flex-col md:flex-row justify-center gap-4 max-w-lg mx-auto">
-                        <input type="email" placeholder="Enter your email address" class="w-full px-4 py-3 rounded-full transition-colors duration-300 focus:outline-none focus:ring-4 transition-all duration-300 themed-card" 
-                               style="color: var(--text-color);" required>
-                        <button type="submit" class="themed-btn py-3 px-8 rounded-full">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Know Your Zodiac Page -->
-        <section id="zodiac" class="page-section hidden-section">
-            <div class="container mx-auto px-6 py-20">
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl md:text-5xl font-bold font-serif">What's Your Zodiac Sign?</h1>
-                    <p class="mt-4 text-lg max-w-2xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Select your sign below or enter your birth date to uncover your cosmic identity and explore your unique traits.</p>
-                </div>
-
-                <!-- Birthdate Input - NEW: Custom Styled Calendar -->
-                <div class="max-w-md mx-auto themed-card p-8 rounded-2xl mb-16">
-                    <label for="birthdate" class="block text-lg font-semibold mb-2 transition-colors duration-300" style="color: var(--text-color);">Enter Your Birth Date</label>
-                    
-                    <!-- NEW: Custom Calendar -->
-                    <div class="zodiac-calendar themed-card p-4 rounded-lg mb-4">
-                        <div class="zodiac-calendar-header">
-                            <button id="zodiac-prev-month" class="p-2 rounded-full transition-colors duration-300 hover:opacity-70">
-                                <i data-lucide="chevron-left"></i>
-                            </button>
-                            <h3 id="zodiac-month-year" class="text-xl font-semibold transition-colors duration-300" style="color: var(--text-color);"></h3>
-                            <button id="zodiac-next-month" class="p-2 rounded-full transition-colors duration-300 hover:opacity-70">
-                                <i data-lucide="chevron-right"></i>
-                            </button>
-                        </div>
-                        <div class="grid grid-cols-7 text-center font-semibold transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">
-                            <div class="zodiac-calendar-weekday">Su</div>
-                            <div class="zodiac-calendar-weekday">Mo</div>
-                            <div class="zodiac-calendar-weekday">Tu</div>
-                            <div class="zodiac-calendar-weekday">We</div>
-                            <div class="zodiac-calendar-weekday">Th</div>
-                            <div class="zodiac-calendar-weekday">Fr</div>
-                            <div class="zodiac-calendar-weekday">Sa</div>
-                        </div>
-                        <div id="zodiac-calendar-grid" class="zodiac-calendar-grid mt-2">
-                            <!-- Dates injected by JS -->
-                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold" id="facebook-title">Latest Cosmic Updates</h2>
+                        <p class="mt-2 max-w-xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;" id="facebook-description">Follow our journey and get the latest insights on our Facebook page.</p>
                     </div>
                     
-                    <div class="text-center">
-                        <button id="find-zodiac-btn" class="themed-btn py-3 px-8 rounded-lg">Find My Sign</button>
-                    </div>
-                    <div id="zodiac-result" class="mt-4 text-center text-xl font-semibold hidden transition-colors duration-300" style="color: var(--text-color);"></div>
-                </div>
-
-                <!-- Zodiac Grid -->
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="zodiac-grid">
-                    <!-- Zodiac signs will be injected here by Gemini API -->
-                </div>
-
-                <!-- Zodiac Modal - IMPROVED: Now includes daily horoscope -->
-                <div id="zodiac-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
-                    <div class="w-full max-w-4xl max-h-[90vh] rounded-2xl p-8 overflow-y-auto relative shadow-2xl themed-card">
-                        <button id="close-modal-btn" class="absolute top-4 right-4 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">
-                             <i data-lucide="x" class="w-8 h-8"></i>
-                        </button>
-                        <div id="modal-content">
-                            <!-- Detailed zodiac info injected here by Gemini API -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Compare Zodiacs - IMPROVED: Better formatted compatibility report -->
-                 <div class="themed-card p-8 rounded-2xl mt-20">
-                    <h2 class="text-3xl font-bold text-center mb-8">Compare Zodiac Signs</h2>
-                    <div class="flex flex-col md:flex-row items-center justify-center gap-8">
-                        <select id="zodiac1" class="p-3 rounded-lg w-full md:w-auto transition-colors duration-300 themed-card" 
-                                style="color: var(--text-color);"></select>
-                        <span class="text-2xl font-bold transition-colors duration-300" style="color: var(--accent-color);">&</span>
-                        <select id="zodiac2" class="p-3 rounded-lg w-full md:w-auto transition-colors duration-300 themed-card" 
-                                style="color: var(--text-color);"></select>
-                    </div>
-                    <!-- NEW: Compare button with progress indicator -->
-                    <div class="text-center mt-6">
-                        <button id="compare-zodiac-btn" class="themed-btn py-3 px-8 rounded-full compare-btn">Compare Zodiac</button>
-                    </div>
-                    <div id="comparison-progress" class="mt-6 hidden">
-                        <!-- Progress bar for zodiac comparison -->
-                    </div>
-                    <div id="comparison-result" class="mt-8 text-center p-6 rounded-lg hidden themed-card"></div>
-                 </div>
-            </div>
-        </section>
-
-        <!-- Personality Quiz Page - IMPROVED: Added level selection and share functionality -->
-        <section id="quiz" class="page-section hidden-section">
-             <div class="container mx-auto px-6 py-20">
-                <div id="quiz-intro" class="text-center">
-                    <h1 class="text-4xl md:text-5xl font-bold font-serif">The Cosmic Personality Quiz</h1>
-                    <p class="mt-4 text-lg max-w-2xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Ready to go deeper? This quiz, powered by AI, will reveal your core personality traits and your ideal cosmic partner.</p>
-                    
-                    <div class="mt-12 max-w-4xl mx-auto text-left themed-card p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold mb-4 text-center">How It Works</h3>
-                        <p class="mb-6 text-center transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;" id="quiz-explanation">Our unique quiz blends timeless astrological wisdom with modern AI to provide a deeply personalized analysis. By answering a series of intuitive questions, you're not just picking options – you're painting a picture of your inner world.</p>
-                        <div class="grid md:grid-cols-3 gap-6" id="quiz-features-container">
-                            <!-- Dynamic quiz features will be injected here by Gemini API -->
-                        </div>
-                    </div>
-
-                    <div class="mt-12">
-                        <h3 class="text-2xl font-bold mb-6">What You'll Discover</h3>
-                        <div class="grid md:grid-cols-3 gap-8 text-left" id="quiz-discover-container">
-                            <!-- Dynamic quiz discovery items will be injected here by Gemini API -->
-                        </div>
-                    </div>
-
-                    <!-- NEW: Quiz Level Selection -->
-                    <div class="mt-12 max-w-2xl mx-auto">
-                        <h3 class="text-2xl font-bold mb-6 text-center">Choose Your Analysis Depth</h3>
-                        <div class="quiz-level-selection">
-                            <div class="quiz-level-option" data-level="basic">
-                                <div class="quiz-level-title">Basic Analysis</div>
-                                <div class="quiz-level-description">5 questions - Quick insights into your personality traits and basic compatibility.</div>
-                            </div>
-                            <div class="quiz-level-option" data-level="moderate">
-                                <div class="quiz-level-title">Moderate Analysis</div>
-                                <div class="quiz-level-description">12 questions - Detailed personality profile with relationship insights and life purpose.</div>
-                            </div>
-                            <div class="quiz-level-option" data-level="deep">
-                                <div class="quiz-level-title">Deep Analysis</div>
-                                <div class="quiz-level-description">20 questions - Comprehensive personality analysis with detailed compatibility and life path guidance.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button id="start-quiz-btn" class="mt-12 inline-block themed-btn py-3 px-8 rounded-full">Start the Quiz</button>
-                </div>
-                
-                <!-- NEW: Quiz generation progress indicator -->
-                <div id="quiz-generation-progress" class="hidden max-w-2xl mx-auto themed-card p-8 rounded-2xl mt-8">
-                    <!-- Progress bar for quiz generation -->
-                </div>
-                
-                <div id="quiz-container" class="hidden max-w-2xl mx-auto themed-card p-8 rounded-2xl">
-                    <!-- Progress Bar -->
-                    <div class="progress-bar-container mb-6">
-                        <div id="progress-bar" class="progress-bar"></div>
-                    </div>
-                    <!-- Question -->
-                    <div id="question-container">
-                        <h2 id="question-text" class="text-2xl font-semibold mb-6 text-center transition-colors duration-300" style="color: var(--text-color);"></h2>
-                        <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <!-- Options injected by Gemini API -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NEW: Quiz results progress indicator -->
-                <div id="quiz-results-progress" class="hidden max-w-2xl mx-auto themed-card p-8 rounded-2xl mt-8">
-                    <!-- Progress bar for quiz results generation -->
-                </div>
-
-                <div id="quiz-results" class="hidden max-w-4xl mx-auto themed-card p-8 rounded-2xl mt-12">
-                    <h2 class="text-3xl font-bold text-center mb-2 gradient-text" id="quiz-result-title">Your Personality Report</h2>
-                    <p class="text-center transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;" id="quiz-result-subtitle">Generated by our advanced AI model.</p>
-                    
-                    <div class="ai-content" id="quiz-result-content">
-                        <!-- Dynamic quiz results will be injected here by Gemini API -->
-                    </div>
-
-                    <div class="mt-12" id="quiz-partner-types">
-                        <!-- Dynamic partner types will be injected here by Gemini API -->
-                    </div>
-
-                    <!-- NEW: Share Report Button -->
-                    <div class="share-report-btn">
-                        <button id="share-report-btn" class="themed-btn py-3 px-8 rounded-full">Share Results</button>
-                    </div>
-                    
-                    <!-- NEW: Share Options (hidden by default) -->
-                    <div id="share-options" class="share-options hidden">
-                        <div class="share-option" data-platform="whatsapp">
-                            <i data-lucide="message-circle"></i> WhatsApp
-                        </div>
-                        <div class="share-option" data-platform="telegram">
-                            <i data-lucide="send"></i> Telegram
-                        </div>
-                        <div class="share-option" data-platform="download">
-                            <i data-lucide="download"></i> Download
+                    <div id="facebook-posts-container" class="facebook-posts-container">
+                        <div class="text-center py-8">
+                            <p>Loading latest cosmic updates...</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Know More / Contact & Booking Page -->
         <section id="contact" class="page-section hidden-section">
              <div class="container mx-auto px-6 py-20">
                 <div class="text-center mb-12">
@@ -1295,72 +838,61 @@
                     <p class="mt-4 text-lg max-w-2xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">Schedule your complimentary 1-hour analysis, ask a question, or learn more about our services.</p>
                 </div>
 
-                <!-- Booking Section -->
                 <div class="themed-card p-8 rounded-2xl">
                     <h2 class="text-3xl font-bold text-center mb-2" id="booking-title">Schedule Your Free Trial Analysis</h2>
                     <p class="text-center transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;" id="booking-description">Select a date and time that works for you. All times are in your local timezone.</p>
                     
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <!-- Calendar -->
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
                         <div id="calendar-container">
                              <div class="flex justify-between items-center mb-4">
-                                <button id="prev-month" class="p-2 rounded-full transition-colors duration-300 hover:opacity-70"><i data-lucide="chevron-left"></i></button>
-                                <h3 id="month-year" class="text-xl font-semibold transition-colors duration-300" style="color: var(--text-color);"></h3>
-                                <button id="next-month" class="p-2 rounded-full transition-colors duration-300 hover:opacity-70"><i data-lucide="chevron-right"></i></button>
-                            </div>
+                                 <button id="prev-month" class="p-2 rounded-full transition-colors duration-300 hover:opacity-70"><i data-lucide="chevron-left"></i></button>
+                                 <h3 id="month-year" class="text-xl font-semibold transition-colors duration-300" style="color: var(--text-color);"></h3>
+                                 <button id="next-month" class="p-2 rounded-full transition-colors duration-300 hover:opacity-70"><i data-lucide="chevron-right"></i></button>
+                             </div>
                             <div class="grid grid-cols-7 gap-1 text-center font-semibold transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">
                                 <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
                             </div>
                             <div id="calendar-grid" class="grid grid-cols-7 gap-1 mt-2">
-                                <!-- Dates injected by JS -->
                             </div>
                         </div>
-                        <!-- Time Slots -->
                         <div id="time-slots" class="hidden">
                             <h3 class="text-xl font-semibold mb-4 transition-colors duration-300" style="color: var(--text-color);">Available Times on <span id="selected-date-text"></span></h3>
                             <div id="time-grid" class="grid grid-cols-2 gap-4">
-                                <!-- Time slots injected by JS -->
                             </div>
                             <p id="booking-confirmation" class="mt-4 text-center font-semibold hidden" style="color: #10B981;"></p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- FAQ Section -->
-                <div class="mt-20">
-                     <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
-                     <div id="faq-container" class="max-w-3xl mx-auto space-y-4">
-                         <!-- FAQs will be dynamically generated by Gemini API -->
-                     </div>
-                </div>
+                 <div class="mt-20">
+                      <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+                      <div id="faq-container" class="max-w-3xl mx-auto space-y-4">
+                      </div>
+             </div>
 
-                <!-- Contact Form -->
                  <div class="mt-20 max-w-3xl mx-auto themed-card p-8 rounded-2xl">
-                    <h2 class="text-3xl font-bold text-center mb-8" id="contact-form-title">Have a Question?</h2>
-                    <form id="contact-form">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded-lg transition-colors duration-300 themed-card" 
-                                   style="color: var(--text-color);" required>
-                            <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-lg transition-colors duration-300 themed-card" 
-                                   style="color: var(--text-color);" required>
-                        </div>
-                        <textarea name="message" placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg mt-6 transition-colors duration-300 themed-card" 
-                                  style="color: var(--text-color);" required></textarea>
-                        
-                        <!-- Google reCAPTCHA Container -->
-                        <div class="flex justify-center my-6">
-                            <div id="recaptcha-container"></div>
-                        </div>
+                      <h2 class="text-3xl font-bold text-center mb-8" id="contact-form-title">Have a Question?</h2>
+                      <form id="contact-form">
+                          <div class="grid md:grid-cols-2 gap-6">
+                              <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded-lg transition-colors duration-300 themed-card" 
+                                     style="color: var(--text-color);" required>
+                              <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-lg transition-colors duration-300 themed-card" 
+                                     style="color: var(--text-color);" required>
+                          </div>
+                          <textarea name="message" placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg mt-6 transition-colors duration-300 themed-card" 
+                                    style="color: var(--text-color);" required></textarea>
+                         
+                          <div class="flex justify-center my-6">
+                              <div id="recaptcha-container"></div>
+                          </div>
 
-                        <button type="submit" class="w-full mt-6 themed-btn py-3 rounded-lg">Send Message</button>
-                    </form>
-                    <!-- Response message placeholder -->
-                    <p id="response-message" class="text-center mt-4 h-6 font-semibold"></p>
-                </div>
+                          <button type="submit" class="w-full mt-6 themed-btn py-3 rounded-lg">Send Message</button>
+                      </form>
+                      <p id="response-message" class="text-center mt-4 h-6 font-semibold"></p>
+                 </div>
             </div>
         </section>
 
-        <!-- About / Services Page -->
         <section id="about" class="page-section hidden-section">
              <div class="container mx-auto px-6 py-20">
                 <div class="text-center mb-16">
@@ -1368,53 +900,47 @@
                     <p class="mt-4 text-lg max-w-3xl mx-auto transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">LightHouse Astro was founded on the belief that the stars offer a powerful map for self-discovery, personal growth, and understanding our place in the universe.</p>
                 </div>
                 
-                <!-- Pricing Tiers -->
-                <div class="themed-card py-20 rounded-2xl">
-                    <div class="container mx-auto px-6">
-                        <div class="text-center mb-12">
-                            <h2 class="text-3xl md:text-4xl font-bold">Our Services & Pricing</h2>
-                            <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Choose the plan that's right for your journey.</p>
-                        </div>
-                        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto" id="pricing-container">
-                            <!-- Dynamic pricing tiers will be injected here by Gemini API -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team Section -->
-                <div class="py-20">
-                     <div class="text-center mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold">Meet Our Astrologer</h2>
-                        <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">A certified professional dedicated to your journey.</p>
-                    </div>
-                     <div class="flex justify-center">
-                        <div class="text-center">
-                            <img src=""
-                                 onerror="this.onerror=null;this.src='https://placehold.co/120x120/1A1A2E/A78BFA?text=AG';"
-                                 class="rounded-full w-32 h-32 object-cover mx-auto shadow-lg border-2 themed-card" style="border-color: var(--accent-color);" alt="Astrologer Amit Gupta">
-                            <h3 class="text-xl font-semibold mt-4 transition-colors duration-300" style="color: var(--text-color);">Amit Gupta</h3>
-                            <p class="transition-colors duration-300" style="color: var(--accent-color);">Founder & Lead Astrologer</p>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Blog Section -->
-                 <div class="py-20 border-t transition-colors duration-300" style="border-color: var(--border-color);">
-                     <div class="text-center mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold">From Our Blog</h2>
-                        <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Latest insights and news from the celestial world.</p>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-8" id="blog-container">
-                        <!-- Dynamic blog posts will be injected here by Gemini API -->
-                    </div>
+                 <div class="themed-card py-20 rounded-2xl">
+                      <div class="container mx-auto px-6">
+                          <div class="text-center mb-12">
+                              <h2 class="text-3xl md:text-4xl font-bold">Our Services & Pricing</h2>
+                              <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Choose the plan that's right for your journey.</p>
+                          </div>
+                          <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto" id="pricing-container">
+                          </div>
+                      </div>
                  </div>
+
+                 <div class="py-20">
+                       <div class="text-center mb-12">
+                          <h2 class="text-3xl md:text-4xl font-bold">Meet Our Astrologer</h2>
+                          <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">A certified professional dedicated to your journey.</p>
+                      </div>
+                       <div class="flex justify-center">
+                          <div class="text-center">
+                              <img src=""
+                                   onerror="this.onerror=null;this.src='https://placehold.co/120x120/1A1A2E/A78BFA?text=AG';"
+                                   class="rounded-full w-32 h-32 object-cover mx-auto shadow-lg border-2 themed-card" style="border-color: var(--accent-color);" alt="Astrologer Amit Gupta">
+                              <h3 class="text-xl font-semibold mt-4 transition-colors duration-300" style="color: var(--text-color);">Amit Gupta</h3>
+                              <p class="transition-colors duration-300" style="color: var(--accent-color);">Founder & Lead Astrologer</p>
+                          </div>
+                      </div>
+                 </div>
+
+                  <div class="py-20 border-t transition-colors duration-300" style="border-color: var(--border-color);">
+                        <div class="text-center mb-12">
+                          <h2 class="text-3xl md:text-4xl font-bold">From Our Blog</h2>
+                          <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">Latest insights and news from the celestial world.</p>
+                      </div>
+                      <div class="grid md:grid-cols-3 gap-8" id="blog-container">
+                      </div>
+                  </div>
 
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
     <footer class="border-t transition-colors duration-300" style="background-color: var(--header-bg); border-color: var(--border-color);">
         <div class="container mx-auto px-6 py-12">
             <div class="grid md:grid-cols-4 gap-8">
@@ -1429,7 +955,6 @@
                     <h3 class="text-lg font-semibold transition-colors duration-300" style="color: var(--text-color);">Quick Links</h3>
                     <ul class="mt-2 space-y-2">
                         <li><a href="#home" data-section="home" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Home</a></li>
-                        <li><a href="#zodiac" data-section="zodiac" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Zodiacs</a></li>
                         <li><a href="#about" data-section="about" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Services</a></li>
                         <li><a href="#contact" data-section="contact" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;">Contact</a></li>
                     </ul>
@@ -1444,9 +969,10 @@
                  <div>
                     <h3 class="text-lg font-semibold transition-colors duration-300" style="color: var(--text-color);">Connect</h3>
                     <div class="flex mt-2 space-x-4">
-                        <a href="#" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;"><i data-lucide="twitter"></i></a>
-                        <a href="#" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;"><i data-lucide="instagram"></i></a>
-                        <a href="#" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;"><i data-lucide="facebook"></i></a>
+                        <a href="https://x.com/lighthouseastro" target="_blank" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;"><i data-lucide="twitter"></i></a>
+                        <a href="https://www.instagram.com/lighthouseastrology" target="_blank" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;"><i data-lucide="instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61557839980237" target="_blank" class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;"><i data-lucide="facebook"></i></a>
+                        <a href="mailto:lighthouseastro@gmail.com?subject=Astrology%20Inquiry&body=Hello,%20I%20want%20to%20know%20more%20about..." class="transition-colors duration-300 hover:opacity-100" style="color: var(--text-color); opacity: 0.7;"><i data-lucide="mail"></i></a>
                     </div>
                 </div>
             </div>
@@ -1456,1307 +982,268 @@
         </div>
     </footer>
     
-    <!-- Scroll to Top Button - FIXED: Position adjusted to avoid chatbot overlap -->
-    <button id="scroll-to-top-btn" class="hidden fixed bottom-20 right-8 p-3 rounded-full shadow-lg hover:opacity-80 transition-opacity z-50 themed-btn">
+    <button id="scroll-to-top-btn" class="hidden fixed bottom-8 right-8 p-3 rounded-full shadow-lg hover:opacity-80 transition-opacity z-50 themed-btn">
         <i data-lucide="arrow-up"></i>
     </button>
 
-    <!-- Chatbot - FIXED: Position adjusted to avoid overlap -->
-    <div id="chatbot-container">
-        <div id="chatbot-window">
-            <div id="chatbot-header">
-                <h3 class="font-semibold transition-colors duration-300" style="color: var(--text-color);">Cosmic Guide</h3>
-                <button id="chatbot-close" class="transition-colors duration-300" style="color: var(--text-color);">
-                    <i data-lucide="x"></i>
-                </button>
-            </div>
-            <div id="chatbot-messages">
-                <div class="chat-message bot-message">
-                    <p>Hello! I'm your cosmic guide. How can I help you with astrology today?</p>
-                </div>
-            </div>
-            <div id="chatbot-input-container">
-                <input type="text" id="chatbot-input" placeholder="Ask me anything about astrology..." class="transition-colors duration-300">
-                <button id="chatbot-send" class="transition-colors duration-300">
-                    <i data-lucide="send"></i>
-                </button>
-            </div>
-        </div>
-        <button id="chatbot-toggle" class="transition-colors duration-300">
-            <i data-lucide="message-circle"></i>
-        </button>
-    </div>
-
     <script>
-        // =============================================================================
-        // GEMINI API INTEGRATION - Replace with your actual API key
-        // =============================================================================
-        const GEMINI_API_KEY = 'AIzaSyDyVhhulBGfJ1qxfWpEU7KAVUd0S8aiSQY'; // REPLACE WITH YOUR ACTUAL API KEY
-        
-        // Base URL for Gemini API
-        const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`;
-
-        // Cache to store API responses and avoid duplicate calls
-        const apiCache = new Map();
-        
-        // Global variables for quiz level selection
-        let selectedQuizLevel = 'moderate'; // Default level
-        const quizLevels = {
-            basic: 5,
-            moderate: 12,
-            deep: 20
-        };
-        
-        // =============================================================================
-        // NEW PROGRESS BAR MANAGEMENT FUNCTIONS
-        // =============================================================================
-        
-        /**
-         * Creates a progress bar with numeric indicator
-         * @param {string} containerId - ID of the container to place the progress bar
-         * @param {string} title - Title for the progress bar
-         * @param {Array} messages - Array of messages to display at different progress levels
-         * @returns {Object} - Object with update and complete methods
-         */
-        function createProgressBar(containerId, title, messages = []) {
-            const container = document.getElementById(containerId);
-            if (!container) return null;
-            
-            // Default messages if none provided
-            if (messages.length === 0) {
-                messages = [
-                    "Starting...",
-                    "Processing...",
-                    "Almost there...",
-                    "Finalizing...",
-                    "Complete!"
-                ];
-            }
-            
-            // Create progress bar HTML
-            container.innerHTML = `
-                <div class="ai-progress-container">
-                    <div class="ai-progress-header">
-                        <div class="ai-progress-title">${title}</div>
-                        <div class="ai-progress-percentage">0%</div>
-                    </div>
-                    <div class="ai-progress-bar">
-                        <div class="ai-progress-fill" style="width: 0%"></div>
-                    </div>
-                    <div class="ai-progress-message">${messages[0]}</div>
-                </div>
-            `;
-            
-            const progressFill = container.querySelector('.ai-progress-fill');
-            const progressPercentage = container.querySelector('.ai-progress-percentage');
-            const progressMessage = container.querySelector('.ai-progress-message');
-            
-            let currentProgress = 0;
-            const messageInterval = Math.floor(100 / messages.length);
-            
-            return {
-                update: (percentage) => {
-                    currentProgress = Math.min(100, Math.max(0, percentage));
-                    progressFill.style.width = `${currentProgress}%`;
-                    progressPercentage.textContent = `${currentProgress}%`;
-                    
-                    // Update message based on progress
-                    const messageIndex = Math.min(
-                        messages.length - 1, 
-                        Math.floor(currentProgress / messageInterval)
-                    );
-                    progressMessage.textContent = messages[messageIndex];
-                    
-                    // Add special styling when complete
-                    if (currentProgress === 100) {
-                        progressMessage.classList.add('ai-progress-complete');
-                    }
-                },
-                complete: () => {
-                    this.update(100);
-                },
-                hide: () => {
-                    container.classList.add('hidden');
-                },
-                show: () => {
-                    container.classList.remove('hidden');
-                }
-            };
-        }
-        
-        /**
-         * Simulates progress with realistic timing for AI operations
-         * @param {Function} updateCallback - Function to call with progress percentage
-         * @param {Function} completeCallback - Function to call when progress completes
-         * @param {number} duration - Total duration in milliseconds
-         */
-        function simulateProgress(updateCallback, completeCallback, duration = 20000) {
-            let progress = 0;
-            const startTime = Date.now();
-            const endTime = startTime + duration;
-            
-            // Fast progress at the beginning
-            const fastPhase = 0.3 * duration;
-            // Slower progress in the middle
-            const slowPhase = 0.5 * duration;
-            // Final stretch
-            const finalPhase = 0.2 * duration;
-            
-            const updateProgress = () => {
-                const currentTime = Date.now();
-                const elapsed = currentTime - startTime;
-                
-                if (elapsed >= duration) {
-                    updateCallback(100);
-                    completeCallback();
-                    return;
-                }
-                
-                // Calculate progress based on phase
-                if (elapsed < fastPhase) {
-                    // Fast initial progress (0-50%)
-                    progress = 50 * (elapsed / fastPhase);
-                } else if (elapsed < fastPhase + slowPhase) {
-                    // Slower middle progress (50-85%)
-                    progress = 50 + 35 * ((elapsed - fastPhase) / slowPhase);
-                } else {
-                    // Final stretch (85-100%)
-                    progress = 85 + 15 * ((elapsed - fastPhase - slowPhase) / finalPhase);
-                }
-                
-                updateCallback(Math.min(100, Math.floor(progress)));
-                requestAnimationFrame(updateProgress);
-            };
-            
-            updateProgress();
-        }
-        
-        // =============================================================================
-        // GEMINI API HELPER FUNCTIONS
-        // =============================================================================
-        
-        /**
-         * Calls the Gemini API with a prompt and returns the generated content
-         * @param {string} prompt - The prompt to send to the API
-         * @param {boolean} useCache - Whether to use cached responses
-         * @returns {Promise<string>} - The generated content
-         */
-        async function callGeminiAPI(prompt, useCache = true) {
-            // Check cache first if enabled
-            const cacheKey = prompt.substring(0, 100); // Use first 100 chars as cache key
-            if (useCache && apiCache.has(cacheKey)) {
-                return apiCache.get(cacheKey);
-            }
-            
-            try {
-                const response = await fetch(GEMINI_API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'x-goog-api-key': GEMINI_API_KEY
-                    },
-                    body: JSON.stringify({
-                        contents: [{
-                            parts: [{
-                                text: prompt
-                            }]
-                        }]
-                    })
-                });
-                
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    console.error("API Error Response:", errorText);
-                    throw new Error(`API request failed with status ${response.status}: ${errorText}`);
-                }
-
-                const data = await response.json();
-                // This is the safer way to get the text, preventing errors if the structure is different
-                const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't generate a response.";
-                
-                // Cache the response
-                if (useCache) {
-                    apiCache.set(cacheKey, generatedText);
-                }
-                
-                return generatedText;
-            } catch (error) {
-                console.error('Error calling Gemini API:', error);
-                return `I apologize, but I'm having trouble connecting to my knowledge base right now. Please try again later. Error: ${error.message}`;
-            }
-        }
-        
-        /**
-         * Generates dynamic content for various sections of the website
-         * @param {string} section - The section to generate content for
-         * @param {Object} additionalParams - Additional parameters for the prompt
-         * @returns {Promise<string>} - The generated content
-         */
-        async function generateDynamicContent(section, additionalParams = {}) {
-            const prompts = {
-                // Home page content
-                homeFeatures: "Generate 3 compelling feature descriptions for an astrology website. Each should have a title (4-5 words) and a description (1-2 sentences). Format as JSON: {features: [{title: '', description: ''}]}",
-                homeHoroscopes: "Generate daily horoscopes for all 12 zodiac signs. Each should be 2-3 sentences, positive and uplifting. Format as JSON: {horoscopes: [{sign: '', horoscope: ''}]}",
-                homeAstrologyDescription: "Write a compelling 150-200 word description explaining what astrology is and how it can help people understand themselves better. Make it engaging and informative.",
-                
-                // Zodiac content
-                zodiacOfTheDay: (signName) => `Generate a short, engaging summary (2-3 paragraphs) about the ${signName} zodiac sign for the "Zodiac of the Day" section. Include key personality traits and why this sign is special today.`,
-                zodiacDetails: (signName) => `Generate a comprehensive description of the ${signName} zodiac sign. Include personality traits, strengths, weaknesses, likes, dislikes, element, ruling planet, and compatibility. Format as JSON: {description: '', strengths: [], weaknesses: [], likes: [], dislikes: [], element: '', rulingPlanet: '', compatibility: ''}`,
-                zodiacCompatibility: (sign1, sign2) => `Generate a detailed compatibility analysis between ${sign1} and ${sign2} zodiac signs. 
-                
-                IMPORTANT: Structure your response with these clear sections:
-                - Emotional Compatibility
-                - Romantic Connection
-                - Communication Style
-                - Marriage Potential
-                - Overall Assessment
-                
-                For each section, provide a rating out of 5 stars and a detailed paragraph explaining the dynamics between these signs. 
-                Make the analysis insightful, detailed, and practical for understanding relationship dynamics.
-                Provide at least 500 words of detailed analysis.`,
-                
-                // Quiz content - NEW: Adjusted for different levels
-                quizQuestions: (level) => `Generate ${quizLevels[level]} personality quiz questions for an astrology website. Each question should have 4 options that reveal different personality aspects. Format as JSON: {questions: [{question: '', options: []}]}`,
-                quizResults: (answers, level) => `Based on these quiz answers from a ${level} analysis, generate a detailed personality analysis (at least ${level === 'basic' ? '500' : level === 'moderate' ? '1000' : '1500'} words). The answers are: ${JSON.stringify(answers)}. 
-                
-                IMPORTANT: Format your response with clear headings, subheadings, bullet points, and paragraphs. Use HTML tags for formatting:
-                - Use <h3> for main sections (Personality Type, Strengths, Challenges, Ideal Partner, Life Purpose)
-                - Use <h4> for subsections
-                - Use <ul> and <li> for lists
-                - Use <p> for paragraphs
-                - Use <strong> for emphasis on key traits
-                - Use <em> for subtle emphasis
-                
-                Make it deeply personalized and insightful.`,
-                
-                // Blog content
-                blogPosts: "Generate 3 blog post ideas for an astrology website. Each should have a title, category, and a brief description. Format as JSON: {posts: [{title: '', category: '', description: ''}]}",
-                
-                // FAQ content
-                faqItems: "Generate 5 frequently asked questions about astrology with detailed answers. Format as JSON: {faqs: [{question: '', answer: ''}]}",
-                
-                // Pricing content
-                pricingTiers: "Generate 3 pricing tiers for an astrology service (excluding free trial). Each should have a name, price, period, and 4 features. Format as JSON: {tiers: [{name: '', price: '', period: '', features: []}]}"
-            };
-            
-            let prompt;
-            if (typeof prompts[section] === 'function') {
-                prompt = prompts[section](...Object.values(additionalParams));
-            } else {
-                prompt = prompts[section];
-            }
-            
-            return await callGeminiAPI(prompt);
-        }
-        
-        /**
-         * Parses JSON responses from Gemini API, with fallback for malformed JSON
-         * @param {string} text - The text to parse as JSON
-         * @returns {Object} - The parsed JSON object
-         */
-        function parseGeminiJSONResponse(text) {
-            try {
-                // Try to extract JSON from the response if it's wrapped in text
-                const jsonMatch = text.match(/\{[\s\S]*\}/);
-                if (jsonMatch) {
-                    return JSON.parse(jsonMatch[0]);
-                }
-                return JSON.parse(text);
-            } catch (error) {
-                console.error('Error parsing Gemini API response:', error);
-                // Return a fallback object based on the expected structure
-                return getFallbackContent(text);
-            }
-        }
-        
-        /**
-         * Provides fallback content when API calls fail
-         * @param {string} section - The section that needs fallback content
-         * @returns {Object} - Fallback content
-         */
-        function getFallbackContent(section) {
-            const fallbacks = {
-                homeFeatures: {
-                    features: [
-                        { title: "Daily Horoscope", description: "Get personalized daily insights based on your zodiac sign." },
-                        { title: "Birth Chart Analysis", description: "Deep dive into your unique astrological blueprint." },
-                        { title: "Compatibility Reports", description: "Discover your cosmic connections with others." }
-                    ]
-                },
-                homeHoroscopes: {
-                    horoscopes: [
-                        { sign: "Aries", horoscope: "Today brings new opportunities for growth. Trust your instincts and take bold steps forward." },
-                        { sign: "Taurus", horoscope: "Focus on stability and comfort today. Your practical approach will lead to success." },
-                        { sign: "Gemini", horoscope: "Communication is key today. Express your ideas clearly and listen to others." },
-                        { sign: "Cancer", horoscope: "Emotional insights will guide you today. Trust your intuition in personal matters." },
-                        { sign: "Leo", horoscope: "Your creative energy is high today. Share your talents with the world." },
-                        { sign: "Virgo", horoscope: "Attention to detail will pay off today. Organize your space and thoughts." },
-                        { sign: "Libra", horoscope: "Seek balance in all things today. Your diplomatic skills will be valuable." },
-                        { sign: "Scorpio", horoscope: "Deep transformations are possible today. Embrace change with courage." },
-                        { sign: "Sagittarius", horoscope: "Adventure calls today. Explore new ideas and expand your horizons." },
-                        { sign: "Capricorn", horoscope: "Focus on long-term goals today. Your discipline will bring results." },
-                        { sign: "Aquarius", horoscope: "Innovative ideas flow today. Share your unique perspective with others." },
-                        { sign: "Pisces", horoscope: "Your intuition is strong today. Trust your dreams and creative impulses." }
-                    ]
-                }
-                // Add more fallbacks as needed
-            };
-            
-            return fallbacks[section] || {};
-        }
-        
-        // =============================================================================
-        // DYNAMIC CONTENT GENERATORS USING GEMINI API
-        // =============================================================================
-        
-        /**
-         * Generates and displays dynamic content for the home page
-         */
-        async function generateHomeContent() {
-            try {
-                // Generate features
-                const featuresResponse = await generateDynamicContent('homeFeatures');
-                const featuresData = parseGeminiJSONResponse(featuresResponse);
-                
-                const featuresContainer = document.getElementById('features-container');
-                if (featuresData.features && featuresContainer) {
-                    featuresContainer.innerHTML = featuresData.features.map(feature => `
-                        <div class="p-8 text-center themed-card rounded-2xl">
-                            <i data-lucide="star" class="w-16 h-16 mx-auto float" style="color: var(--accent-color);"></i>
-                            <h3 class="text-xl font-semibold mt-4 transition-colors duration-300" style="color: var(--text-color);">${feature.title}</h3>
-                            <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${feature.description}</p>
-                        </div>
-                    `).join('');
-                }
-                
-                // Generate daily horoscopes
-                await generateDailyHoroscopes();
-                
-                // Generate astrology description
-                const astrologyDescription = await generateDynamicContent('homeAstrologyDescription');
-                const astrologyDescElement = document.getElementById('astrology-description');
-                if (astrologyDescElement) {
-                    astrologyDescElement.textContent = astrologyDescription;
-                }
-                
-                // Generate zodiac of the day
-                await generateZodiacOfTheDay();
-                
-                // Refresh icons
-                lucide.createIcons();
-            } catch (error) {
-                console.error('Error generating home content:', error);
-            }
-        }
-        
-        /**
-         * Generates and displays daily horoscopes for all zodiac signs
-         */
-        async function generateDailyHoroscopes() {
-            try {
-                const response = await generateDynamicContent('homeHoroscopes');
-                const horoscopesData = parseGeminiJSONResponse(response);
-                
-                // Store horoscopes globally for use in detailed view
-                window.dailyHoroscopes = horoscopesData.horoscopes || [];
-                
-                const horoscopeContainer = document.getElementById('horoscope-container');
-                if (horoscopesData.horoscopes && horoscopeContainer) {
-                    horoscopeContainer.innerHTML = horoscopesData.horoscopes.map(horoscope => `
-                        <div class="themed-card p-6 rounded-xl horoscope-card">
-                            <div class="text-center mb-4">
-                                <div class="zodiac-icon">${getZodiacIcon(horoscope.sign)}</div>
-                                <h3 class="text-xl font-semibold transition-colors duration-300" style="color: var(--text-color);">${horoscope.sign}</h3>
-                                <p class="text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${getZodiacDate(horoscope.sign)}</p>
-                            </div>
-                            <p class="transition-colors duration-300 flex-grow" style="color: var(--text-color); opacity: 0.8;">${horoscope.horoscope}</p>
-                            <button class="mt-4 w-full themed-btn py-2 rounded-lg view-zodiac-details" data-sign="${horoscope.sign}">View Details</button>
-                        </div>
-                    `).join('');
-                    
-                    // Add event listeners to view zodiac details buttons
-                    document.querySelectorAll('.view-zodiac-details').forEach(button => {
-                        button.addEventListener('click', function() {
-                            const signName = this.getAttribute('data-sign');
-                            // Switch to zodiac page and show details
-                            switchPage('zodiac');
-                            setTimeout(() => showZodiacDetails(signName), 500);
-                        });
-                    });
-                }
-            } catch (error) {
-                console.error('Error generating daily horoscopes:', error);
-            }
-        }
-        
-        /**
-         * Generates and displays the zodiac of the day
-         */
-        async function generateZodiacOfTheDay() {
-            try {
-                // Get zodiac sign based on day of year to rotate daily
-                const today = new Date();
-                const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-                const zodiacIndex = dayOfYear % 12;
-                const zodiacSigns = [
-                    'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 
-                    'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'
-                ];
-                const zodiacOfTheDay = zodiacSigns[zodiacIndex];
-                
-                // Update date display
-                document.getElementById('featured-zodiac-date').textContent = today.toLocaleDateString('en-US', { 
-                    weekday: 'long', 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                });
-                
-                // Generate content for zodiac of the day
-                const response = await generateDynamicContent('zodiacOfTheDay', { signName: zodiacOfTheDay });
-                
-                const featuredZodiacContainer = document.getElementById('featured-zodiac');
-                if (featuredZodiacContainer) {
-                    featuredZodiacContainer.innerHTML = `
-                        <div class="text-7xl mb-4 md:mb-0">${getZodiacIcon(zodiacOfTheDay)}</div>
-                        <div class="flex-1">
-                            <h3 class="text-3xl font-bold transition-colors duration-300" style="color: var(--text-color);">${zodiacOfTheDay}</h3>
-                            <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${getZodiacDate(zodiacOfTheDay)}</p>
-                            <div class="mt-4 ai-content transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
-                                ${response}
-                            </div>
-                            <button class="mt-6 themed-btn py-2 px-6 rounded-full view-full-details" data-sign="${zodiacOfTheDay}">View Full Zodiac Profile</button>
-                        </div>
-                    `;
-                    
-                    // Add event listener to view full details button
-                    document.querySelector('.view-full-details').addEventListener('click', function() {
-                        const signName = this.getAttribute('data-sign');
-                        // Switch to zodiac page and show details
-                        switchPage('zodiac');
-                        setTimeout(() => showZodiacDetails(signName), 500);
-                    });
-                }
-            } catch (error) {
-                console.error('Error generating zodiac of the day:', error);
-            }
-        }
-        
-        /**
-         * Generates and displays dynamic content for zodiac signs
-         */
-        async function generateZodiacContent() {
-            const zodiacSigns = [
-                'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 
-                'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'
-            ];
-            
-            const zodiacGrid = document.getElementById('zodiac-grid');
-            if (!zodiacGrid) return;
-            
-            // Show loading state
-            zodiacGrid.innerHTML = '<div class="col-span-full text-center py-8">Loading zodiac signs...</div>';
-            
-            try {
-                let zodiacHTML = '';
-                
-                for (const sign of zodiacSigns) {
-                    zodiacHTML += `
-                        <div class="themed-card p-6 rounded-2xl text-center hover:-translate-y-1 transition-transform duration-300 cursor-pointer zodiac-card" data-sign="${sign}">
-                            <div class="text-5xl">${getZodiacIcon(sign)}</div>
-                            <h3 class="text-xl font-bold mt-2 transition-colors duration-300" style="color: var(--text-color);">${sign}</h3>
-                            <p class="text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${getZodiacDate(sign)}</p>
-                        </div>
-                    `;
-                }
-                
-                zodiacGrid.innerHTML = zodiacHTML;
-                
-                // Add event listeners to zodiac cards
-                document.querySelectorAll('.zodiac-card').forEach(card => {
-                    card.addEventListener('click', async function() {
-                        const signName = this.getAttribute('data-sign');
-                        await showZodiacDetails(signName);
-                    });
-                });
-                
-                // Populate zodiac select dropdowns
-                const zodiac1Select = document.getElementById('zodiac1');
-                const zodiac2Select = document.getElementById('zodiac2');
-                
-                if (zodiac1Select && zodiac2Select) {
-                    zodiacSigns.forEach(sign => {
-                        zodiac1Select.innerHTML += `<option value="${sign}">${sign}</option>`;
-                        zodiac2Select.innerHTML += `<option value="${sign}">${sign}</option>`;
-                    });
-                }
-                
-            } catch (error) {
-                console.error('Error generating zodiac content:', error);
-                zodiacGrid.innerHTML = '<div class="col-span-full text-center py-8">Error loading zodiac signs. Please try again.</div>';
-            }
-        }
-        
-        /**
-         * Shows detailed zodiac information in modal - IMPROVED: Now includes daily horoscope
-         * @param {string} signName - The zodiac sign to show details for
-         */
-        async function showZodiacDetails(signName) {
-            const modal = document.getElementById('zodiac-modal');
-            const modalContent = document.getElementById('modal-content');
-            
-            if (!modal || !modalContent) return;
-            
-            // Show loading state
-            modalContent.innerHTML = '<div class="text-center py-8">Loading zodiac details...</div>';
-            modal.classList.remove('hidden');
-            
-            try {
-                // Get zodiac details
-                const response = await generateDynamicContent('zodiacDetails', { signName });
-                const zodiacData = parseGeminiJSONResponse(response);
-                
-                // Get today's horoscope for this sign
-                const dailyHoroscope = window.dailyHoroscopes?.find(h => h.sign === signName)?.horoscope || 
-                    "Today's horoscope is not available. Check back later for updates.";
-                
-                modalContent.innerHTML = `
-                    <div class="text-center mb-6">
-                        <span class="text-7xl">${getZodiacIcon(signName)}</span>
-                        <h2 class="text-4xl font-bold mt-2 transition-colors duration-300" style="color: var(--text-color);">${signName}</h2>
-                        <p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${getZodiacDate(signName)}</p>
-                    </div>
-                    
-                    <!-- NEW: Daily Horoscope Section -->
-                    <div class="zodiac-details-section">
-                        <h4 class="text-2xl font-bold mb-4 transition-colors duration-300" style="color: var(--accent-color);">Today's Horoscope</h4>
-                        <div class="prose prose-invert max-w-none leading-relaxed transition-colors duration-300 ai-content" style="color: var(--text-color); opacity: 0.8;">
-                            <p>${dailyHoroscope}</p>
-                        </div>
-                    </div>
-                    
-                    <!-- General Traits Section -->
-                    <div class="zodiac-details-section">
-                        <h4 class="text-2xl font-bold mb-4 transition-colors duration-300" style="color: var(--accent-color);">General Traits</h4>
-                        <div class="prose prose-invert max-w-none leading-relaxed transition-colors duration-300 ai-content" style="color: var(--text-color); opacity: 0.8;">
-                            ${zodiacData.description || 'Description not available.'}
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-6 mt-8">
-                        <div>
-                            <h4 class="font-semibold text-lg mb-2" style="color: #10B981;">Strengths</h4>
-                            <ul class="list-disc list-inside transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
-                                ${(zodiacData.strengths || ['Not available']).map(s => `<li>${s}</li>`).join('')}
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-lg mb-2" style="color: #EF4444;">Weaknesses</h4>
-                            <ul class="list-disc list-inside transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
-                                ${(zodiacData.weaknesses || ['Not available']).map(w => `<li>${w}</li>`).join('')}
-                            </ul>
-                        </div>
-                         <div>
-                            <h4 class="font-semibold text-lg mb-2" style="color: #3B82F6;">Likes</h4>
-                            <ul class="list-disc list-inside transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
-                                ${(zodiacData.likes || ['Not available']).map(l => `<li>${l}</li>`).join('')}
-                            </ul>
-                        </div>
-                         <div>
-                            <h4 class="font-semibold text-lg mb-2" style="color: #F59E0B;">Dislikes</h4>
-                            <ul class="list-disc list-inside transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
-                                ${(zodiacData.dislikes || ['Not available']).map(d => `<li>${d}</li>`).join('')}
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-8 border-t pt-6 transition-colors duration-300" style="border-color: var(--border-color);">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold text-lg mb-2 transition-colors duration-300" style="color: var(--accent-color);">Element</h4>
-                                <p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">${zodiacData.element || 'Not available'}</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg mb-2 transition-colors duration-300" style="color: var(--accent-color);">Ruling Planet</h4>
-                                <p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">${zodiacData.rulingPlanet || 'Not available'}</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    ${zodiacData.compatibility ? `
-                    <div class="mt-8 border-t pt-6 transition-colors duration-300" style="border-color: var(--border-color);">
-                        <h4 class="font-semibold text-lg mb-2 transition-colors duration-300" style="color: var(--accent-color);">Compatibility</h4>
-                        <p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">${zodiacData.compatibility}</p>
-                    </div>
-                    ` : ''}
-                `;
-            } catch (error) {
-                console.error('Error loading zodiac details:', error);
-                modalContent.innerHTML = '<div class="text-center py-8">Error loading zodiac details. Please try again.</div>';
-            }
-        }
-        
-        /**
-         * Generates compatibility report between two zodiac signs - IMPROVED: Better formatting
-         */
-        async function generateCompatibilityReport(sign1, sign2) {
-            const comparisonResult = document.getElementById('comparison-result');
-            if (!comparisonResult) return;
-            
-            // NEW: Create progress bar for compatibility report
-            const progressBar = createProgressBar(
-                'comparison-progress', 
-                'Generating Compatibility Report', 
-                [
-                    "15% compatibility report generated...",
-                    "30% analyzing emotional compatibility...",
-                    "45% examining romantic connection...",
-                    "60% assessing communication styles...",
-                    "75% evaluating long-term potential...",
-                    "90% finalizing insights...",
-                    "100% report ready!"
-                ]
-            );
-            
-            if (progressBar) {
-                progressBar.show();
-                comparisonResult.classList.add('hidden');
-            }
-            
-            try {
-                // NEW: Simulate progress while generating the report
-                const apiPromise = generateDynamicContent('zodiacCompatibility', { sign1, sign2 });
-                
-                // Run progress simulation and API call in parallel
-                const [response] = await Promise.all([
-                    apiPromise,
-                    new Promise(resolve => {
-                        simulateProgress(
-                            (percentage) => progressBar.update(percentage),
-                            () => resolve(),
-                            25000 // 25 seconds for compatibility report
-                        );
-                    })
-                ]);
-                
-                // NEW: Hide progress bar and show results
-                progressBar.hide();
-                comparisonResult.classList.remove('hidden');
-                
-                // Parse the response to extract structured sections
-                const sections = parseCompatibilityResponse(response);
-                
-                comparisonResult.innerHTML = `
-                    <h4 class="text-2xl font-bold mb-6 text-center transition-colors duration-300" style="color: var(--text-color);">${sign1} & ${sign2} Compatibility</h4>
-                    <div class="space-y-6">
-                        ${sections.map(section => `
-                            <div class="compatibility-section">
-                                <h4 class="text-xl font-semibold mb-3 transition-colors duration-300" style="color: var(--accent-color);">${section.title}</h4>
-                                ${section.rating ? `
-                                <div class="compatibility-rating">
-                                    <div class="compatibility-stars">
-                                        ${'★'.repeat(section.rating)}${'☆'.repeat(5-section.rating)}
-                                    </div>
-                                    <div class="compatibility-percentage">${section.rating * 20}%</div>
-                                </div>
-                                ` : ''}
-                                <div class="prose prose-invert max-w-none transition-colors duration-300 ai-content" style="color: var(--text-color); opacity: 0.8;">
-                                    ${section.content}
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
-            } catch (error) {
-                console.error('Error generating compatibility report:', error);
-                progressBar.hide();
-                comparisonResult.classList.remove('hidden');
-                comparisonResult.innerHTML = '<div class="text-center py-4">Error generating compatibility report. Please try again.</div>';
-            }
-        }
-        
-        /**
-         * Parses compatibility response into structured sections
-         * @param {string} response - The raw response from Gemini API
-         * @returns {Array} - Array of section objects with title and content
-         */
-        function parseCompatibilityResponse(response) {
-            const sections = [
-                { title: "Emotional Compatibility", rating: 0, content: "" },
-                { title: "Romantic Connection", rating: 0, content: "" },
-                { title: "Communication Style", rating: 0, content: "" },
-                { title: "Marriage Potential", rating: 0, content: "" },
-                { title: "Overall Assessment", rating: 0, content: "" }
-            ];
-            
-            // Simple parsing logic - in a real implementation, you'd want more sophisticated parsing
-            const lines = response.split('\n');
-            let currentSection = -1;
-            
-            for (const line of lines) {
-                // Check if this line starts a new section
-                for (let i = 0; i < sections.length; i++) {
-                    if (line.toLowerCase().includes(sections[i].title.toLowerCase())) {
-                        currentSection = i;
-                        // Try to extract rating from the line
-                        const ratingMatch = line.match(/(\d)\/5|(\d) out of 5|(\d) stars/);
-                        if (ratingMatch) {
-                            sections[i].rating = parseInt(ratingMatch[1] || ratingMatch[2] || ratingMatch[3]);
-                        }
-                        break;
-                    }
-                }
-                
-                // Add content to current section
-                if (currentSection >= 0 && line.trim() && 
-                    !line.toLowerCase().includes("emotional compatibility") &&
-                    !line.toLowerCase().includes("romantic connection") &&
-                    !line.toLowerCase().includes("communication style") &&
-                    !line.toLowerCase().includes("marriage potential") &&
-                    !line.toLowerCase().includes("overall assessment")) {
-                    sections[currentSection].content += line + ' ';
-                }
-            }
-            
-            // If parsing failed, put all content in the first section
-            if (sections.every(section => !section.content)) {
-                sections[0].content = response;
-            }
-            
-            return sections;
-        }
-        
-        /**
-         * Generates dynamic quiz questions - UPDATED: Now supports different levels
-         */
-        async function generateQuizQuestions(level) {
-            try {
-                const response = await generateDynamicContent('quizQuestions', { level });
-                const quizData = parseGeminiJSONResponse(response);
-                return quizData.questions || [];
-            } catch (error) {
-                console.error('Error generating quiz questions:', error);
-                return getFallbackQuizQuestions(level);
-            }
-        }
-        
-        /**
-         * Generates dynamic quiz results based on user answers - UPDATED: Now supports different levels
-         * @param {Array} answers - User's quiz answers
-         * @param {string} level - The quiz level (basic, moderate, deep)
-         */
-        async function generateQuizResults(answers, level) {
-            try {
-                const response = await generateDynamicContent('quizResults', { answers, level });
-                return response;
-            } catch (error) {
-                console.error('Error generating quiz results:', error);
-                return '<div class="col-span-2 text-center py-8">Error generating results. Please try again.</div>';
-            }
-        }
-        
-        /**
-         * Generates dynamic blog content
-         */
-        async function generateBlogContent() {
-            try {
-                const response = await generateDynamicContent('blogPosts');
-                const blogData = parseGeminiJSONResponse(response);
-                
-                const blogContainer = document.getElementById('blog-container');
-                if (blogData.posts && blogContainer) {
-                    blogContainer.innerHTML = blogData.posts.map((post, index) => `
-                        <div class="themed-card rounded-2xl overflow-hidden group">
-                            <img src="https://images.unsplash.com/photo-${['1446776811953-b23d579424c1', '1522030299830-16b8d3d049fe', '1504333638930-c8787321eee0'][index]}?q=80&w=2072&auto=format&fit=crop" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/141424/A78BFA?text=${post.title.substring(0, 15)}...';"
-                                 class="w-full h-48 object-cover" alt="${post.title}">
-                            <div class="p-6">
-                                <p class="text-sm transition-colors duration-300" style="color: var(--accent-color);">${post.category}</p>
-                                <h3 class="text-xl font-semibold mt-2 transition-colors duration-300 group-hover:opacity-70" style="color: var(--text-color);">${post.title}</h3>
-                                <p class="mt-2 text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">${post.description}</p>
-                            </div>
-                        </div>
-                    `).join('');
-                }
-            } catch (error) {
-                console.error('Error generating blog content:', error);
-            }
-        }
-        
-        /**
-         * Generates dynamic FAQ content
-         */
-        async function generateFAQContent() {
-            try {
-                const response = await generateDynamicContent('faqItems');
-                const faqData = parseGeminiJSONResponse(response);
-                
-                const faqContainer = document.getElementById('faq-container');
-                if (faqData.faqs && faqContainer) {
-                    faqContainer.innerHTML = faqData.faqs.map(faq => `
-                        <div class="themed-card rounded-lg shadow-sm overflow-hidden">
-                            <button class="w-full flex justify-between items-center text-left p-4 font-semibold transition-colors duration-300" style="color: var(--text-color);">
-                                <span>${faq.question}</span>
-                                <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
-                            </button>
-                            <div class="px-4 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                <p class="pb-4 transition-colors duration-300 ai-content" style="color: var(--text-color); opacity: 0.8;">${faq.answer}</p>
-                            </div>
-                        </div>
-                    `).join('');
-                    
-                    // Add FAQ toggle functionality
-                    faqContainer.querySelectorAll('button').forEach(btn => {
-                        btn.addEventListener('click', () => {
-                            const content = btn.nextElementSibling;
-                            const icon = btn.querySelector('i');
-                            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
-                            
-                            if (isOpen) {
-                                content.style.maxHeight = '0px';
-                                icon.style.transform = 'rotate(0deg)';
-                            } else {
-                                content.style.maxHeight = content.scrollHeight + 'px';
-                                icon.style.transform = 'rotate(180deg)';
-                            }
-                        });
-                    });
-                    
-                    lucide.createIcons();
-                }
-            } catch (error) {
-                console.error('Error generating FAQ content:', error);
-            }
-        }
-        
-        /**
-         * Generates dynamic pricing content
-         */
-        async function generatePricingContent() {
-            try {
-                const response = await generateDynamicContent('pricingTiers');
-                const pricingData = parseGeminiJSONResponse(response);
-                
-                const pricingContainer = document.getElementById('pricing-container');
-                if (pricingData.tiers && pricingContainer) {
-                    // Add free trial tier
-                    const allTiers = [
-                        {
-                            name: "Free Trial",
-                            price: "£0 / ₹0",
-                            period: "",
-                            features: ["1-Hour Analysis", "Basic Birth Chart", "Zodiac Profile"],
-                            cta: "Your Current Plan",
-                            popular: false
-                        },
-                        ...pricingData.tiers
-                    ];
-                    
-                    pricingContainer.innerHTML = allTiers.map(tier => `
-                        <div class="p-8 rounded-2xl text-center themed-card ${tier.popular ? 'glow relative' : ''}">
-                            ${tier.popular ? '<span class="absolute top-0 -translate-y-1/2 text-sm font-bold px-4 py-1 rounded-full themed-btn">Most Popular</span>' : ''}
-                            <h3 class="text-2xl font-semibold transition-colors duration-300" style="color: var(--text-color);">${tier.name}</h3>
-                            <p class="text-${tier.name === "Free Trial" ? '4xl' : '3xl'} font-bold my-4 transition-colors duration-300" style="color: var(--text-color);">${tier.price}${tier.period ? `<span class="text-lg font-normal transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${tier.period}</span>` : ''}</p>
-                            <ul class="space-y-3 transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
-                                ${tier.features.map(feature => `<li>${feature}</li>`).join('')}
-                            </ul>
-                            <button class="mt-6 w-full themed-btn py-3 rounded-lg ${tier.name === "Free Trial" ? 'cursor-not-allowed opacity-70' : ''}">${tier.cta}</button>
-                        </div>
-                    `).join('');
-                }
-            } catch (error) {
-                console.error('Error generating pricing content:', error);
-            }
-        }
-        
-        // =============================================================================
-        // CHATBOT IMPLEMENTATION USING GEMINI API
-        // =============================================================================
-        
-        /**
-         * Initializes the chatbot functionality
-         */
-        function initChatbot() {
-            const chatbotToggle = document.getElementById('chatbot-toggle');
-            const chatbotWindow = document.getElementById('chatbot-window');
-            const chatbotClose = document.getElementById('chatbot-close');
-            const chatbotSend = document.getElementById('chatbot-send');
-            const chatbotInput = document.getElementById('chatbot-input');
-            const chatbotMessages = document.getElementById('chatbot-messages');
-            
-            if (!chatbotToggle || !chatbotWindow) return;
-            
-            // Toggle chatbot window
-            chatbotToggle.addEventListener('click', () => {
-                chatbotWindow.classList.toggle('active');
-            });
-            
-            chatbotClose.addEventListener('click', () => {
-                chatbotWindow.classList.remove('active');
-            });
-            
-            // Send message functionality
-            const sendMessage = async () => {
-                const message = chatbotInput.value.trim();
-                if (!message) return;
-                
-                // Add user message to chat
-                addChatMessage(message, 'user');
-                chatbotInput.value = '';
-                
-                // Show typing indicator
-                const typingIndicator = addTypingIndicator();
-                
-                try {
-                    // Generate response using Gemini API with improved prompt for concise responses
-                    const prompt = `You are a friendly astrology expert assistant. Answer this question about astrology: "${message}". 
-                    
-                    Provide helpful, accurate, and engaging information. Keep your response concise (under 100 words) and well-structured. 
-                    Use short paragraphs and bullet points if needed. Focus on the most important insights.`;
-                    
-                    const response = await callGeminiAPI(prompt, false); // Don't cache chat responses
-                    
-                    // Remove typing indicator and add bot response
-                    typingIndicator.remove();
-                    addChatMessage(response, 'bot');
-                } catch (error) {
-                    typingIndicator.remove();
-                    addChatMessage("I'm sorry, I'm having trouble responding right now. Please try again later.", 'bot');
-                }
-            };
-            
-            chatbotSend.addEventListener('click', sendMessage);
-            
-            chatbotInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
-            
-            // Add initial bot message
-            addChatMessage("Hello! I'm your cosmic guide. How can I help you with astrology today?", 'bot');
-        }
-        
-        /**
-         * Adds a message to the chat
-         * @param {string} text - The message text
-         * @param {string} sender - 'user' or 'bot'
-         */
-        function addChatMessage(text, sender) {
-            const chatbotMessages = document.getElementById('chatbot-messages');
-            if (!chatbotMessages) return;
-            
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message ${sender}-message`;
-            
-            // Format the message with proper spacing and structure
-            const formattedText = text
-                .replace(/\n\n/g, '</p><p>')
-                .replace(/\n/g, '<br>');
-                
-            messageDiv.innerHTML = `<p>${formattedText}</p>`;
-            
-            chatbotMessages.appendChild(messageDiv);
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        }
-        
-        /**
-         * Adds a typing indicator to the chat
-         * @returns {HTMLElement} The typing indicator element
-         */
-        function addTypingIndicator() {
-            const chatbotMessages = document.getElementById('chatbot-messages');
-            if (!chatbotMessages) return;
-            
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'chat-message bot-message';
-            typingDiv.innerHTML = `
-                <div class="typing-indicator">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            `;
-            
-            chatbotMessages.appendChild(typingDiv);
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-            
-            return typingDiv;
-        }
-        
-        // =============================================================================
-        // HELPER FUNCTIONS
-        // =============================================================================
-        
-        /**
-         * Gets the zodiac icon for a given sign
-         * @param {string} sign - The zodiac sign
-         * @returns {string} The zodiac icon
-         */
-        function getZodiacIcon(sign) {
-            const icons = {
-                'Aries': '♈', 'Taurus': '♉', 'Gemini': '♊', 'Cancer': '♋',
-                'Leo': '♌', 'Virgo': '♍', 'Libra': '♎', 'Scorpio': '♏',
-                'Sagittarius': '♐', 'Capricorn': '♑', 'Aquarius': '♒', 'Pisces': '♓'
-            };
-            return icons[sign] || '★';
-        }
-        
-        /**
-         * Gets the date range for a zodiac sign
-         * @param {string} sign - The zodiac sign
-         * @returns {string} The date range
-         */
-        function getZodiacDate(sign) {
-            const dates = {
-                'Aries': 'Mar 21 - Apr 19',
-                'Taurus': 'Apr 20 - May 20',
-                'Gemini': 'May 21 - Jun 20',
-                'Cancer': 'Jun 21 - Jul 22',
-                'Leo': 'Jul 23 - Aug 22',
-                'Virgo': 'Aug 23 - Sep 22',
-                'Libra': 'Sep 23 - Oct 22',
-                'Scorpio': 'Oct 23 - Nov 21',
-                'Sagittarius': 'Nov 22 - Dec 21',
-                'Capricorn': 'Dec 22 - Jan 19',
-                'Aquarius': 'Jan 20 - Feb 18',
-                'Pisces': 'Feb 19 - Mar 20'
-            };
-            return dates[sign] || '';
-        }
-        
-        /**
-         * Provides fallback quiz questions when API fails - UPDATED: Now supports different levels
-         * @param {string} level - The quiz level (basic, moderate, deep)
-         * @returns {Array} Fallback quiz questions
-         */
-        function getFallbackQuizQuestions(level) {
-            const basicQuestions = [
-                {
-                    question: "When faced with a challenge, you...",
-                    options: [
-                        "Tackle it head-on with bold determination",
-                        "Analyze all possible outcomes before making a move",
-                        "Seek advice and collaborate with others",
-                        "Trust your intuition and follow your gut feeling"
-                    ]
-                },
-                {
-                    question: "Your ideal weekend is...",
-                    options: [
-                        "A spontaneous adventure to somewhere new",
-                        "A quiet, cozy day with your favorite books or hobbies",
-                        "A lively gathering with friends and good conversation",
-                        "A meaningful activity like volunteering or helping others"
-                    ]
-                }
-            ];
-            
-            const moderateQuestions = [
-                ...basicQuestions,
-                {
-                    question: "In relationships, you value...",
-                    options: [
-                        "Passion and excitement",
-                        "Stability and security",
-                        "Intellectual connection and communication",
-                        "Emotional depth and understanding"
-                    ]
-                },
-                {
-                    question: "Your approach to work is...",
-                    options: [
-                        "Ambitious and goal-oriented",
-                        "Methodical and detail-focused",
-                        "Creative and innovative",
-                        "Collaborative and team-oriented"
-                    ]
-                }
-            ];
-            
-            const deepQuestions = [
-                ...moderateQuestions,
-                {
-                    question: "When making important decisions, you rely on...",
-                    options: [
-                        "Logic and rational analysis",
-                        "Intuition and gut feelings",
-                        "Advice from trusted people",
-                        "Past experiences and lessons learned"
-                    ]
-                },
-                {
-                    question: "Your biggest strength in difficult times is...",
-                    options: [
-                        "Resilience and perseverance",
-                        "Adaptability and flexibility",
-                        "Empathy and compassion",
-                        "Creativity and problem-solving"
-                    ]
-                }
-            ];
-            
-            const questionSets = {
-                basic: basicQuestions,
-                moderate: moderateQuestions,
-                deep: deepQuestions
-            };
-            
-            return questionSets[level] || moderateQuestions;
-        }
-        
-        // =============================================================================
-        // NEW: SHARE REPORT FUNCTIONALITY
-        // =============================================================================
-        
-        /**
-         * Converts quiz results to an image and provides sharing options
-         */
-        function initShareReport() {
-            const shareReportBtn = document.getElementById('share-report-btn');
-            const shareOptions = document.getElementById('share-options');
-            
-            if (!shareReportBtn) return;
-            
-            shareReportBtn.addEventListener('click', async () => {
-                // Show share options
-                shareOptions.classList.toggle('hidden');
-                
-                // If options are now visible, add event listeners
-                if (!shareOptions.classList.contains('hidden')) {
-                    // WhatsApp share
-                    document.querySelector('[data-platform="whatsapp"]').addEventListener('click', () => {
-                        shareViaWhatsApp();
-                    });
-                    
-                    // Telegram share
-                    document.querySelector('[data-platform="telegram"]').addEventListener('click', () => {
-                        shareViaTelegram();
-                    });
-                    
-                    // Download
-                    document.querySelector('[data-platform="download"]').addEventListener('click', () => {
-                        downloadReport();
-                    });
-                }
-            });
-        }
-        
-        /**
-         * Converts the quiz results to an image and shares via WhatsApp
-         */
-        async function shareViaWhatsApp() {
-            try {
-                const quizResults = document.getElementById('quiz-results');
-                const canvas = await html2canvas(quizResults, {
-                    backgroundColor: getComputedStyle(document.body).getPropertyValue('--bg-color'),
-                    scale: 2 // Higher quality
-                });
-                
-                const imageData = canvas.toDataURL('image/jpeg', 0.9);
-                
-                // Create a temporary link to download the image
-                const link = document.createElement('a');
-                link.download = 'my-personality-report.jpg';
-                link.href = imageData;
-                link.click();
-                
-                // Note: Direct sharing to WhatsApp via Web Share API would require HTTPS
-                alert('Your report has been downloaded. You can now share it via WhatsApp.');
-                
-            } catch (error) {
-                console.error('Error sharing via WhatsApp:', error);
-                alert('Error generating shareable image. Please try again.');
-            }
-        }
-        
-        /**
-         * Converts the quiz results to an image and shares via Telegram
-         */
-        async function shareViaTelegram() {
-            try {
-                const quizResults = document.getElementById('quiz-results');
-                const canvas = await html2canvas(quizResults, {
-                    backgroundColor: getComputedStyle(document.body).getPropertyValue('--bg-color'),
-                    scale: 2 // Higher quality
-                });
-                
-                const imageData = canvas.toDataURL('image/jpeg', 0.9);
-                
-                // Create a temporary link to download the image
-                const link = document.createElement('a');
-                link.download = 'my-personality-report.jpg';
-                link.href = imageData;
-                link.click();
-                
-                alert('Your report has been downloaded. You can now share it via Telegram.');
-                
-            } catch (error) {
-                console.error('Error sharing via Telegram:', error);
-                alert('Error generating shareable image. Please try again.');
-            }
-        }
-        
-        /**
-         * Downloads the quiz results as an image
-         */
-        async function downloadReport() {
-            try {
-                const quizResults = document.getElementById('quiz-results');
-                const canvas = await html2canvas(quizResults, {
-                    backgroundColor: getComputedStyle(document.body).getPropertyValue('--bg-color'),
-                    scale: 2 // Higher quality
-                });
-                
-                const link = document.createElement('a');
-                link.download = 'my-personality-report.jpg';
-                link.href = canvas.toDataURL('image/jpeg', 0.9);
-                link.click();
-                
-            } catch (error) {
-                console.error('Error downloading report:', error);
-                alert('Error generating downloadable image. Please try again.');
-            }
-        }
-        
-        // =============================================================================
-        // EXISTING WEBSITE FUNCTIONALITY (WITH IMPROVEMENTS)
-        // =============================================================================
-        
         // Global variables
-        let currentQuestionIndex = 0;
         let heroCarouselInterval;
         let selectedDate = null;
         let currentSlide = 0;
-        let quizQuestions = [];
-        let userAnswers = [];
-        let zodiacSelectedDate = null; // For zodiac calendar
         
-        // Initialize the website
+        // =============================================================================
+        // WEBSITE INITIALIZATION
+        // =============================================================================
+        
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             initStarfield();
             initTheme();
             initNavigation();
             initHomePage();
-            initZodiacPage();
-            initQuizPage();
             initContactPage();
             initScrollToTop();
-            initChatbot();
-            initShareReport(); // NEW: Initialize share functionality
             
-            // Generate dynamic content after initialization
-            setTimeout(() => {
-                generateHomeContent();
-                generateZodiacContent();
-                generateBlogContent();
-                generateFAQContent();
-                generatePricingContent();
-            }, 1000);
+            // Generate static content
+            populateStaticContent();
+            
+            // Initialize Facebook posts
+            initFacebookPosts();
         });
         
-        // Existing functions (unchanged except for integration points)
+        // =============================================================================
+        // FACEBOOK POSTS FUNCTIONALITY (REDESIGNED)
+        // =============================================================================
+        
+        async function initFacebookPosts() {
+            const facebookPostsContainer = document.getElementById('facebook-posts-container');
+            const serverUrl = 'http://localhost:3000/api/facebook/posts'; // This is our local server URL
+
+            try {
+                // Ask our server for the posts
+                const response = await fetch(serverUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const posts = await response.json();
+                
+                // If we get posts, render them!
+                renderFacebookPosts(posts);
+
+            } catch (error) {
+                console.error("Could not fetch Facebook posts:", error);
+                // If something goes wrong, show a friendly message.
+                facebookPostsContainer.innerHTML = `
+                    <div class="col-span-full text-center py-8">
+                        <p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">
+                            Could not load cosmic updates right now. Please check back later!
+                        </p>
+                    </div>
+                `;
+            }
+        }
+        
+        function renderFacebookPosts(posts) {
+            const container = document.getElementById('facebook-posts-container');
+            const TRUNCATE_LIMIT = 280; // Character limit for "see more"
+
+            if (!posts || posts.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8">
+                        <p class="transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">No Facebook posts available at the moment.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Separate the latest post from the rest
+            const latestPost = posts[0];
+            const olderPosts = posts.slice(1, 6); // Get next 5 posts
+
+            // Render latest post
+            const latestPostHtml = renderLatestPost(latestPost);
+            
+            // Render older posts
+            const olderPostsHtml = renderOlderPosts(olderPosts);
+            
+            // Render CTA section
+            const ctaHtml = renderCtaSection();
+            
+            // Combine all sections
+            container.innerHTML = `
+                <div class="latest-post-row">
+                    ${latestPostHtml}
+                </div>
+                <div class="older-posts-row">
+                    ${olderPostsHtml}
+                </div>
+                <div class="facebook-cta-section">
+                    ${ctaHtml}
+                </div>
+            `;
+
+            lucide.createIcons(); // Re-render icons for new elements
+            initSeeMoreButtons(); // Attach event listeners to new "see more" buttons
+        }
+        
+        function renderLatestPost(post) {
+            if (!post) return '';
+            
+            const postDate = new Date(post.created_time).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            const postId = `latest-post`;
+
+            return `
+                <div class="latest-post">
+                    <div id="${postId}" class="facebook-post themed-card rounded-2xl">
+                        <!-- Post Header -->
+                        <div class="post-header flex items-center gap-3">
+                            <img src="images/logo.png" alt="LightHouse Astro" class="h-14 w-14 rounded-full border-2" style="border-color: var(--border-color);">
+                            <div>
+                                <h3 class="text-lg font-semibold transition-colors duration-300" style="color: var(--text-color);">LightHouse Astro</h3>
+                                <p class="text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${postDate}</p>
+                            </div>
+                        </div>
+
+                        <!-- Post Content -->
+                        <div class="post-content ai-content" style="color: var(--text-color);">
+                            <p>${post.message || ''}</p>
+                        </div>
+                        
+                        <!-- See More Button -->
+                        <button class="see-more-btn" data-post-id="${postId}">
+                            <span>See More</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+
+                        <!-- Post Image -->
+                        ${post.image ? `
+                            <div class="post-image-container">
+                                <a href="${post.permalink_url}" target="_blank">
+                                    <img src="${post.image}" alt="Facebook post image" class="w-full h-auto max-h-[500px] object-cover rounded-xl border" style="border-color: var(--border-color);">
+                                </a>
+                            </div>
+                        ` : ''}
+
+                        <!-- Post Footer -->
+                        <div class="post-footer flex justify-end">
+                            <a href="${post.permalink_url}" target="_blank" class="themed-btn text-sm py-2 px-4 rounded-full flex items-center gap-2">
+                                <i data-lucide="facebook" class="w-4 h-4"></i>
+                                <span>View on Facebook</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderOlderPosts(posts) {
+            if (!posts || posts.length === 0) {
+                return `
+                    <div class="older-posts-grid">
+                        <p class="text-center col-span-full py-8 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">
+                            No additional posts available at the moment.
+                        </p>
+                    </div>
+                `;
+            }
+
+            const postsHtml = posts.map((post, index) => {
+                const postDate = new Date(post.created_time).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                const postId = `older-post-${index}`;
+                
+                // Truncate message for preview
+                const previewMessage = post.message ? 
+                    (post.message.length > 150 ? post.message.substring(0, 150) + '...' : post.message) 
+                    : '';
+
+                return `
+                    <div class="older-post">
+                        <div id="${postId}" class="facebook-post themed-card rounded-2xl">
+                            <!-- Post Header -->
+                            <div class="post-header flex items-center gap-2">
+                                <img src="images/logo.png" alt="LightHouse Astro" class="h-10 w-10 rounded-full border" style="border-color: var(--border-color);">
+                                <div>
+                                    <h3 class="text-sm font-semibold transition-colors duration-300" style="color: var(--text-color);">LightHouse Astro</h3>
+                                    <p class="text-xs transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${postDate}</p>
+                                </div>
+                            </div>
+
+                            <!-- NEW: Post Image -->
+                            ${post.image ? `
+                                <div class="older-post-image-container">
+                                    <a href="${post.permalink_url}" target="_blank">
+                                        <img src="${post.image}" alt="Facebook post image">
+                                    </a>
+                                </div>
+                            ` : ''}
+
+                            <!-- Post Content -->
+                            <div class="post-content ai-content" style="color: var(--text-color);">
+                                <p class="text-sm">${previewMessage}</p>
+                            </div>
+
+                            <!-- Post Footer -->
+                            <div class="post-footer">
+                                <a href="${post.permalink_url}" target="_blank" class="view-post-btn themed-btn text-xs rounded-full flex items-center justify-center gap-1">
+                                    <i data-lucide="facebook" class="w-3 h-3"></i>
+                                    <span>View Post</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            return `
+                <div class="older-posts-grid">
+                    ${postsHtml}
+                </div>
+            `;
+        }
+        
+        function renderCtaSection() {
+            return `
+                <div class="facebook-cta themed-card">
+                    <i data-lucide="facebook" class="w-12 h-12 mx-auto mb-4" style="color: var(--accent-color);"></i>
+                    <p class="max-w-xl mx-auto mb-6 transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
+                        Visit our Facebook page to explore more posts, connect with us, and get the latest updates!
+                    </p>
+                    <a href="https://www.facebook.com/profile.php?id=61557839980237" target="_blank" class="themed-btn py-3 px-8 rounded-full inline-block">
+                        Go to Facebook
+                    </a>
+                </div>
+            `;
+        }
+        
+        function initSeeMoreButtons() {
+            document.querySelectorAll('.see-more-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const postId = button.dataset.postId;
+                    const postElement = document.getElementById(postId);
+                    if (postElement) {
+                        const contentElement = postElement.querySelector('.post-content');
+                        const isExpanded = contentElement.classList.contains('expanded');
+                        const icon = button.querySelector('i');
+                        
+                        if (isExpanded) {
+                            contentElement.classList.remove('expanded');
+                            button.innerHTML = '<span>See More</span><i data-lucide="chevron-down" class="w-4 h-4"></i>';
+                        } else {
+                            contentElement.classList.add('expanded');
+                            button.innerHTML = '<span>See Less</span><i data-lucide="chevron-up" class="w-4 h-4"></i>';
+                        }
+                        
+                        lucide.createIcons(); // Re-render icons
+                    }
+                });
+            });
+        }
+        
+        // =============================================================================
+        // ALL OTHER ORIGINAL JAVASCRIPT FUNCTIONS (UNCHANGED)
+        // =============================================================================
+        
         function initStarfield() {
             const starfield = document.getElementById('starfield');
             const starsCount = 150;
@@ -2899,306 +1386,8 @@
             heroCarouselInterval = setInterval(nextSlide, 5000);
             showSlide(0);
         }
-        
-        function initZodiacPage() {
-            const modal = document.getElementById('zodiac-modal');
-            const closeModalBtn = document.getElementById('close-modal-btn');
-            const findZodiacBtn = document.getElementById('find-zodiac-btn');
-            const zodiacResult = document.getElementById('zodiac-result');
-            const zodiac1Select = document.getElementById('zodiac1');
-            const zodiac2Select = document.getElementById('zodiac2');
-            const comparisonResult = document.getElementById('comparison-result');
-            const compareZodiacBtn = document.getElementById('compare-zodiac-btn');
-            
-            // NEW: Zodiac Calendar Functionality
-            const zodiacPrevMonthBtn = document.getElementById('zodiac-prev-month');
-            const zodiacNextMonthBtn = document.getElementById('zodiac-next-month');
-            const zodiacMonthYearEl = document.getElementById('zodiac-month-year');
-            const zodiacCalendarGrid = document.getElementById('zodiac-calendar-grid');
-            
-            let zodiacDate = new Date();
-            
-            function renderZodiacCalendar() {
-                zodiacDate.setDate(1);
-                const monthDays = new Date(zodiacDate.getFullYear(), zodiacDate.getMonth() + 1, 0).getDate();
-                const firstDayIndex = zodiacDate.getDay();
-                
-                zodiacMonthYearEl.innerText = zodiacDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-                zodiacCalendarGrid.innerHTML = '';
-                
-                for (let i = 0; i < firstDayIndex; i++) {
-                    zodiacCalendarGrid.innerHTML += `<div></div>`;
-                }
-                
-                for (let i = 1; i <= monthDays; i++) {
-                    const dayEl = document.createElement('div');
-                    dayEl.innerText = i;
-                    const thisDate = new Date(zodiacDate.getFullYear(), zodiacDate.getMonth(), i);
-                    const today = new Date();
-                    today.setHours(0,0,0,0);
-                    
-                    let classes = 'zodiac-calendar-day ';
-                    if (thisDate <= today) {
-                        classes += 'cursor-pointer hover:opacity-70';
-                        dayEl.addEventListener('click', () => selectZodiacDate(dayEl, i));
-                    } else {
-                        classes += 'disabled';
-                    }
-                    
-                    if (zodiacDate.getFullYear() === new Date().getFullYear() && 
-                        zodiacDate.getMonth() === new Date().getMonth() && 
-                        i === new Date().getDate()) {
-                        classes += ' today';
-                    }
-                    
-                    if (zodiacSelectedDate && 
-                        zodiacDate.getFullYear() === zodiacSelectedDate.getFullYear() && 
-                        zodiacDate.getMonth() === zodiacSelectedDate.getMonth() && 
-                        i === zodiacSelectedDate.getDate()) {
-                        classes += ' selected';
-                    }
-                    
-                    dayEl.className = classes;
-                    zodiacCalendarGrid.appendChild(dayEl);
-                }
-            }
-            
-            function selectZodiacDate(dayEl, day) {
-                document.querySelectorAll('.zodiac-calendar-day').forEach(el => {
-                    el.classList.remove('selected');
-                });
-                
-                dayEl.classList.add('selected');
-                zodiacSelectedDate = new Date(zodiacDate.getFullYear(), zodiacDate.getMonth(), day);
-            }
-            
-            zodiacPrevMonthBtn.addEventListener('click', () => {
-                zodiacDate.setMonth(zodiacDate.getMonth() - 1);
-                renderZodiacCalendar();
-            });
-            
-            zodiacNextMonthBtn.addEventListener('click', () => {
-                zodiacDate.setMonth(zodiacDate.getMonth() + 1);
-                renderZodiacCalendar();
-            });
-            
-            // Initial render
-            renderZodiacCalendar();
-            
-            closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.classList.add('hidden');
-            });
-            
-            findZodiacBtn.addEventListener('click', () => {
-                if (zodiacSelectedDate) {
-                    const sign = getZodiacSign(zodiacSelectedDate.getMonth() + 1, zodiacSelectedDate.getDate());
-                    zodiacResult.textContent = `Your Zodiac sign is ${sign}! ${getZodiacIcon(sign)}`;
-                    zodiacResult.classList.remove('hidden');
-                    setTimeout(() => showZodiacDetails(sign), 500);
-                } else {
-                    zodiacResult.textContent = 'Please select a date.';
-                    zodiacResult.classList.remove('hidden');
-                }
-            });
-            
-            function getZodiacSign(month, day) {
-                 if((month==1 && day >= 20) || (month==2 && day <= 18)) return 'Aquarius';
-                 if((month==2 && day >= 19) || (month==3 && day <= 20)) return 'Pisces';
-                 if((month==3 && day >= 21) || (month==4 && day <= 19)) return 'Aries';
-                 if((month==4 && day >= 20) || (month==5 && day <= 20)) return 'Taurus';
-                 if((month==5 && day >= 21) || (month==6 && day <= 20)) return 'Gemini';
-                 if((month==6 && day >= 21) || (month==7 && day <= 22)) return 'Cancer';
-                 if((month==7 && day >= 23) || (month==8 && day <= 22)) return 'Leo';
-                 if((month==8 && day >= 23) || (month==9 && day <= 22)) return 'Virgo';
-                 if((month==9 && day >= 23) || (month==10 && day <= 22)) return 'Libra';
-                 if((month==10 && day >= 23) || (month==11 && day <= 21)) return 'Scorpio';
-                 if((month==11 && day >= 22) || (month==12 && day <= 21)) return 'Sagittarius';
-                 return 'Capricorn';
-            }
-            
-            // NEW: Compare zodiac button functionality
-            compareZodiacBtn.addEventListener('click', () => {
-                const sign1 = zodiac1Select.value;
-                const sign2 = zodiac2Select.value;
-                
-                if (sign1 && sign2) {
-                    generateCompatibilityReport(sign1, sign2);
-                } else {
-                    alert("Please select both zodiac signs to compare.");
-                }
-            });
-        }
-        
-        function initQuizPage() {
-            const startQuizBtn = document.getElementById('start-quiz-btn');
-            const quizIntro = document.getElementById('quiz-intro');
-            const quizContainer = document.getElementById('quiz-container');
-            
-            // NEW: Quiz Level Selection
-            const levelOptions = document.querySelectorAll('.quiz-level-option');
-            
-            levelOptions.forEach(option => {
-                option.addEventListener('click', () => {
-                    // Remove selected class from all options
-                    levelOptions.forEach(opt => opt.classList.remove('selected'));
-                    // Add selected class to clicked option
-                    option.classList.add('selected');
-                    // Update selected level
-                    selectedQuizLevel = option.getAttribute('data-level');
-                });
-            });
-            
-            // Select moderate by default
-            document.querySelector('[data-level="moderate"]').classList.add('selected');
-            
-            startQuizBtn.addEventListener('click', async () => {
-                quizIntro.classList.add('hidden');
-                
-                // NEW: Show progress bar for quiz generation
-                const progressBar = createProgressBar(
-                    'quiz-generation-progress',
-                    'Generating Your Quiz',
-                    [
-                        "10% questions generated...",
-                        "30% crafting insightful options...",
-                        "50% structuring personality insights...",
-                        "70% optimizing for accuracy...",
-                        "85% almost there...",
-                        "100% — Quiz is ready to begin!"
-                    ]
-                );
-                
-                if (progressBar) {
-                    progressBar.show();
-                }
-                
-                currentQuestionIndex = 0;
-                userAnswers = [];
-                
-                // Generate dynamic quiz questions with progress simulation
-                const apiPromise = generateQuizQuestions(selectedQuizLevel);
-                
-                // Run progress simulation and API call in parallel
-                const [questions] = await Promise.all([
-                    apiPromise,
-                    new Promise(resolve => {
-                        simulateProgress(
-                            (percentage) => progressBar.update(percentage),
-                            () => resolve(),
-                            15000 // 15 seconds for quiz generation
-                        );
-                    })
-                ]);
-                
-                // NEW: Hide progress bar and show quiz
-                progressBar.hide();
-                quizContainer.classList.remove('hidden');
-                
-                quizQuestions = questions;
-                if (quizQuestions.length > 0) {
-                    displayQuestion();
-                } else {
-                    quizContainer.innerHTML = '<p>Failed to load quiz questions. Please try again.</p>';
-                }
-            });
-        }
-        
-        function displayQuestion() {
-            const questionData = quizQuestions[currentQuestionIndex];
-            const questionText = document.getElementById('question-text');
-            const optionsContainer = document.getElementById('options-container');
-            const progressBar = document.getElementById('progress-bar');
-            
-            questionText.textContent = questionData.question;
-            optionsContainer.innerHTML = '';
-            
-            questionData.options.forEach(option => {
-                const button = document.createElement('button');
-                button.textContent = option;
-                button.className = 'w-full p-4 font-semibold rounded-lg transition-colors duration-200 quiz-option themed-card';
-                button.style.cssText = `color: var(--text-color);`;
-                button.addEventListener('click', selectAnswer);
-                optionsContainer.appendChild(button);
-            });
-            
-            const progress = ((currentQuestionIndex) / quizQuestions.length) * 100;
-            progressBar.style.width = `${progress}%`;
-        }
-        
-        function selectAnswer(e) {
-            const selectedOption = e.target.textContent;
-            userAnswers.push({
-                question: quizQuestions[currentQuestionIndex].question,
-                answer: selectedOption
-            });
-            
-            currentQuestionIndex++;
-            if (currentQuestionIndex < quizQuestions.length) {
-                displayQuestion();
-            } else {
-                showQuizResults();
-            }
-        }
-        
-        function showQuizResults() {
-            const quizContainer = document.getElementById('quiz-container');
-            const questionContainer = document.getElementById('question-container');
-            const results = document.getElementById('quiz-results');
-            const progressBar = document.getElementById('progress-bar');
-            
-            progressBar.style.width = '100%';
-            questionContainer.classList.add('hidden');
-            quizContainer.classList.add('hidden');
-            
-            // NEW: Show progress bar for quiz results generation
-            const progressBarResults = createProgressBar(
-                'quiz-results-progress',
-                'Generating Your Personality Report',
-                [
-                    "15% report generated...",
-                    "30% analyzing your responses...",
-                    "45% identifying core traits...",
-                    "60% assessing strengths and challenges...",
-                    "75% determining ideal partner types...",
-                    "90% finalizing insights...",
-                    "100% report ready!"
-                ]
-            );
-            
-            if (progressBarResults) {
-                progressBarResults.show();
-            }
-            
-            // Generate dynamic quiz results with progress simulation
-            const apiPromise = generateQuizResults(userAnswers, selectedQuizLevel);
-            
-            // Run progress simulation and API call in parallel
-            Promise.all([
-                apiPromise,
-                new Promise(resolve => {
-                    simulateProgress(
-                        (percentage) => progressBarResults.update(percentage),
-                        () => resolve(),
-                        20000 // 20 seconds for results generation
-                    );
-                })
-            ]).then(([html]) => {
-                // NEW: Hide progress bar and show results
-                progressBarResults.hide();
-                results.classList.remove('hidden');
-                results.classList.add('fade-in');
-                
-                // Set the generated content
-                const resultContent = document.getElementById('quiz-result-content');
-                if (resultContent) {
-                    resultContent.innerHTML = html;
-                }
-            });
-        }
-        
+
         function initContactPage() {
-            // Calendar and booking functionality (unchanged)
             const calendarGrid = document.getElementById('calendar-grid');
             const monthYearEl = document.getElementById('month-year');
             const prevMonthBtn = document.getElementById('prev-month');
@@ -3271,29 +1460,17 @@
                 timeGrid.innerHTML = '';
                 bookingConfirmation.classList.add('hidden');
                 
-                const timeSlots = [];
-                const baseTimes = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'];
-                const periods = ['AM', 'PM'];
-                
-                for (let i = 0; i < 4; i++) {
-                    const randomTime = baseTimes[Math.floor(Math.random() * baseTimes.length)];
-                    const randomPeriod = periods[Math.floor(Math.random() * periods.length)];
-                    if (!timeSlots.includes(`${randomTime} ${randomPeriod}`)) {
-                        timeSlots.push(`${randomTime} ${randomPeriod}`);
-                    } else {
-                        i--;
-                    }
-                }
+                const timeSlots = ['09:00 AM', '10:00 AM', '11:00 AM', '02:00 PM', '03:00 PM', '04:00 PM'];
                 
                 timeSlots.forEach(time => {
-                     const timeBtn = document.createElement('button');
-                     timeBtn.innerText = time;
-                     timeBtn.className = 'p-3 rounded-lg hover:opacity-80 transition themed-btn';
-                     timeBtn.addEventListener('click', () => {
-                         bookingConfirmation.innerText = `Confirmed! Your trial is booked for ${selectedDateText.innerText} at ${time}. Check your email!`;
-                         bookingConfirmation.classList.remove('hidden');
-                     });
-                     timeGrid.appendChild(timeBtn);
+                    const timeBtn = document.createElement('button');
+                    timeBtn.innerText = time;
+                    timeBtn.className = 'p-3 rounded-lg hover:opacity-80 transition themed-btn';
+                    timeBtn.addEventListener('click', () => {
+                        bookingConfirmation.innerText = `Confirmed! Your trial is booked for ${selectedDateText.innerText} at ${time}. Check your email!`;
+                        bookingConfirmation.classList.remove('hidden');
+                    });
+                    timeGrid.appendChild(timeBtn);
                 });
             }
             
@@ -3308,7 +1485,6 @@
             
             renderCalendar();
             
-            // Contact form (unchanged)
             renderRecaptcha();
             
             const form = document.getElementById('contact-form');
@@ -3318,48 +1494,44 @@
             if (form) {
                 form.addEventListener("submit", async (e) => {
                     e.preventDefault();
-                    
+
+                    const submitButton = form.querySelector('button[type="submit"]');
+
                     const captchaResponse = grecaptcha.getResponse();
                     if (!captchaResponse) {
                         responseMessageEl.textContent = "Please complete the CAPTCHA.";
                         responseMessageEl.style.color = '#EF4444';
                         return;
                     }
-                    
+
                     const name = form.elements['name'].value.trim();
                     const email = form.elements['email'].value.trim();
                     const message = form.elements['message'].value.trim();
-                    
                     if (!name || !email || !message) {
                         responseMessageEl.textContent = "Please fill in all required fields.";
                         responseMessageEl.style.color = '#EF4444';
                         return;
                     }
-                    
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(email)) {
-                        responseMessageEl.textContent = "Please enter a valid email address.";
-                        responseMessageEl.style.color = '#EF4444';
-                        return;
-                    }
-                    
+
                     responseMessageEl.textContent = "Sending...";
                     responseMessageEl.style.color = 'var(--text-color)';
-                    const submitButton = form.querySelector('button[type="submit"]');
                     submitButton.disabled = true;
-                    
-                    const formData = new URLSearchParams({ name, email, message });
-                    
+
                     try {
-                        const response = await fetch(url, {
-                            method: "POST",
-                            body: formData,
-                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        const formData = new FormData(form);
+                        const data = Object.fromEntries(formData.entries());
+
+                        const response = await fetch('http://localhost:3000/api/messages', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(data),
                         });
-                        
+
                         if (response.ok) {
                             responseMessageEl.textContent = "Message sent successfully! We'll be in touch.";
-                            responseMessageEl.style.color = '#10B981';
+                            responseMessageEl.style.color = '#10B981'; // Green for success
                             form.reset();
                             grecaptcha.reset();
                         } else {
@@ -3367,8 +1539,8 @@
                         }
                     } catch (error) {
                         console.error("Contact form error:", error);
-                        responseMessageEl.textContent = "Network error. Please try again.";
-                        responseMessageEl.style.color = '#EF4444';
+                        responseMessageEl.textContent = "An error occurred. Please try again.";
+                        responseMessageEl.style.color = '#EF4444'; // Red for error
                     } finally {
                         submitButton.disabled = false;
                     }
@@ -3409,6 +1581,133 @@
             btn.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+        }
+        
+        // =============================================================================
+        // STATIC CONTENT POPULATION (UNCHANGED)
+        // =============================================================================
+        
+        function populateStaticContent() {
+            // Home Page Features
+            const featuresContainer = document.getElementById('features-container');
+            if (featuresContainer) {
+                const features = [
+                    { title: "Personalized Readings", description: "Deep dive into your unique astrological blueprint with a one-on-one consultation." },
+                    { title: "Contact & Booking", description: "Easily schedule your personal consultation through our integrated booking system." },
+                    { title: "Learn About Us", description: "Discover our mission, our expert astrologer, and the services we offer to guide you." }
+                ];
+                featuresContainer.innerHTML = features.map(feature => `
+                    <div class="p-8 text-center themed-card rounded-2xl">
+                        <i data-lucide="star" class="w-16 h-16 mx-auto float" style="color: var(--accent-color);"></i>
+                        <h3 class="text-xl font-semibold mt-4 transition-colors duration-300" style="color: var(--text-color);">${feature.title}</h3>
+                        <p class="mt-2 transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${feature.description}</p>
+                    </div>
+                `).join('');
+            }
+            
+            // Home Page Astrology Description
+            const astrologyDescElement = document.getElementById('astrology-description');
+            if (astrologyDescElement) {
+                astrologyDescElement.innerHTML = `
+                    Astrology is an ancient practice that interprets the influence of celestial bodies on human affairs and the natural world. 
+                    By analyzing the positions of planets and stars at the time of your birth, we can create a detailed birth chart—a unique 
+                    cosmic map that reveals your personality, strengths, challenges, and life's potential. It's a tool for self-awareness, 
+                    helping you navigate your journey with greater clarity and purpose.
+                `;
+            }
+
+            // Blog Posts
+            const blogContainer = document.getElementById('blog-container');
+            if (blogContainer) {
+                const posts = [
+                    { title: "Understanding Your Sun, Moon, and Rising Signs", category: "Astrology 101", description: "A beginner's guide to the three most important placements in your birth chart.", img: "1446776811953-b23d579424c1" },
+                    { title: "Navigating Venus Retrograde in Your Love Life", category: "Relationships", description: "Tips for handling communication and connection during this tricky transit.", img: "1522030299830-16b8d3d049fe" },
+                    { title: "Using Lunar Cycles to Set Intentions", category: "Wellness", description: "How to align your goals with the New Moon and Full Moon for better results.", img: "1504333638930-c8787321eee0" }
+                ];
+                blogContainer.innerHTML = posts.map(post => `
+                    <div class="themed-card rounded-2xl overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-${post.img}?q=80&w=2072&auto=format&fit=crop" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/141424/A78BFA?text=${post.title.substring(0, 15)}...';"
+                             class="w-full h-48 object-cover" alt="${post.title}">
+                        <div class="p-6">
+                            <p class="text-sm transition-colors duration-300" style="color: var(--accent-color);">${post.category}</p>
+                            <h3 class="text-xl font-semibold mt-2 transition-colors duration-300 group-hover:opacity-70" style="color: var(--text-color);">${post.title}</h3>
+                            <p class="mt-2 text-sm transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">${post.description}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            // FAQs
+            const faqContainer = document.getElementById('faq-container');
+            if (faqContainer) {
+                const faqs = [
+                    { q: "Is astrology a science?", a: "Astrology is considered a metaphysical art or a form of divination, not a hard science. While it uses astronomical data, its interpretations are symbolic and aim to provide insight and guidance rather than empirically provable predictions." },
+                    { q: "What do I need for a birth chart reading?", a: "For an accurate reading, you will need your exact date, time, and place of birth. The time is especially important as it determines your Ascendant (or Rising) sign, which influences your outer personality." },
+                    { q: "How often should I get a reading?", a: "This is a personal choice. Some people benefit from annual readings (often around their birthday) to understand the year ahead, while others seek guidance during major life transitions or when facing specific challenges." },
+                    { q: "Can astrology predict my future?", a: "Astrology doesn't predict specific events with certainty. Instead, it highlights potential energies, opportunities, and challenges that may arise, empowering you to make conscious choices. Think of it as a cosmic weather forecast, not a fixed destiny." },
+                    { q: "What's the difference between a Sun sign and a Rising sign?", a: "Your Sun sign represents your core identity, ego, and life force. It's the sign most people know. Your Rising sign (or Ascendant) represents your social personality, the mask you wear in public, and how others perceive you upon first impression." }
+                ];
+                faqContainer.innerHTML = faqs.map(faq => `
+                    <div class="themed-card rounded-lg shadow-sm overflow-hidden">
+                        <button class="w-full flex justify-between items-center text-left p-4 font-semibold transition-colors duration-300" style="color: var(--text-color);">
+                            <span>${faq.q}</span>
+                            <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                        </button>
+                        <div class="px-4 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-4 transition-colors duration-300 ai-content" style="color: var(--text-color); opacity: 0.8;">${faq.a}</p>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Add FAQ toggle functionality
+                faqContainer.querySelectorAll('button').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const content = btn.nextElementSibling;
+                        const icon = btn.querySelector('i');
+                        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+                        
+                        if (isOpen) {
+                            content.style.maxHeight = '0px';
+                            icon.style.transform = 'rotate(0deg)';
+                        } else {
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                            icon.style.transform = 'rotate(180deg)';
+                        }
+                    });
+                });
+            }
+            
+            // Pricing Tiers
+            const pricingContainer = document.getElementById('pricing-container');
+            if (pricingContainer) {
+                 const tiers = [
+                      { name: "Free Trial", price: "£0 / ₹0", period: "", features: ["1-Hour Analysis", "Basic Birth Chart", "Zodiac Profile"], cta: "Book Now", popular: false, link: "#contact", isFree: true},
+                      { name: "Stargazer", price: "£50 / ₹5000", period: "/ month", features: ["Full Natal Chart Reading", "Monthly Forecasts", "Email Support", "Compatibility Check"], cta: "Choose Plan", popular: true, isFree: false },
+                      { name: "Cosmic Navigator", price: "£120 / ₹12000", period: "/ quarter", features: ["Everything in Stargazer", "Quarterly Live Sessions", "Relationship Analysis", "Priority Support"], cta: "Choose Plan", popular: false, isFree: false }
+                 ];
+                pricingContainer.innerHTML = tiers.map(tier => `
+                    <div class="p-8 rounded-2xl text-center themed-card ${tier.popular ? 'glow relative' : ''}">
+                        ${tier.popular ? '<span class="absolute top-0 -translate-y-1/2 text-sm font-bold px-4 py-1 rounded-full themed-btn">Most Popular</span>' : ''}
+                        <h3 class="text-2xl font-semibold transition-colors duration-300" style="color: var(--text-color);">${tier.name}</h3>
+                        <p class="text-4xl font-bold my-4 transition-colors duration-300" style="color: var(--text-color);">${tier.price}<span class="text-lg font-normal transition-colors duration-300" style="color: var(--text-color); opacity: 0.7;">${tier.period}</span></p>
+                        <ul class="space-y-3 transition-colors duration-300" style="color: var(--text-color); opacity: 0.8;">
+                            ${tier.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                        <button class="mt-6 w-full themed-btn py-3 rounded-lg pricing-btn" data-section="${tier.isFree ? 'contact' : ''}">${tier.cta}</button>
+                    </div>
+                `).join('');
+                
+                // Add event listener for pricing buttons
+                document.querySelectorAll('.pricing-btn').forEach(button => {
+                    if(button.dataset.section) {
+                        button.addEventListener('click', () => switchPage(button.dataset.section));
+                    }
+                });
+            }
+
+            // Refresh all Lucide icons
+            lucide.createIcons();
         }
     </script>
 </body>
